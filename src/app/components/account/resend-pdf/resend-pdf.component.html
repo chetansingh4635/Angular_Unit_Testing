@@ -1,0 +1,65 @@
+<h2>Resend PDF to Service Coordinator</h2>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+  <div class="row mt-2">
+  <div class="col-12 col-sm-8 col-lg-6 no-gutters">
+    <div class="row no-gutters">
+      <div class="col-5">
+        <label for="externalBookingId">External Booking Id</label>
+      </div>
+      <div class="col-7 text-left">
+        <input type="text"
+               formControlName="externalBookingId"
+               id="externalBookingId"
+               class="form-control"
+               maxlength="20"
+               (keydown)="onKeydown()">
+        <div *ngIf="externalBookingId.invalid">
+          <span *ngIf="externalBookingId.errors['required'] && submitAttempted"
+                class="error-message col-12 mt-2 mb-3">Booking Id is required</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="row mt-2">
+    <div class="col-12 col-sm-8 col-lg-6 no-gutters">
+      <div class="row no-gutters">
+        <div class="col-5">
+          <label for="timesheetDate">Timesheet Date</label>
+        </div>
+        <div class="col-7 text-left">
+          <kendo-datepicker class="k-picker-wrap"
+                            [navigation]="false"
+                            [formControlName]="'timesheetDate'"
+                            [id]="'timesheetDate'"
+                            required>
+          </kendo-datepicker>
+          <div *ngIf="timesheetDate.invalid">
+            <span *ngIf="timesheetDate.errors['required'] && submitAttempted"
+                  class="error-message col-12 mt-2 mb-3">Timesheet Date is required</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-2">
+    <div class="col-12 col-sm-8 col-lg-6 no-gutters">
+      <div class="row no-gutters">
+        <div class="col-5"></div>
+        <div class="col-7 text-left">
+          <button type="submit" class="btn btn-primary">Resend PDF</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+  <div class="col-12 col-sm-8 col-lg-6 row no-gutters mt-3 px-0" *ngIf="isSuccessfullyResent">
+    <div class="col-5"></div>
+    <div class="col-7 text-left">
+      <p class="success-message">Pdf has been resent.</p>
+    </div>
+  </div>
+

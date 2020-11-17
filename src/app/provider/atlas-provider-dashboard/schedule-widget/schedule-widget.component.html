@@ -1,0 +1,26 @@
+<div class="atlas-mb-4">
+  <div class="card atlas-card atlas-list-group atlas-card-raised mb-4">
+    <div class="atlas-card-title-forward atlas-card-title-wrapper">
+      <h3 (click)="onViewAll();" class="atlas-card-title-xl">
+        Schedule<span *ngIf="scheduleLength >= 1" class="badge atlas-light atlas-badge-number atlas-body-text ml-2 atlas-counter-position">{{scheduleLength}}</span>
+        <i class="fal fa-chevron-right float-right atlas-pr-2"></i>
+      </h3>
+    </div>
+    <div class="list-group list-group-flush border-left-0 atlas-white-bg atlas-min-height-162">
+      <div class="row atlas-centered-text" *ngIf="schedules.length===0; else dataPresent">
+        <div class="col">
+          <p class="mb-0">You have no upcoming bookings.</p>
+          <i class="fas fa-calendar-alt atlas-gray-text fa-6x" aria-hidden="false"></i>
+        </div>
+      </div>
+      <ng-template #dataPresent>
+        <div class="list-group list-group-flush border-left-0 atlas-white-bg atlas-min-height-178">
+          <div #cardContainer *ngFor="let schedule of schedules | slice:0:2">
+            <jclt-provider-schedule-card [schedule]="schedule" (resetSchedules)="resetSchedules($event)">
+            </jclt-provider-schedule-card>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

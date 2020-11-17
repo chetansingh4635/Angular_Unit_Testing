@@ -1,0 +1,37 @@
+<ng-container *ngIf="userInfo">
+  <div>
+    <div class="mb-3">
+      <h3 [innerHTML]="webAd.subject"></h3>
+      <p class="mb-4 pr-5" [innerHTML]="webAd.adText"></p>
+      <p class="mb-4 pr-5" [innerHTML]="jobOpportunityText"></p>
+      <label>Verify your contact email address</label>
+      <form [formGroup]="jobApplyForm">
+        <div>
+          <div class="mb-3 pr-5">
+            <span class="k-widget k-tooltip k-tooltip-validation k-invalid-msg field-validation-error" role="alert"
+                  *ngIf="jobApplyForm.dirty && jobApplyForm.controls['email'].hasError('required')">
+                <span class="k-icon k-i-warning"> </span>Email is required
+              </span>
+              <span class="k-widget k-tooltip k-tooltip-validation k-invalid-msg field-validation-error" role="alert"
+                    *ngIf="jobApplyForm.dirty && jobApplyForm.controls['email'].hasError('pattern')">
+                <span class="k-icon k-i-warning"> </span>Email is invalid
+              </span>
+            <input type="email"
+                   id="email"
+                   [value]="userInfo.email"
+                   (keyup)="updateEmail()"
+                   maxlength="255"
+                   formControlName="email"
+                   [ngClass]="{'is-invalid':jobApplyForm.dirty && jobApplyForm.controls['email'].invalid}"
+                   class="hide-input-clear input-group input-group-lg form-control ">
+          </div>
+        </div>
+      </form>
+      <div>
+        <div class="mb-5 pr-5">
+          Note: Modifying this email address only changes where you will receive contact emails. It will not affect your user login.
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

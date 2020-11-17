@@ -1,0 +1,115 @@
+<div class="atlas-order-list">
+  <div class="d-flex w-100 flex-row-reverse align-items-baseline">
+    <button class="btn btn-link m-1 w-25" (click)="openSortFilter()"><i class="fa fa-filter" aria-hidden="true"></i>
+      Filter</button>
+    <div class="w-25"></div>
+    <!--spacer-->
+    <h6 class="w-50 m-1">Applied Jobs</h6>
+  </div>
+
+  <kendo-grid [data]="providerInterests" class="atlas-grid-mobile-height" [skip]="state.skip" [pageSize]="pageSize"
+    [pageable]="true" (pageChange)="pageChange($event)">
+    <kendo-grid-column class="p-0">
+      <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+
+        <!-- Current UI -->
+        <div *ngIf="!presentDataEnableFlag" class="list-group atlas-no-click">
+          <div class="list-group-item  align-items-start py-2 px-3">
+            <div class="d-flex w-100 justify-content-between">
+              <h6 class="mb-0 atlas-font-weight-semi-bold atlas-md-text p-0">{{ dataItem.specialtyName }}</h6>
+            </div>
+            <div class="d-flex w-100 justify-content-between">
+              <div class="card-schedule-date-caption atlas-md-text"> {{dataItem.regionName}}</div>
+            </div>
+            <div class="d-flex w-100 justify-content-between">
+              <div class="schedule-card-dates atlas-font-weight-semi-bold">{{dataItem.nextDate | date : dateFormat}} -
+                {{dataItem.endDate | date : dateFormat}}</div>
+            </div>
+            <div class="d-flex w-100 justify-content-between">
+              <div class="card-schedule-date-caption atlas-md-text atlas-jc-orange-text"> {{dataItem?.interestTypeName}}
+              </div>
+              <div class="card-schedule-date-caption atlas-md-text">{{dataItem.createdOn | date : dateFormat}}</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- New UI -->
+        <li *ngIf="presentDataEnableFlag" class="rounded-0 list-group-item list-group hover-pointer pr-2"
+          (click)="expandInterestCard(dataItem.temp_id, rowIndex)">
+          <i class="fal position-absolute atlas-right atlas-top-20 pr-2"
+            [ngClass]="{'fa-chevron-up': isSelctedCardId === dataItem.temp_id, 'fa-chevron-down': isSelctedCardId !== dataItem.temp_id}"
+            aria-hidden="true"></i>
+          <div class="row">
+            <div class="col-md-4" *ngIf="dataItem?.interestTypeName === 'Applied' || dataItem?.interestTypeName === 'Closed'">
+              <p class="atlas-mb-0 atlas-font-weight-semi-bold atlas-lg-text text-truncate w-75">
+                {{dataItem.specialtyName}}</p>
+              <p class="atlas-mb-0">{{dataItem.regionName}}</p>
+              <p class="atlas-mb-0 text-truncate text-lg-center"> {{dataItem.nextDate | date : dateFormat}} -
+                {{dataItem.endDate | date : dateFormat}}</p>
+            </div>
+            <div class="col-md-6" *ngIf="dataItem?.interestTypeName !== 'Applied'">
+              <p class="atlas-mb-0 atlas-font-weight-semi-bold atlas-lg-text"
+                [ngClass]="{
+                  'atlas-w-95': isDesktop && providerInterest.show,
+                  'text-truncate atlas-w-95': isDesktop && !providerInterest.show, 
+                  'atlas-lg-text atlas-w-90': !isDesktop
+                }" >
+                {{dataItem.workLocation}}</p>
+              <p class="atlas-mb-0">{{dataItem.city}}, {{dataItem.stateAbbreviation}}</p>
+              <p class="atlas-mb-0 text-truncate text-lg-center"> {{dataItem.nextDate | date : dateFormat}} -
+                {{dataItem.endDate | date : dateFormat}}</p>
+              <p class="atlas-mb-0 atlas-darker-gray-text">{{dataItem.specialtyName}}</p>
+            </div>
+            <div class="col-md-12 w-100 justify-content-between d-flex d-lg-block">
+              <p class="atlas-mb-0 atlas-font-weight-semi-bold text-md-right">Status</p>
+              <p class="atlas-mb-0 text-md-right"
+                *ngIf="dataItem?.interestTypeName === 'Applied' || dataItem?.interestTypeName === 'Presented' || dataItem?.interestTypeName === 'Interview' || dataItem?.interestTypeName === 'Declined by Provider' || dataItem?.interestTypeName === 'Closed'">
+                {{dataItem?.interestTypeName }}
+              </p>
+              <p class="atlas-mb-0  text-md-right mr-2"
+                *ngIf="dataItem?.interestTypeName !== 'Applied' && dataItem?.interestTypeName !== 'Presented' && dataItem?.interestTypeName !== 'Interview' && dataItem?.interestTypeName !== 'Declined by Provider' && dataItem?.interestTypeName !== 'Closed'">
+                <a (click)="$event.stopPropagation();dataItem.isCRCMailViewed=true;"
+                  [href]="'mailto:' + dataItem.recruitingConsultantEmail" class="atlas-link"
+                  [ngClass]="{'atlas-visited-link' : dataItem.isCRCMailViewed}">
+                  Contact Recruiting Consultant
+                </a>
+              </p>
+            </div>
+          </div>
+          <div class="row atlas-pt-4" *ngIf="isSelctedCardId === dataItem.temp_id">
+            <div class="col-md-6 w-100 justify-content-between d-flex d-md-block">
+              <p class="atlas-mb-0 atlas-font-weight-semi-bold atlas-font-weight-semi-bold text-truncate">Applied Date
+              </p>
+              <p class="atlas-mb-0">{{dataItem.createdOn | date : dateFormat}}</p>
+            </div>
+            <div class="col-md-6 w-100 justify-content-between d-flex d-md-block">
+              <p class="atlas-mb-0 atlas-font-weight-semi-bold text-md-right">Recruiting Consultant</p>
+              <p class="atlas-mb-0  text-md-right">
+                <a (click)="$event.stopPropagation();dataItem.isRCMailViewed=true;"
+                  [href]="'mailto:' + dataItem.recruitingConsultantEmail" class="atlas-link"
+                  [ngClass]="{'atlas-visited-link' : dataItem.isRCMailViewed}">
+                  {{dataItem.recruitingConsultantName}}
+                </a>
+              </p>
+            </div>
+          </div>
+        </li>
+      </ng-template>
+    </kendo-grid-column>
+    <ng-template kendoGridNoRecordsTemplate>
+      <div *ngIf="!loading" class="text-info">No records found.</div>
+    </ng-template>
+    <ng-template kendoPagerTemplate let-totalPages="totalPages" let-currentPage="currentPage">
+      <kendo-pager-prev-buttons></kendo-pager-prev-buttons>
+      <kendo-pager-next-buttons></kendo-pager-next-buttons>
+    </ng-template>
+  </kendo-grid>
+</div>
+
+<!-- Mobile Grid Filter Component -->
+<jclt-mobile-filter-grid *ngIf="sortFilterDialogOpen" [dialogOpened]="sortFilterDialogOpen"
+[locationLookup]="workLocationLookup" [status]="status" [recruitingConsultant] = "recruitingConsultantLookup"
+  [specialtyLookup]="specialtyLookup" [statesLookup]="statesLookup" [currentState]="state" [listItems]="listItems"
+  [dateRangeItems]="dateRangeItems" [dateRangeFilterName]="dateRangeFilterName" [labelsList]="labelsList"
+  (processFilterSortEvent)=processFilterSort($event) (closeEvent)=close($event)>
+</jclt-mobile-filter-grid>

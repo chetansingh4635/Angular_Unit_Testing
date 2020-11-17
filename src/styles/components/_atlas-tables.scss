@@ -1,0 +1,144 @@
+
+/* ATLAS OVERRIDES TO THE KENDO GRID*/
+.atlas-grid {
+    .k-grid-content {
+        @include atlas-scroll;
+        overflow-y: hidden;
+       overflow-x: auto;
+    }
+    .k-grid, .k-widget {
+        color: $atlas-black;
+        margin-bottom: $atlas-spacing-base-0;
+        margin-right: $atlas-spacing-base-0;
+        .k-grid-header .k-grid-filter {
+            border-radius: 4px;
+            &.k-state-active {
+                color: $atlas-white;
+                background-color: $JC-cyan;
+                &:hover {
+                    background-color: $JC-cyan-dark;
+                }
+            }
+            &:hover {
+                background-color: $JC-blue-light;
+                text-decoration: none;
+            }
+            &:focus {
+                box-shadow: inset 0 0 0 2px $JC-blue;              
+            }
+        }
+        tbody tr {
+           
+            &:nth-of-type(even){
+                background-color: $atlas-white;
+            }
+            &:nth-of-type(odd){
+                background-color: $atlas-white-gray;
+            }
+            &:hover, .k-state-hover {
+                color: $atlas-black;
+                background-color:$JC-blue-light;
+                border-color: $atlas-black;
+                border-bottom-width: 1px;
+                border-style: solid;
+            }
+        }
+        td {
+            color: $atlas-black;
+            border-color:  $atlas-gray;
+            border-width: 0 0 1px 1px;
+            &:first-child {
+                border-left-width: 0px;
+            }
+        }
+    }
+    .k-header {
+        color: $atlas-black;
+        font-weight: $atlas-font-weight-bold;
+        background-color: $atlas-white;
+        >.k-link {
+            color: $atlas-black;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+    .k-grid-header {
+       padding-right: $atlas-spacing-base-0 !important;
+       .k-grid-header-wrap {
+           border-width: 0px;
+        }
+    }
+    &.atlas-grid-sm {
+        .k-grid, .k-widget {
+            td {
+                padding: $atlas-spacing-base-quarter $atlas-spacing-base-three-quarters;
+            }
+        }
+    }
+    //Filter Button 
+    .k-grid .k-grid-filter {
+        color: $atlas-black;
+        text-decoration: none;
+    }
+
+    .k-pager-wrap .k-link, 
+    .k-pager-wrap .k-pager-nav{
+        color: $JC-cyan;
+        border: 1px solid $atlas-line-color;
+        cursor:pointer;
+        &:hover{
+            color: $JC-blue;
+            background-color: $atlas-white-gray;
+        }
+        &.k-state-disabled {
+            color: $atlas-black;
+            cursor: not-allowed;
+            background-color: #e9ecef;
+            border: 1px solid $atlas-gray;
+        }
+    }
+    .k-pager-numbers .k-state-selected {
+        background-color: $JC-cyan;
+        border-color: $JC-cyan;
+        color: $atlas-white;
+        &:hover {
+            background-color: $JC-cyan-dark;
+            border-color: $JC-cyan-dark;
+            color: $atlas-white;
+            text-decoration: none;
+        }
+    }
+    @media #{$atlas-mobile-max} {
+        .k-grid-pager {
+            kendo-pager-prev-buttons, kendo-pager-next-buttons {
+                width: 50%;
+            }
+            &.k-pager-wrap .k-link, 
+            &.k-pager-wrap .k-pager-nav {
+                height: 50px;
+                width: 50%;
+                box-sizing: border-box;
+            }
+            .k-pager-nav + .k-pager-nav {
+                margin-left: 0px;
+            }
+        } 
+        .k-pager-wrap {
+            .k-pager-info {
+                display:none;
+                justify-content: flex-start;
+                margin-top: $atlas-spacing-base-half;
+                margin-left: $atlas-spacing-base-0;
+                margin-right: $atlas-spacing-base-0;
+            }
+            .k-pager-numbers {
+                vertical-align: top;
+            }
+        }
+    }
+}
+
+.atlas-grid-mobile-height {
+    height:calc(100vh - 142px);
+}

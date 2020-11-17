@@ -1,0 +1,29 @@
+<span *ngIf="isMobile">
+  <div class="tne-kendo-shadow" *ngIf="timeKendo.isOpen" (click)="onClickKendoShadow()"></div>
+  <kendo-timepicker #timeKendo
+                    [value]="value"
+                    [steps]="steps"
+                    [popupSettings]="{ popupClass:'timePickerPopup time-picker-font' }"
+                    (valueChange)="onKendoChange($event)"
+                    (close)="onKendoClose()"
+                    class="form-control"
+                    placeholder="Select Time...">
+  </kendo-timepicker>
+  <div class="kendoOverlay"
+       (click)="onOverlayClick()">
+  </div>
+</span>
+<kendo-combobox  *ngIf="!isMobile"
+  #timeCombo
+  class="timeSelCombo form-control" 
+  [data]="timeList"
+  [(ngModel)]="formattedValue"
+  filterable=true
+  suggest=true 
+  allowCustom=true
+  placeholder="Select Time..."
+  (filterChange)="onFilterChange($event)"
+  (valueChange)="onComboChange($event)"
+  (focus)="onFocus()"
+  (blur)="onBlur()">
+</kendo-combobox>

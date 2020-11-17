@@ -1,0 +1,158 @@
+<h1 class="mb-4">Opportunities</h1>
+<div *ngIf="orders">
+  <div class="atlas-grid">
+    <kendo-grid [data]="orders"
+                [style.height]="'100%'"
+                [pageSize]="state.take"
+                [skip]="state.skip"
+                [sort]="state.sort"
+                [sortable]="true"
+                [pageable]="{
+                  buttonCount: 3
+                }"
+                [filter]="state.filter"
+                filterable="menu"
+                (dataStateChange)="dataStateChange($event)">
+      <kendo-grid-column field="specialtyId" title="Specialty" width="170" [headerClass]="{'filter-header': true}">
+        <ng-template kendoGridFilterMenuTemplate
+                     let-column="column"
+                     let-filter="filter"
+                     let-filterService="filterService">
+          <kendo-multiselect [kendoDropDownFilter]="filterSettings"
+                             [placeholder]="'Select All That Apply'"
+                             class="atlas-form-group"
+                             style="width: 250px"
+                             [data]="specialtyLookup"
+                             [valuePrimitive]="true"
+                             textField="specialtyName"
+                             valueField="specialtyId"
+                             [value]="specialtyFilters(filter)"
+                             (valueChange)="specialtyChange($event, filterService)"
+                             [autoClose]="false">
+          </kendo-multiselect>
+        </ng-template>
+        <ng-template kendoGridCellTemplate let-dataItem>
+          {{dataItem.specialtyName}}
+        </ng-template>
+      </kendo-grid-column>
+      <kendo-grid-column field="stateId" title="State" width="140" [headerClass]="{'filter-header': true}">
+        <ng-template kendoGridFilterMenuTemplate
+                     let-column="column"
+                     let-filter="filter"
+                     let-filterService="filterService">
+          <kendo-multiselect [kendoDropDownFilter]="filterSettings"
+                             [placeholder]="'Select All That Apply'"
+                             class="atlas-form-group"
+                             style="width: 220px"
+                             [data]="statesLookup"
+                             [valuePrimitive]="true"
+                             textField="stateAbbreviation"
+                             valueField="stateId"
+                             [value]="stateFilters(filter)"
+                             (valueChange)="stateChange($event, filterService)"
+                             [autoClose]="false">
+          </kendo-multiselect>
+        </ng-template>
+        <ng-template kendoGridCellTemplate let-dataItem>
+          {{dataItem.stateAbbreviation}}
+        </ng-template>
+      </kendo-grid-column>
+      <kendo-grid-column field="regionId" title="Region" width="145" [headerClass]="{'filter-header': true}">
+        <ng-template kendoGridFilterMenuTemplate
+                     let-column="column"
+                     let-filter="filter"
+                     let-filterService="filterService">
+          <kendo-multiselect [kendoDropDownFilter]="filterSettings"
+                             [placeholder]="'Select All That Apply'"
+                             class="atlas-form-group"
+                             style="width: 200px"
+                             [data]="regionLookup"
+                             [valuePrimitive]="true"
+                             textField="regionName"
+                             valueField="regionId"
+                             [value]="regionFilters(filter)"
+                             (valueChange)="regionChange($event, filterService)"
+                             [autoClose]="false">
+          </kendo-multiselect>
+        </ng-template>
+        <ng-template kendoGridCellTemplate let-dataItem>
+          {{dataItem.regionName}}
+        </ng-template>
+      </kendo-grid-column>
+      <kendo-grid-column field="nextDate" title="Next Coverage Date" width="250" filter="date" [headerClass]="{'filter-header': true}">
+        <ng-template kendoGridFilterMenuTemplate let-filter let-column="column" let-filterService="filterService">
+          <kendo-grid-date-filter-menu [column]="column"
+                                       [filter]="filter"
+                                       [filterService]="filterService"
+                                       [extra]="false"
+                                       operator="gte">
+            <kendo-filter-lte-operator></kendo-filter-lte-operator>
+            <kendo-filter-gte-operator></kendo-filter-gte-operator>
+          </kendo-grid-date-filter-menu>
+        </ng-template>
+        <ng-template kendoGridCellTemplate let-dataItem>
+          {{dataItem.nextDate | date: 'MM/dd/yyyy'}}
+        </ng-template>
+      </kendo-grid-column>
+      <kendo-grid-column field="endDate" title="End Coverage Date" width="250" filter="date" format="{0:d}" [headerClass]="{'filter-header': true}">
+        <ng-template kendoGridFilterMenuTemplate let-filter let-column="column" let-filterService="filterService">
+          <kendo-grid-date-filter-menu [column]="column"
+                                       [filter]="filter"
+                                       [filterService]="filterService"
+                                       [extra]="false"
+                                       operator="gte">
+            <kendo-filter-lte-operator></kendo-filter-lte-operator>
+            <kendo-filter-gte-operator></kendo-filter-gte-operator>
+          </kendo-grid-date-filter-menu>
+        </ng-template>
+        <ng-template kendoGridCellTemplate let-dataItem>
+          {{dataItem.endDate | date: 'MM/dd/yyyy'}}
+        </ng-template>
+      </kendo-grid-column>
+      <kendo-grid-column field="recruiterId" title="Recruiting Consultant" width="250" [headerClass]="{'filter-header': true}">
+        <ng-template kendoGridFilterMenuTemplate
+                     let-column="column"
+                     let-filter="filter"
+                     let-filterService="filterService">
+          <kendo-multiselect [kendoDropDownFilter]="filterSettings"
+                             [placeholder]="'Select All That Apply'"
+                             class="atlas-form-group"
+                             style="width: 220px"
+                             [data]="recruitingConsultantLookup"
+                             [valuePrimitive]="true"
+                             textField="fullName"
+                             valueField="companyEmployeeId"
+                             [value]="recruiterFilters(filter)"
+                             (valueChange)="recruiterChange($event, filterService)"
+                             [autoClose]="false">
+          </kendo-multiselect>
+        </ng-template>
+        <ng-template kendoGridCellTemplate let-dataItem>
+          <div class="bluelink">
+            <a href="mailto:{{dataItem.recruiterEmail}}" (click)="dataItem.isRCMailViewed= true;" [ngClass]="{'atlas-visited-link' : dataItem.isRCMailViewed}">{{dataItem.recruiterName}}</a>
+          </div>
+        </ng-template>
+      </kendo-grid-column>
+      <kendo-grid-column title="" width="150" [headerClass]="{'filter-header': true}">
+        <ng-template kendoGridCellTemplate let-dataItem>
+          <div class="p-0 m-0" role="group">
+            <button class="btn atlas-primary w-100"
+                    (click)="applyJobOpportunity(dataItem)">
+              Apply Now
+            </button>
+          </div>
+        </ng-template>
+      </kendo-grid-column>
+      <ng-template kendoGridNoRecordsTemplate>
+        <div class="text-info">Try adjusting your search by changing your filters</div>
+      </ng-template>
+    </kendo-grid>
+  </div>
+</div>
+
+<jclt-provider-order-list-dialog-web-ad-desktop
+  *ngIf="webAdDialogOpen" [dialogOpened]="webAdDialogOpen"
+  [selectedJobOpportunity]="selectedJobOpportunity"
+  [selectedWebAd]="selectedWebAd"
+  (reloadEvent)="reload($event)">
+</jclt-provider-order-list-dialog-web-ad-desktop>

@@ -1,0 +1,48 @@
+<ng-container *ngIf="rateIsCall">
+  <b>{{rateTypeName}}</b>
+</ng-container>
+
+<div class="time-entry py-2" *ngFor="let dayDetail of dayDetails; let i = index">
+  <div class="row" *ngIf="!dayDetail.rateIsCall">
+    <div class="col"><span class="timesheet-ratetype-label pb-2">
+  {{rateTypeName}}
+</span></div>
+  </div>
+  <div class="row" *ngIf="isNoCallBack">
+    <div class="col">
+      No Call Back
+    </div>
+  </div>
+  <div *ngIf="!isNoCallBack" class="row">
+    <div class="col">
+      <ng-container *ngIf="dayDetail.rateIsCall">
+        In/Out #{{i + 1}}:
+      </ng-container>
+      <ng-container *ngIf="!dayDetail.rateIsCall">
+        Start/End Time:
+      </ng-container>
+
+      <b>
+        {{dayDetail.startTime | date:'shortTime'}} - {{dayDetail.endTime | date:'shortTime'}}
+        <span *ngIf="isTimeEntrySpans2Days(dayDetail)">
+          ({{getNextDayString(dayDetail.calendarDayId)}})
+        </span>
+      </b>
+    </div>
+  </div>
+  <div *ngIf="!isNoCallBack" class="row">
+    <ng-container *ngIf="rateIsCall">
+      <div class="col">
+        Patient Contact: <b>{{dayDetail.totalPatientHours}}hrs</b>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="!rateIsCall">
+      <div class="col-7">
+        Patient Contact: <b>{{dayDetail.totalPatientHours}}hrs</b>
+      </div>
+      <div class="col-5">
+        Breaks: <b>{{dayDetail.breakTotalHours}}hrs</b>
+      </div>
+    </ng-container>
+  </div>
+</div>

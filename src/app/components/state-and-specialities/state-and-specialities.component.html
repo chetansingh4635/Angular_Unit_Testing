@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+<kendo-multiselect  *ngIf="specialitiesVisibility" 
+                    [data]="specialtyLookup"
+                    [valuePrimitive]="true"
+                    textField="specialtyName"
+                    valueField="specialtyId"
+                    [value]="selectedSpecialityData"
+                    (valueChange)="specialtyChange($event)"
+                    [kendoDropDownFilter]="filterSettings">
+</kendo-multiselect>
+</div>
+<div class="row">
+  <kendo-multiselect  *ngIf="stateVisibility" 
+                      [data]="stateLookup"
+                      [valuePrimitive]="true"
+                      textField="stateName"
+                      valueField="stateId"
+                      [value]="selectedStateData"
+                      (valueChange)="stateChange($event)"
+                      [kendoDropDownFilter]="filterSettings">
+  </kendo-multiselect>
+  </div>
+</div>
+
+

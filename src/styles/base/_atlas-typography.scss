@@ -1,0 +1,166 @@
+body {
+    font-family:$atlas-font-family-sans-serif;
+    color: $font-color;
+    font-size: $atlas-font-size-base;
+}
+
+.h1, h1 {
+    font-size: $h1-font-size;
+	font-weight: $atlas-font-weight-bold;
+	@media #{$atlas-tablet-max} {
+		font-size: $h1-font-size - .35rem;
+	}
+}
+.h2, h2 {
+    font-size: $h2-font-size;
+	font-weight: $atlas-font-weight-normal;
+	@media #{$atlas-tablet-max} {
+		font-size: $h2-font-size - .25rem;
+	}
+
+}
+.h3, h3 {
+    font-size: $h3-font-size;
+	font-weight: $atlas-font-weight-normal;
+	@media #{$atlas-tablet-max} {
+		font-size: $h3-font-size - .25rem;
+	}
+
+}
+.h4, h4 {
+    font-size: $h4-font-size;
+	font-weight: $atlas-font-weight-normal;
+	@media #{$atlas-tablet-max} {
+		font-size: $h4-font-size - .25rem;
+	}
+}
+
+.h5, h5 {
+    font-size: $h5-font-size;
+	font-weight: $atlas-font-weight-normal;
+	@media #{$atlas-tablet-max} {
+		font-size: $h5-font-size - .15rem ;
+	}
+
+}
+.h6, h6 {
+    font-size: $h6-font-size;
+
+}
+
+a.atlas-link {
+    color: $JC-cyan;
+    font-weight: $atlas-font-weight-normal;
+}
+a.atlas-link:link{
+    color: $JC-cyan;
+    font-weight: $atlas-font-weight-normal;
+}
+a.atlas-link:visited {
+    color: $JC-blue;
+    text-decoration: none; 
+} 
+a.atlas-link:hover {
+    color: $JC-blue;
+}   
+a.atlas-link:active {
+    color: $JC-blue;  
+}
+.atlas-card-title {
+    font-size: $h6-font-size;
+    font-weight: $atlas-font-weight-bold;
+}
+
+.atlas-card-title-lg {
+	 font-size: $h5-font-size;
+	 font-weight: $atlas-font-weight-bold;
+ }
+ .atlas-card-title-xl {
+	font-size: $h4-font-size;
+	font-weight: $atlas-font-weight-bold;
+}
+.atlas-detailed-body-text {
+    color: $atlas-dark-gray;
+    font-weight: $atlas-font-weight-bold;
+}
+
+.atlas-detailed-body-text-dark {
+    color: $atlas-black;
+    font-weight: $atlas-font-weight-bold;
+}
+
+.atlas-body-text {
+    font-size: 1rem;
+}
+.atlas-md-text {
+    font-size: 1.15rem;
+}
+.atlas-lg-text {
+    font-size: 1.25rem;
+}
+.atlas-xl-text {
+    font-size: 1.5rem;
+}
+.atlas-xxl-text {
+    font-size: 2rem;
+}
+.atlas-small-text {
+    font-size: $atlas-font-small;
+}
+.atlas-smaller-text {
+    font-size: $atlas-font-smaller;
+}
+.atlas-smallest-text {
+    font-size: $atlas-font-smallest;
+}
+.atlas-text-slim {
+    margin: $atlas-spacing-base-0;
+}
+.atlas-hr  {
+    border-top: 1px solid $atlas-gray;
+}
+.atlas-cursor-pointer{
+    cursor:pointer;
+}
+.atlas-font-weight-semi-bold{
+    font-weight: $atlas-font-weight-bold;
+}
+.atlas-centered-text{
+    text-align: center;
+    vertical-align: middle;
+    line-height: 90px;
+}
+.atlas-visited-link {
+    color: $JC-blue !important;
+}
+.atlas-standard-link {
+    color: #05a1dc !important;
+}
+.atlas-password-descriptor {
+    margin-top: -16px !important;
+}
+.atlas-password-descriptor-font-size {
+    font-size: 0.99rem;
+}
+.atlas-font-weight-bold {
+    font-weight: $atlas-font-weight-bolder;
+}
+.atlas-mobile-xs-smallest-text {
+    @media #{atlas-mobile-xs-max} {
+        font-size: $atlas-font-smallest;
+    }
+}
+.atlas-list {
+    &.atlas-list-icons {
+        .atlas-li-default {
+            &.atlas-bullet-point-wrapped {
+                @media #{atlas-mobile-xs-max} {
+                    bottom: 11px;
+                }
+            }
+            .fas.fa-circle {
+                font-size: 7px;
+            }
+        }
+    }
+}

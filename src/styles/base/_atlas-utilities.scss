@@ -1,0 +1,76 @@
+.atlas-border-bottom-lg-0 {
+    @media #{$atlas-tablet-max} {
+        border-bottom: 0 !important; 
+    }
+}
+.atlas-border-right-lg-0{
+    @media #{$atlas-tablet-max} {
+        border-right: 0 !important
+    }
+}
+.atlas-lg-w-49 {
+    width: 49%;
+    @media #{$atlas-tablet-max} {
+        width: 100%;
+    }
+}
+.atlas-min-height-90 {
+    min-height: 90px;
+}
+.atlas-height-90 {
+    height: 90px
+}
+.atlas-min-height-228 {
+    min-height: 228px;
+}
+.atlas-lg-height-228 {
+    height: 228px;
+    @media #{$atlas-tablet-max} {
+       height:auto;
+    }
+}
+.atlas-md-height-450 {
+    @media #{$atlas-tablet-max} {
+        height:450px;
+     }
+}
+.atlas-min-height-162 {
+    min-height: 162px;
+    @media #{$atlas-mobile-max} {
+        min-height: auto;
+    }
+}
+.atlas-min-height-133 {
+    min-height: 133px;
+}
+.atlas-height-67 {
+    height: 67px;
+}
+.atlas-hover-success-light {
+    @include atlas-hover-success-light;
+}
+.atlas-hover-caution-light {
+    @include atlas-hover-caution-light;
+}
+.atlas-hover-danger-light {
+    @include atlas-hover-danger-light;
+}
+.atlas-bottom-right-to-bottom-left {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    @media #{$atlas-mobile-max} {
+        position: relative;
+     }
+}
+.atlas-height-33 {
+    height: 33.3333333%
+}
+.atlas-md-min-height-auto {
+    @media #{$atlas-tablet-max} {
+        min-height: auto;
+    }
+}
+.atlas-top-20 {
+    top: 20px;
+}

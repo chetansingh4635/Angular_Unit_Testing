@@ -1,0 +1,20 @@
+<ng-container *ngIf="daysForCopy.length">
+  <button class="btn btn-outline-primary mb-2 text-overflow-ellipsis" (click)="expand()">
+    <i class="fa fa-clone" aria-hidden="true"></i> Copy Hours from Another Day
+  </button>
+  <ng-container *ngIf="expanded">
+    <div class="row">
+      <div class="col-md-12">
+        <kendo-dropdownlist [defaultItem]="{value: null, name: 'Select day...'}"
+                            [data]="daysForCopy"
+                            [valueField]="'value'"
+                            [value]="selectedDayForCopy"
+                            [textField]="'name'"
+                            [(ngModel)]="selectedDayForCopy"></kendo-dropdownlist>
+        <button class="btn btn-info btn-sm" (click)="onCopy()" [disabled]="!selectedDayForCopy">
+          <i class="fa fa-copy"></i> Copy
+        </button>
+      </div>
+    </div>
+  </ng-container>
+</ng-container>

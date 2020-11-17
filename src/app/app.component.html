@@ -1,0 +1,23 @@
+<!--<main role="main">
+  <jclt-header></jclt-header>
+  <div class="container body-content">
+    <router-outlet></router-outlet>
+  </div>
+  <jclt-notification-popup></jclt-notification-popup>
+  <jclt-session-warning-dialog></jclt-session-warning-dialog>
+  <jclt-spinner></jclt-spinner>
+  <jclt-dialog></jclt-dialog>
+</main>
+
+<jclt-footer></jclt-footer>-->
+<jclt-atlas-header [hide]="hideMenus" (outputImpersonation)="onOutputImpersonation($event)"></jclt-atlas-header>
+<jclt-atlas-navigation *ngIf="!hideMenus" [hide]="hideMenus"></jclt-atlas-navigation>
+<main [ngStyle]="{'top.px': isMobile && loginService.getIsImpersonating() ? impersonationHeight + 55 : null}" class="atlas-main-content" [ngClass]="{'atlas-main-content-expanded': data.navExpanded,'atlas-ml-0': !isUserLoggedIn}">
+  <router-outlet></router-outlet>
+  <jclt-notification-popup></jclt-notification-popup>
+  <jclt-session-warning-dialog (outputImpersonation)="onOutputImpersonation($event)"></jclt-session-warning-dialog>
+  <jclt-spinner></jclt-spinner>
+  <jclt-dialog></jclt-dialog>
+</main>
+<jclt-atlas-footer [ngStyle]="{'top.px': isMobile && loginService.getIsImpersonating() ? impersonationHeight + 55 : null}" class="atlas-footer position-relative" [ngClass]="{'atlas-footer-expanded': data.navExpanded}"></jclt-atlas-footer>
+

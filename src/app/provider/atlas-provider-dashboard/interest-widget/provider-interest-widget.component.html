@@ -1,0 +1,33 @@
+<div *ngIf="providerInterests.length===0; else dataPresent" class="card atlas-card atlas-list-group atlas-card-raised mb-lg-0 mb-4">
+  <div class="atlas-card-title-forward atlas-card-title-wrapper">
+    <h3 (click)="onViewAll();" class="atlas-card-title-xl">
+      Applied Jobs <span class="badge atlas-light atlas-badge-number atlas-body-text"></span>
+      <i class="fal fa-chevron-right float-right atlas-pr-2"></i>
+    </h3>
+  </div>
+  <div class="atlas-min-height-133 atlas-white-bg">
+    <div class="text-center mx-auto atlas-job-card-empty">
+      <p class="atlas-mb-2">
+        You have not applied to any jobs recently.
+      </p>
+      <i class="fa fa-suitcase fa-4x atlas-gray-text atlas-no-job-icon"></i>
+    </div>
+  </div>
+</div>
+<ng-template #dataPresent>
+  <div class="card atlas-card atlas-list-group atlas-card-raised mb-lg-0 mb-4">
+    <div class="atlas-card-title-forward atlas-card-title-wrapper">
+      <h3 (click)="onViewAll();" class="atlas-card-title-xl">
+        Applied Jobs <span class="badge atlas-light atlas-badge-number atlas-body-text ml-2 atlas-counter-position">{{numAll}}</span>
+        <i class="fal fa-chevron-right float-right atlas-pr-2"></i>
+      </h3>
+    </div>
+    <div #cardContainer class="atlas-min-height-133 atlas-md-min-height-auto atlas-white-bg">
+      <ul class="list-group list-group-flush border-left-0">
+        <jclt-provider-interest-card [providerInterest]="providerInterest" (resetInterests)="resetInterests($event)" *ngFor="let providerInterest of (providerInterests ? providerInterests.slice(0,2): []); let i = index">
+        </jclt-provider-interest-card>
+      </ul>
+    </div>
+  </div>
+</ng-template>
+

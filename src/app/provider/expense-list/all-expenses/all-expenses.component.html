@@ -1,0 +1,10 @@
+<div class="row" *ngIf="providerHasWorkLocations">
+  <div class="col-12">
+    <button [disabled]="isImpersonating" class="btn btn-success mb-2" [ngClass]="{'atlas-card-disable': isImpersonating}" (click)="isImpersonating ? null : onCreateNewExpense()">
+      <i class="fa fa-plus mr-1" aria-hidden="true"></i> Create New Expense
+    </button>
+  </div>
+</div>
+
+<jclt-provider-non-submitted-expenses></jclt-provider-non-submitted-expenses>
+<jclt-provider-submitted-expenses></jclt-provider-submitted-expenses>

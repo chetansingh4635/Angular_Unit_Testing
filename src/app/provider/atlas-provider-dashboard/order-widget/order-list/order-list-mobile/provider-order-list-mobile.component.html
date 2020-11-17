@@ -1,0 +1,64 @@
+<div class="atlas-order-list">
+  <div class="d-flex w-100 flex-row-reverse align-items-baseline">
+    <button class="btn btn-link m-1 w-25" (click)="openSortFilter()"><i class="fa fa-filter" aria-hidden="true"></i> Filter</button>
+    <button class="btn btn-link w-25 hide" (click)="removeFilters()"><i class="fa fa-times-circle" style="color:red;" aria-hidden="true"></i> Filter</button>
+    <div class="w-25"></div><!--spacer-->
+    <h6 class="w-50 m-1">Opportunities</h6>
+  </div>
+  <kendo-grid [data]="query | async"
+              class="atlas-grid-mobile-height"
+              [skip]="state.skip"
+              [pageSize]="pageSize"
+              [pageable]="true"
+              (pageChange)="pageChange($event)">
+    <kendo-grid-column class="p-0">
+      <ng-template kendoGridCellTemplate let-dataItem>
+        <div class="list-group hover-pointer" (click)="openWebAd(dataItem)">
+          <div class="list-group-item list-group-item-action align-items-start py-2 px-3">
+            <div class="d-flex w-100 justify-content-between">
+              <h6 class="mb-0 text-primary">{{ dataItem.specialtyName }}</h6>
+              <i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="d-flex w-100 justify-content-between">
+              <div class="mb-0 card-schedule-city-state p-0"> {{ dataItem.regionName }}</div>
+            </div>
+            <div class="d-flex w-100 justify-content-between">
+              <div class="card-schedule-date-caption">Dates of Coverage:</div>
+            </div>
+            <div class="d-flex w-100 justify-content-between">
+              <div class="schedule-card-dates">{{dataItem.nextDate | date : dateFormat}} - {{dataItem.endDate | date : dateFormat}}</div>
+            </div>
+            <div class="d-flex w-100 justify-content-between">
+              <div class="card-schedule-date-caption">
+                <label class="hover-pointer pr-1 card-schedule-date-caption">Recruiting Consultant: </label>
+                <a (click)="$event.stopPropagation();dataItem.isRCMailViewed = true;" [ngClass]="{'atlas-visited-link' : dataItem.isRCMailViewed}" href="mailto: {{dataItem.recruiterEmail}}">{{dataItem.recruiterName}}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </kendo-grid-column>
+    <ng-template kendoGridNoRecordsTemplate>
+      <div *ngIf="!loading" class="text-info">Try adjusting your search by changing your filters</div>
+    </ng-template>
+    <ng-template kendoPagerTemplate let-totalPages="totalPages" let-currentPage="currentPage">
+      <kendo-pager-prev-buttons></kendo-pager-prev-buttons>
+      <kendo-pager-next-buttons></kendo-pager-next-buttons>
+    </ng-template>
+  </kendo-grid>
+</div>
+<jclt-provider-order-list-dialog-web-ad-mobile *ngIf="webAdDialogOpen" [dialogOpened]="webAdDialogOpen"
+                                        [selectedJobOpportunity] ="selectedJobOpportunity"
+                                        [selectedWebAd]="selectedWebAd"
+                                        (reloadEvent)=reload($event)></jclt-provider-order-list-dialog-web-ad-mobile>
+
+<jclt-mobile-filter-grid *ngIf="sortFilterDialogOpen" [dialogOpened]="sortFilterDialogOpen"
+                                             [specialtyLookup]="specialtyLookup"
+                                             [statesLookup]="statesLookup"
+                                             [currentState]="currentState"
+                                             [listItems]="listItems"
+                                             [labelsList]="labelsList"
+                                             (processFilterSortEvent)=processFilterSort($event)
+                                             (closeEvent)=close($event)></jclt-mobile-filter-grid>
+
+

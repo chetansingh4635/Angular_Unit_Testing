@@ -1,0 +1,40 @@
+/*!
+
+=========================================================
+* Atlas Design System
+=========================================================
+
+
+=========================================================
+
+
+*/
+
+
+/* Base */
+@import 'base/atlas-variables';
+@import 'base/atlas-mixins';
+@import 'base/atlas-media-queries';
+@import 'base/atlas-focus';
+@import 'base/atlas-ie';
+@import 'base/atlas-typography';
+@import 'base/atlas-colors';
+@import 'base/atlas-spacing';
+@import 'base/atlas-utilities';
+//@import 'base/atlas-keyframes';
+/*Components*/
+@import 'components/atlas-buttons';
+@import 'components/atlas-cards';
+@import 'components/atlas-form-elements';
+@import 'components/atlas-breadcrumbs';
+@import 'components/atlas-notifications';
+@import 'components/atlas-badge';
+@import 'components/atlas-tables';
+@import 'components/atlas-modals';
+@import 'components/atlas-accordions';
+@import 'components/atlas-popup';
+/* Layout of Atlas Design System */
+@import 'layout/atlas-header';
+@import 'layout/atlas-navigation';
+@import 'layout/atlas-body';
+@import 'layout/atlas-footer';

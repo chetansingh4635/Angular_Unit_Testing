@@ -1,0 +1,890 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./styles/Site.scss";
+@import "./styles/bootstrap.min.scss";
+@import "./styles/kendo.bootstrap-v4.min.scss";
+@import "./styles/ADS.scss";
+
+.login-labels {
+  font-size: 1.15rem;
+  color: #004b8d;
+  font-weight: 700;
+}
+
+.error-message {
+  color: #d90700;
+}
+
+.success-message {
+  color: green;
+  font-weight: bold;
+}
+
+.k-upload-button, .k-upload-button:hover {
+  background-image: none;
+  border-radius: .25rem;
+  padding: .375rem .75rem;
+  color: white;
+}
+
+.k-upload-button {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.k-upload-button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+.k-dialog-buttongroup {
+  margin: 10px;
+}
+
+.k-dialog-buttongroup .k-primary:not(:hover):not(.k-state-hover):not(:active):not(.k-state-eactive) {
+  background-color: #05A1DC;
+  border-color: #05A1DC;
+}
+
+.k-dialog-buttongroup .k-primary {
+  color: white !important;
+}
+
+.k-dialog-buttongroup {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.dialog-text {
+  margin: 30px;
+  text-align: center;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  /* ReSharper disable once CssBrowserCompatibility */
+  -moz-user-select: none; /* Firefox */
+  /* ReSharper disable once CssBrowserCompatibility */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  /* ReSharper disable once CssBrowserCompatibility */
+  user-select: none;
+  /* Non-prefixed version, currently
+                                   supported by Chrome and Opera */
+}
+
+jclt-session-warning-dialog .k-dialog-close {
+  display: none;
+}
+
+.navspacing {
+  padding-left: 12rem !important;
+  padding-right: 12rem !important;
+}
+
+.k-dialog {
+  width: 700px;
+}
+
+.display-wide-screen {
+  display: block;
+}
+
+.display-narrow-screen {
+  display: none;
+}
+
+.timePickerPopup {
+  font-size: large;
+  background-color: #f5f5f5;
+  border: 1px solid lightgray;
+}
+
+.timePickerPopup .k-time-header {
+  color: #004B8D;
+}
+
+.timePickerPopup .k-time-accept {
+  color: #fff !important;
+  background-color: #40c353 !important;
+  border-color: #40c353 !important;
+}
+
+.timePickerPopup .k-time-accept:hover {
+  color: #fff !important;
+  background-color: #35a845 !important;
+  border-color: #329e41 !important;
+}
+
+.timePickerPopup .k-time-list-wrapper {
+  background-color: #f5f5f5;
+  border-top: 3px solid #e5e5e5;
+}
+
+.timePickerPopup .k-calendar-monthview {
+  background-color: #f5f5f5;
+  border-top: 3px solid #e5e5e5;
+}
+.tne-kendo-shadow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1300px!important;
+  }
+}
+
+@media (min-width: 1600px) {
+  .container {
+     max-width: 1400px!important;
+  }
+}
+
+@media screen and (max-width: 3000px) {
+  .navspacing {
+    padding-left: 9.5rem !important;
+    padding-right: 9.5rem !important;
+  }
+
+  .k-dialog {
+    width: 500px;
+  }
+}
+
+@media screen and (max-width: 937px) {
+  .navspacing {
+    padding-left: 6.5rem !important;
+    padding-right: 6.5rem !important;
+  }
+
+  .k-dialog {
+    width: 450px;
+  }
+
+  .display-wide-screen {
+    display: none;
+  }
+
+  .display-narrow-screen {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navspacing {
+    padding-left: 4.5rem !important;
+    padding-right: 4.5rem !important;
+  }
+
+  .k-dialog {
+    width: 425px;
+  }
+}
+
+@media screen and (max-width: 619px) {
+  .navspacing {
+    padding-left: 2.5rem !important;
+    padding-right: 2.5rem !important;
+  }
+
+  .k-dialog {
+    width: 400px;
+  }
+
+  .k-animation-container {
+    z-index: auto;
+  }
+
+  .timePickerPopup {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    font-size: x-large;
+    background-color: #e5e5e5;
+  }
+
+ .k-animation-container > .k-popup {
+    z-index: 101;
+  }
+
+  .timePickerPopup .k-time-list-wrapper {
+    width: 33.3%;
+    background-color: #e5e5e5;
+    height: 10em;
+  }
+
+  .timePickerPopup .k-time-list-wrapper .k-title {
+    font-size: large;
+  }
+
+  .timePickerPopup .k-calendar-monthview .k-content > table {
+    width: 100%;
+    font-size: larger;
+  }
+
+  .timePickerPopup .k-calendar .k-calendar-monthview th {
+    font-size: large;
+  }
+
+  .timePickerPopup .k-calendar-monthview .k-calendar-header {
+    font-size: larger;
+  }
+
+  .timePickerPopup .k-calendar-monthview {
+    height: 25rem;
+  }
+
+  .tne-kendo-shadow {
+    background-color: #000;
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    opacity: .5;
+  }
+}
+
+.client-comment {
+  min-height: 3rem;
+  height: 4.5rem;
+}
+
+@media screen and (max-width: 350px) { /* iPhone 5s/SE */
+  .reason-list .k-list .k-item, .k-list-optionlabel {
+    padding-left: 0.8rem;
+    padding-right: 0.5rem;
+  }
+}
+
+.timesheet-review-dlg .k-content {
+  padding-top: 5px;
+}
+
+@media screen and (max-width: 500px) {
+    .navspacing {
+      padding-left: .1rem !important;
+      padding-right: .1rem !important;
+    }
+
+    .k-dialog {
+      width: 90%;
+    }
+
+    .k-button {
+      font-size: 0.9em;
+      padding: 0.5em 0.75em !important;
+    }
+
+    .k-window-title.k-dialog-title {
+      font-size: 1.1em !important;
+    }
+
+    .decline-dlg-info {
+      font-size: small;
+    }
+
+    .client-comment {
+      min-height: 2.5rem;
+      height: 3rem;
+    }
+
+    .timesheet-review-dlg .k-content {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    .preview-day {
+      padding-left:0.5rem;
+      padding-right:0;
+    }
+  }
+
+  .tne-notification-wrapper {
+    display: flex;
+    -webkit-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+    -o-justify-content: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10001;
+  }
+
+  .tne-notification-overlay {
+    background-color: #000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10001;
+    width: 100%;
+    height: 100%;
+    opacity: .5;
+  }
+
+  .tne-popup-holder {
+    width: 100%;
+    z-index: 10001;
+  }
+
+  .text-overflow-ellipsis-button {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .text-overflow-ellipsis {
+    max-width: 100%;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+
+  .expense-edit-button {
+    width: 100%;
+    max-width: 20em;
+  }
+
+  .cardContainerWide {
+    max-width: none;
+    width: auto;
+  }
+
+  /*for IE 11*/
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .form-control {
+      line-height: 0.8;
+      padding: .475rem .75rem;
+    }
+
+    .accordion-section .panel-default .panel-title span {
+      display: block;
+    }
+
+      .accordion-section .panel-default .panel-title span:after {
+        float: right;
+        margin-top: -15px;
+        padding: 3px !important;
+      }
+
+    .cardContainerWide {
+      max-width: none;
+      width: auto;
+      -o-flex-basis: auto;
+      -webkit-flex-basis: auto;
+      flex-basis: auto;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .btn-responsive {
+      padding: 2px 4px;
+      font-size: 110%;
+      line-height: 1.6;
+    }
+  }
+
+  @media (min-width: 769px) and (max-width: 992px) {
+    .btn-responsive {
+      padding: 4px 9px;
+      font-size: 120%;
+      line-height: 1.8;
+    }
+  }
+
+  .timeSelCombo .k-i-arrow-s::before {
+    content: "\e107";
+  }
+
+  .kendoOverlay {
+    position: absolute;
+    visibility: visible;
+    opacity: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .noScroll {
+    overflow: hidden;
+  }
+
+.preventTouchScroll { /*for iOS*/
+    position: fixed;
+}
+
+  .btn-submit {
+    color: #fff;
+    background-color: #40c353 !important;
+    border-color: #40c353 !important;
+  }
+
+    .btn-submit:hover {
+      color: #fff;
+      background-color: #35a845 !important;
+      border-color: #329e41 !important;
+    }
+
+    .btn-submit:focus, .btn-submit.focus, .btn-submit:active:focus, .btn-submit.active:focus {
+      box-shadow: 0 0 0 0.2rem rgba(64, 195, 83, 0.5) !important;
+    }
+
+  .btn-decline {
+    color: #fff;
+    background-color: #dc3545 !important;
+    border-color: #dc3545 !important;
+    font-family: FontAwesome, 'Lato', sans-serif !important;
+  }
+
+    .btn-decline:hover {
+      color: #fff;
+      background-color: #c82333 !important;
+      border-color: #bd2130 !important;
+    }
+
+    .btn-decline:focus, .btn-decline.focus, .btn-decline:active:focus, .btn-decline.active:focus {
+      box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.5) !important;
+    }
+
+  .submit-dlg .k-button.k-primary {
+    color: #fff;
+    background-color: #40c353 !important;
+    border-color: #40c353 !important;
+    font-family: FontAwesome, 'Lato', sans-serif !important;
+  }
+
+    .submit-dlg .k-button.k-primary:hover {
+      color: #fff;
+      background-color: #35a845 !important;
+      border-color: #329e41 !important;
+    }
+
+    .submit-dlg .k-button.k-primary:focus,
+    .submit-dlg .k-button.k-primary.focus,
+    .submit-dlg .k-button.k-primary:active:focus,
+    .submit-dlg .k-button.k-primary.active:focus {
+      box-shadow: 0 0 0 0.2rem rgba(64, 195, 83, 0.5) !important;
+    }
+
+  .timesheet-review-dlg .k-button {
+    border-radius: 0 !important;
+    font-family: FontAwesome, 'Lato', sans-serif !important;
+  }
+
+  .timesheet-review-dlg .k-i-x {
+    color: #05a1dc;
+    font-size: 32px;
+    margin-left: -10px; /*for IE*/
+    margin-right: -10px;
+  }
+
+  .timesheet-review-dlg kendo-dialog-actions .k-button:not(.k-primary) {
+    margin: 5px 40px 5px 5px !important;
+    background-color: #BABABA !important;
+    color: white !important;
+    float: left;
+  }
+
+  .timesheet-review-dlg .k-primary {
+    float: right;
+    margin: 5px 5px 5px 40px !important;
+  }
+
+  .timesheet-review-dlg .k-button-group {
+    background: none !important;
+  }
+
+  .timesheet-review-dlg .k-i-x {
+    background: none !important;
+  }
+
+  .timesheet-review-dlg kendo-dialog-titlebar {
+    border: none !important;
+    padding-bottom: 0;
+  }
+
+  .delete-dlg .k-button.k-primary {
+    color: #fff;
+    background-color: #dc3545 !important;
+    border-color: #dc3545 !important;
+    font-family: FontAwesome, 'Lato', sans-serif !important;
+  }
+
+    .delete-dlg .k-button.k-primary:hover {
+      color: #fff;
+      background-color: #c82333 !important;
+      border-color: #bd2130 !important;
+    }
+
+    .delete-dlg .k-button.k-primary:focus,
+    .delete-dlg .k-button.k-primary.focus,
+    .delete-dlg .k-button.k-primary:active:focus,
+    .delete-dlg .k-button.k-primary.active:focus {
+      box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.5) !important;
+    }
+
+  .btn-outline-primary {
+    color: #004b8d;
+  }
+
+  .btn-job-primary {
+    background-color: #004b8d;
+    border-color: #004b8d;
+    color: white;
+  }
+
+.btn-job-apply {
+  background-color: #f48020;
+  border-color: #f48020;
+  color: white;
+}
+
+.btn-job-apply:hover {
+  color: #FFF;
+  background-color: #dd670b;
+  border-color: #dd670b;
+}
+
+  .fit-content {
+    min-width: fit-content;
+  }
+
+  .border-bottom-gray {
+    border-bottom: 1px solid #666666 !important;
+  }
+
+  .underline-on-hover:hover {
+    text-decoration: underline !important;
+    cursor: pointer;
+  }
+
+
+  .decline-reasons-item {
+    margin-bottom: -4px;
+    margin-top: 3px;
+    padding-bottom: 4px;
+    padding-top: 3px;
+  }
+
+.decline-reasons-item-last {
+  margin-top: 3px;
+  padding-bottom: 4px;
+  padding-top: 3px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*.dropdown-menu {
+  background-color: #05a1dc !important;
+}*/
+
+.dropdown-submenu {
+  position: relative;
+}
+
+  .dropdown-submenu > .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -6px;
+    margin-left: -1px;
+    -webkit-border-radius: 0 6px 6px 6px;
+    -moz-border-radius: 0 6px 6px;
+    border-radius: 0 6px 6px 6px;
+    box-shadow: 1px 1px 5px 5px rgba(36, 50, 66, .2);
+  }
+
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #ccc;
+  margin-top: 5px;
+}
+
+.dropdown-submenu:hover>a:after {
+  border-left-color: #fff;
+}
+
+.dropdown-submenu.pull-left {
+  float: none;
+}
+
+.dropdown-submenu.pull-left>.dropdown-menu {
+  /*left: -100%;*/
+  margin-left: 10px;
+  -webkit-border-radius: 6px 0 6px 6px;
+  -moz-border-radius: 6px 0 6px 6px;
+  border-radius: 6px 0 6px 6px;
+}
+
+.header-menucolor {
+  background-color: #05a1dc !important;
+}
+
+.dropdown-item.active:hover, .dropdown-item:active:hover { background-color: white !important; }
+  .dropdown-item.active:hover:after, .dropdown-item:active:hover:after {
+    color: black;
+  }
+
+.header-menucolor img {
+    -webkit-filter: invert(1);
+    -moz-filter: invert(1);
+    filter: invert(1);
+    color: black;
+}
+
+.header-menucolor .navbar-brand {
+    filter: grayscale(1);
+}
+.header-menucolor div.mr-auto {
+    filter: contrast(1000);
+}
+
+.header-menucolor div.login-link-icon {
+  color: white;
+  text-decoration: none;
+}
+
+.header-menucolor i.fa-user-circle {
+  /*color: black;
+  -webkit-filter: invert(1);
+  -moz-filter: invert(1);
+  filter: invert(1);*/
+}
+
+/*.header-menucolor .nav-link {
+  display: inline;
+}*/
+
+.filter-header {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+  background-color: #E8E8E8;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  word-break: inherit !important;
+  white-space: normal !important;
+}
+
+
+.filter-header .k-icon {
+  margin-left: 0em !important;
+}
+
+.filter-header .k-grid-icon {
+  padding-right: 0 !important;
+}
+
+.k-grid tr.even {
+  background-color: white;
+}
+
+.k-grid tr.odd {
+  background-color: #F0F0F0;
+}
+
+.k-grid td {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  word-break: break-word !important;
+}
+
+.k-grid .k-state-selected {
+  background-color: #05A1DC;
+  border-color: #05A1DC;
+}
+
+.k-grid .k-state-selected:hover {
+  background: #0069d9;
+}
+
+.k-grid-header .k-grid-filter {
+  padding-right: 0.5em !important;
+  margin: initial;
+  width: 1.6em !important;
+  height: 2em !important;
+}
+
+.k-grid-header .k-header.k-filterable > .k-link {
+  margin-right: calc(2px + .75rem + 2em);
+}
+
+.jclt-multiselect {
+  min-width: 200px;
+  max-width: 375px;
+}
+.jclt-multiselect .k-multiselect-wrap .k-button + .k-button {
+  margin: .25rem 0 0 .25rem;
+}
+
+.hide {
+  display: none;
+}
+
+/*Atlas Kendo Sliding Modal*/
+.atlas-sliding-kendo-dialog.atlas-dialog-sm .k-widget[role="dialog"],
+.atlas-sliding-kendo-dialog.atlas-dialog-sm .k-window [role="dialog"],
+.atlas-sliding-kendo-dialog.atlas-dialog-sm .k-dialog[role="dialog"] {
+  width: 320px;
+}
+
+@media only screen and (max-width: 767.98px), (orientation: landscape) {
+  .atlas-sliding-kendo-dialog.atlas-dialog-sm .k-widget[role="dialog"],
+  .atlas-sliding-kendo-dialog.atlas-dialog-sm .k-window [role="dialog"],
+  .atlas-sliding-kendo-dialog.atlas-dialog-sm .k-dialog[role="dialog"] {
+    width: 100%;
+    margin: 0px;
+    min-width: 100%;
+  }
+}
+
+.atlas-sliding-kendo-dialog .atlas-no-close-button .k-window-actions {
+  display: none;
+}
+
+.atlas-sliding-kendo-dialog .k-widget[role="dialog"],
+.atlas-sliding-kendo-dialog .k-window [role="dialog"],
+.atlas-sliding-kendo-dialog .k-dialog[role="dialog"] {
+  /*this caused issue in safari where the toolbars covered the title and buttons #4936*/
+  /*position: fixed;*/ 
+  min-height: 100%;
+  border-radius: 0rem;
+  right: 0px;
+}
+
+@media only screen and (max-width: 767.98px) {
+  .atlas-sliding-kendo-dialog .k-widget[role="dialog"], .atlas-sliding-kendo-dialog .k-window [role="dialog"], .atlas-sliding-kendo-dialog .k-dialog[role="dialog"] {
+    width: 100%;
+  }
+}
+
+.atlas-sliding-kendo-dialog .k-dialog-buttongroup {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+}
+/*Atlas Kendo Sliding Modal*/
+
+
+#Grid .k-grid-content td {
+  height: 170px;
+}
+
+.k-grid a {
+  color: #05a1dc;
+}
+
+.k-grid a:hover {
+  color: #036a91;
+  text-decoration: underline;
+}
+
+.k-grid a:visited {
+  text-decoration: none;
+   color: #8c8c8c;
+}
+
+@media only screen and (max-width: 991.98px) {
+  .k-pager-wrap kendo-pager-prev-buttons, .k-pager-wrap kendo-pager-next-buttons { width: 50%; }
+
+  .k-pager-wrap .k-link, .k-pager-wrap .k-pager-nav {
+    height: 50px;
+    width: 50%;
+    box-sizing: border-box;
+  }
+
+  .k-pager-wrap .k-link .k-icon, .k-pager-wrap .k-pager-nav .k-icon { font-size: 1.25rem; }
+
+  .k-pager-wrap .k-pager-nav + .k-pager-nav { margin-left: 0px; }
+}
+
+//Temporary fix for selected pager number. Should delete after applying ADS to grid
+.k-pager-numbers .k-link.k-state-selected {
+  background-color: #05A1DC;
+}
+
+//State and Speciality multiselect drop down 
+.multiselectCustomCSS .k-multiselect-wrap{
+  max-height: 100px;
+  overflow-y: scroll;
+}
+
+/* Kendo Grid table Scroll Bar CSS*/
+kendo-grid-list .k-grid-content { overflow:auto; }
+.k-grid-aria-root .k-grid-header { padding-right: 0px !important;  }
+.atlas-sliding-kendo-dialog .k-i-loading{display:none;}
+
+.atlas-dashboard-max-width{
+  max-width:1150px;
+}
+.atlas-expense-widget-w-100{width: 100px;}
+.atlas-expense-widget-h-100{height: 100px;}
+.atlas-expense-widget-fs-20{font-size: 20px}
+.atlas-expense-widget-fs-64{font-size: 64px}
+.atlas-expense-widget-fs-75{font-size: 75px}
+
+.k-dialog-title {
+  height: 22px !important
+}
+
+.atlas-capitalise {
+  text-transform: capitalize
+}
+
+.atlas-align-no-opportunity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.atlas-grid-custom-label a.k-grid-filter{
+    position:absolute;
+    top: 25px;
+}
+
+jclt-mobile-filter-grid  .k-dialog-content{
+  margin-bottom: 8% !important;
+}
+
+.time-picker-font {
+  font-size: x-large !important;
+}

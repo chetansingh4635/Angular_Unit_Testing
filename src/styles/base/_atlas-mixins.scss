@@ -1,0 +1,317 @@
+/*ADD CUSTOM MIXINS HERE*/
+
+/*=======================================================
+BUTTONS MIXINS 
+=========================================================
+*/
+@mixin atlas-button {
+    font-weight: $atlas-font-weight-bold;
+    font-size: $atlas-font-small;
+    padding: $atlas-spacing-base-half $atlas-spacing-base-half;
+    margin-right: $atlas-spacing-base-three-quarters;
+    min-width: 100px;
+    &:disabled {
+        cursor: not-allowed;
+        &:hover {
+            background-color: none;
+        }
+    }
+    @media #{$atlas-mobile-max} {
+       width: 100%;
+       line-height: 1;
+       padding-top: $atlas-spacing-base-three-quarters;
+       padding-bottom: $atlas-spacing-base-three-quarters;
+       margin-bottom: $atlas-spacing-base;
+    }
+}
+
+/*!
+=========================================================
+* BOX SHADOWS MIXINS
+=========================================================
+*/
+@mixin atlas-box-shadow-one {
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,.3);
+    -moz-box-shadow: 0 2px 5px 0 rgba(0,0,0,.3);
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.3);
+}
+@mixin atlas-box-shadow-two {
+    -webkit-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+
+/*!
+=========================================================
+* TRANSITIONS MIXINS
+=========================================================
+*/
+@mixin atlas-transition-one {
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+@mixin atlas-transition-background-color-one {
+    -webkit-transition: background-color 5000s ease-in-out 0s;
+    -moz-transition: background-color 5000s ease-in-out 0s;
+    transition: background-color 5000s ease-in-out 0s;
+    
+}
+@mixin animation($animate...) {
+    $max: length($animate);
+    $animations: '';
+
+    @for $i from 1 through $max {
+        $animations: #{$animations + nth($animate, $i)};
+
+        @if $i < $max {
+            $animations: #{$animations + ", "};
+        }
+    }
+    -webkit-animation: $animations;
+    -moz-animation:    $animations;
+    -o-animation:      $animations;
+    animation:         $animations;
+}
+
+@mixin keyframes($animationName) {
+    @-webkit-keyframes #{$animationName} {
+        @content;
+    }
+    @-moz-keyframes #{$animationName} {
+        @content;
+    }
+    @-o-keyframes #{$animationName} {
+        @content;
+    }
+    @keyframes #{$animationName} {
+        @content;
+    }
+}  
+/*!
+=========================================================
+* CARDS MIXINS
+=========================================================
+*/
+@mixin atlas-card {
+    background-color: $atlas-white;
+    margin: $atlas-spacing-base-0;
+    border: 1px solid $atlas-line-color;
+}
+@mixin atlas-card-border {
+    border-radius: $atlas-border-radius;
+    border: 1px solid $atlas-line-color;
+}
+@mixin atlas-card-circle {
+    border-radius: 50%;
+    text-align: center;
+    margin: 0 auto;
+}
+@mixin atlas-card-sharp {
+    border-radius: 1px
+}
+/*!
+=========================================================
+* FONT AWESOME ICONS MIXINS
+=========================================================
+*/
+//Font Awesome Pro 5 - Solid
+@mixin atlas-font-awesome-pro-solid {
+    font-family: "Font Awesome 5 Pro"; 
+    font-weight: $atlas-font-weight-bolder;
+    -webkit-font-smoothing: antialiased;
+}
+//Font Awesome Pro 5 - Regular
+@mixin atlas-font-awesome-pro-regular {
+    font-family: "Font Awesome 5 Pro"; 
+    font-weight: $atlas-font-weight-normal;
+    -webkit-font-smoothing: antialiased;
+}
+//Font Awesome Pro 5 - Light
+@mixin atlas-font-awesome-pro-light {
+    font-family: "Font Awesome 5 Pro"; 
+    font-weight: $atlas-font-weight-light;
+    -webkit-font-smoothing: antialiased;
+}
+//Font Awesome Pro 5 - Duotone
+@mixin atlas-font-awesome-duotone {
+    font-family: "Font Awesome 5 Duotone"; 
+    font-weight: 900;
+    -webkit-font-smoothing: antialiased;
+}
+/*!
+=========================================================
+* FORM ELEMENTS MIXINS
+=========================================================
+*/
+
+@mixin atlas-error-input-icon {
+    float: right;
+    position: absolute;
+    &::before {
+        @include atlas-font-awesome-pro-solid;
+        content: "\f12a";
+    }
+}
+/*!
+=========================================================
+* FOCUS MIXINS
+=========================================================
+*/
+@mixin atlas-focus {
+    outline: none !important;
+    box-shadow: none !important;   
+}
+
+/*!
+=========================================================
+* SPACING MIXINS
+=========================================================
+*/
+@mixin generate($prefix, $property) {
+     $spacing: 1rem;
+    // List of sizes to generate for each
+    $sizes: (0, .25, .5, .75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3, 3.25, 3.5, 3.75, 4);
+    // Spacing to multiply the sizes by
+    
+    // Loop through all of the sizes(we use @for rather than @each, as we want access to the index)
+    @for $i from 1 through length($sizes) {
+      // Get the size for the current index
+      $size: nth($sizes, $i);
+      
+      // Create the rule
+      .#{$prefix}-#{$i - 1} {
+        #{$property}: $spacing * $size !important;
+      }
+    }
+} 
+
+@mixin generateAxes($prefix, $property, $propertyTwo) {
+    // List of sizes to generate for each
+    $sizes: (0, .25, .5, .75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3, 3.25, 3.5, 3.75, 4);
+    // Spacing to multiply the sizes by
+    $spacing: 1rem;
+    
+    // Loop through all of the sizes(we use @for rather than @each, as we want access to the index)
+    @for $i from 1 through length($sizes) {
+      // Get the size for the current index
+      $size: nth($sizes, $i);
+      
+      // Create the rule
+      .#{$prefix}-#{$i - 1} {
+        #{$property}: $spacing * $size !important;
+        #{$propertyTwo}: $spacing * $size !important;
+      }
+    }
+}
+@mixin generateAuto($prefix,$property) {
+    $auto: 'auto';
+    .#{$prefix}-#{$auto} {
+        #{$property}: #{$auto} !important;
+    }
+}
+@mixin generateWidth($prefix, $property) {
+    $percentage: '%';
+   // List of width percentages to generate for each
+   $sizes: (5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100);
+   // Spacing to multiply the sizes by
+   
+   // Loop through all of the sizes(we use @for rather than @each, as we want access to the index)
+   @for $i from 1 through length($sizes) {
+     // Get the size for the current index
+     $size: nth($sizes, $i);
+     
+     // Create the rule
+     .#{$prefix}-#{$size} {
+       #{$property}: $size + #{$percentage} !important;
+     }
+   }
+}
+/*!
+=========================================================
+* HEADINGS MIXINS
+=========================================================
+*/
+@mixin atlas-heading-one {
+    font-size: $h1-font-size;
+    font-weight: $atlas-font-weight-bold;
+}
+@mixin atlas-heading-two {
+    font-size: $h2-font-size;
+}
+@mixin atlas-heading-three {
+    font-size: $h3-font-size;
+}
+@mixin atlas-heading-four {
+    font-size: $h4-font-size;
+}
+@mixin atlas-heading-five {
+    font-size: $h5-font-size;
+}
+@mixin atlas-heading-six {
+    font-size: $h6-font-size;
+}
+/*!
+=========================================================
+* SELECTION MIXINS
+=========================================================
+*/
+@mixin atlas-selection {
+    color: $atlas-white;
+    background: $JC-blue;
+}
+/*!
+=========================================================
+* SCROLLBAR MIXINS
+=========================================================
+*/
+/* Not Supported Firefox or IE/Edge*/
+@mixin atlas-scroll {
+    &::-webkit-scrollbar {
+        background-color:$atlas-white;
+        width:16px;
+    }
+    &::-webkit-scrollbar-track {
+        background-color: $atlas-white;
+    }
+    &::-webkit-scrollbar-thumb{
+        background-color:$atlas-gray;
+        border-radius:16px;
+        border:4px solid $atlas-white;
+    }
+    &::-webkit-scrollbar-button {
+        display:none
+    }
+}
+/*!
+=========================================================
+* HOVER MIXINS
+=========================================================
+*/
+@mixin atlas-hover-blue {
+    &:hover {
+        background-color: $JC-blue-light;
+        font-weight:$atlas-font-weight-bold;
+    }
+}
+@mixin atlas-hover-gray{
+    &:hover{
+        background-color:$atlas-off-white-two;
+    }
+}
+@mixin atlas-hover-success-light {
+    &:hover {
+        background-color: $atlas-success-light;
+    }
+}
+@mixin atlas-hover-caution-light{
+    &:hover {
+        background-color: $atlas-caution-light
+    }
+}
+@mixin atlas-hover-danger-light {
+    &:hover {
+        background-color: $atlas-danger-light
+    }
+}

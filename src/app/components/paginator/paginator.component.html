@@ -1,0 +1,11 @@
+<ul class="pagination" *ngIf="showPaginator()">
+  <li class="page-item" *ngIf="pageIsAvailable(currentPage - 1)">
+    <div class="page-link" (click)="goTo(currentPage - 1)">&lt;&lt;</div>
+  </li>
+  <li *ngFor="let page of pages" class="page-item" [class.active]="isCurrent(page)">
+    <div (click)="goTo(page.num)" class="page-link">{{page.num}}</div>
+  </li>
+  <li class="page-item" *ngIf="pageIsAvailable(currentPage + 1)">
+    <div class="page-link" (click)="goTo(currentPage + 1)">&gt;&gt;</div>
+  </li>
+</ul>

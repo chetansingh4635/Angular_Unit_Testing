@@ -1,0 +1,16 @@
+<ng-container *ngIf="timesheet$ | async as timesheet; else showSpinner">
+  <jclt-weekly-summary-booking-info [booking]="timesheet.booking"
+                                    [validationMessage]="validationMessage">
+  </jclt-weekly-summary-booking-info>
+
+  <jclt-weekly-day-details [dayDetails]="timesheet.bookingCalendarDaysDetail"
+                           [timesheetDetailFromBooking]="timesheet.booking.timesheetDetailDays"
+  ></jclt-weekly-day-details>
+  <jclt-timesheet-submit-impersonation-detail></jclt-timesheet-submit-impersonation-detail>
+</ng-container>
+<ng-template #showSpinner>
+  <div class="mt-4">
+    <jclt-spinner [forceShow]="true"></jclt-spinner>
+    <div class="mt-4 text-center">Please wait...</div>
+  </div>
+</ng-template>

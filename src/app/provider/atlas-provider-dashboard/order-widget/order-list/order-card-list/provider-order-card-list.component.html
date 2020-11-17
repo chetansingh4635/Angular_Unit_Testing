@@ -1,0 +1,23 @@
+<div class="card atlas-list-group atlas-card atlas-card-raised h-100">
+    <div class="atlas-card-title-forward atlas-card-title-wrapper" (click)="onViewMoreJobs()">
+        <h3 class="atlas-card-title-xl">Opportunities <i class="fal fa-chevron-right float-right atlas-pr-2"
+                aria-hidden="true"></i></h3>
+    </div>
+    <div *ngIf="hasOpportunity"
+        class="h-100 list-group list-group-flush border-left-0 atlas-white-bg atlas-min-height-162 overflow-auto">
+        <jclt-provider-order-card *ngFor="let jobOpportunity of jobOpportunities.data" [jobOpportunity]="jobOpportunity"
+            (reloadEvent)="reload($event)"></jclt-provider-order-card>
+    </div>
+    <div *ngIf="!hasOpportunity" class="atlas-white-bg h-100 atlas-align-no-opportunity">
+        <div class="px-lg-3 p-2 mx-auto my-4 my-lg-5 text-center">
+            <p class="atlas-my-4">We were unable to match any open opportunities to your specialties and licenses.</p>
+            <i class="fas fa-lightbulb fa-5x atlas-gray-text"></i>
+        </div>
+    </div>
+    <div class="atlas-card-footer bg-white text-center border-top-0 p-lg-0 py-3">
+        <div class="mx-md-5 mx-lg-4 mt-2 mb-2">
+            <button class="btn atlas-primary float-none w-100 mb-0 px-lg-2" (click)="onViewMoreJobs()">Broaden My
+                Search</button>
+        </div>
+    </div>
+</div>

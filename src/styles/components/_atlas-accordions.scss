@@ -1,0 +1,64 @@
+.atlas-accordion {
+    button {
+        width: 100%;
+        text-align: left;
+        border-radius: 0px;
+        &.collapsed {
+            &::after {
+                float: right;
+                @include atlas-font-awesome-pro-solid;
+                content: "\f054";
+            }
+        }
+        &::after {
+            float: right;
+            @include atlas-font-awesome-pro-solid;
+            content: "\f078";
+        }
+       &:not(.collapsed){
+            border-bottom: 1px solid $atlas-line-color;
+       }
+        
+    }
+    .atlas-card {
+        h2,h3,h4,h5,h6 {
+            &:hover {
+                background-color: $atlas-white-gray;
+            }
+    
+            //background-color: $atlas-white-gray;
+        }
+    }
+}
+
+.atlas-accordion-alt {
+    .accordion {
+        .btn {
+            width: 100%;
+            text-align: left;
+            border-radius: 0px;
+            color: $atlas-black;
+            &.collapsed {
+                &::after {
+                    float: right;
+                    @include atlas-font-awesome-pro-solid;
+                    content: "\f054";
+                    color: $JC-cyan;
+                }
+            }
+            &::after {
+                float: right;
+                @include atlas-font-awesome-pro-solid;
+                content: "\f078";
+                color: $JC-cyan;
+            }
+        &:not(.collapsed){
+                border-bottom: 1px solid $atlas-line-color;
+        }
+            
+        }
+        .atlas-card {
+            border: 3px solid $atlas-line-color;
+        }
+    }
+}

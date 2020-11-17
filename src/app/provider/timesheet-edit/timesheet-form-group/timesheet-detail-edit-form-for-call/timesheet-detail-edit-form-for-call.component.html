@@ -1,0 +1,70 @@
+<div class="row" *ngIf="timesheetDetailIsNoCallBack">
+  <div class="col card-city-state-edittime">
+    <i>Worked, but no call back</i>
+  </div>
+</div>
+
+<ng-container *ngIf="!timesheetDetailIsNoCallBack">
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <label class="required-value">
+          <span class="required-star">*</span> In Time
+        </label>
+        <jclt-time-combo
+          [value]="timesheetDetail.startTime"
+          [steps]="timepickerSteps"
+          (valueChange)="onStartTimeChanged($event)">
+        </jclt-time-combo>
+        <p class="error-message" *ngFor="let errorMessage of errors['startTime']">
+          {{errorMessage}}
+        </p>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="form-group">
+        <label class="required-value">
+          <span class="required-star">*</span> Out Time
+        </label>
+        <jclt-time-combo 
+          [value]="timesheetDetail.endTime"
+          [steps]="timepickerSteps"
+          (valueChange)="onEndTimeChanged($event)">
+        </jclt-time-combo>
+        <p class="error-message" *ngFor="let errorMessage of errors['endTime']">
+          {{errorMessage}}
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-sm text-center">
+      <label class="required-value">
+        <span class="required-star">*</span> Total Patient Hours
+      </label>
+      <br>
+      <jclt-range-dropdown [from]="0" [to]="totalHours" [steps]="0.25"
+                           (onDropDownChangeValue)="onTotalPatientHours($event)"
+                           [disabled]="!canSelectDuration" [value]="timesheetDetail.totalPatientHours">
+      </jclt-range-dropdown>
+      <p class="error-message" *ngFor="let errorMessage of errors['totalPatientHours']">
+        {{errorMessage}}
+      </p>
+    </div>
+    <div class="col-sm text-center">
+      <div class="row totalhourstext-edittime">
+        <div class="col">
+          Total hours
+        </div>
+      </div>
+      <div class="row">
+        <div class="col totalhoursamount-edittime">
+          {{totalHoursString}}
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

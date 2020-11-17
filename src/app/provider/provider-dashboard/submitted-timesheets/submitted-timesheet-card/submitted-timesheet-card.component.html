@@ -1,0 +1,54 @@
+  <div class="row">
+    <div class="col-12">
+      <div class="text-muted w-100">
+        <h5>Week of {{getWeekOf(timesheet.firstOfWeek)}}</h5>
+      </div>
+    </div>
+  </div>
+  <div class="time-expense-card-box p-2">
+    <div class="row no-gutters">
+
+      <div class="col-1 hover-pointer pb-2" *ngIf="timesheet.timesheetProviderStatus !== timesheetStatuses.SubmittedOffline" (click)="onToggleCard(timesheet.timesheetId)">
+        <i [class]="getDisplayState()?'fa fa-minus-square':'fa fa-plus-square'"></i>
+      </div>
+
+      <div *ngIf="timesheet.timesheetProviderStatus === timesheetStatuses.SubmittedOffline" class="col-1"></div>
+
+      <div class="col-11 pb-2">
+
+        <div class="w-100 hover-pointer" *ngIf="timesheet.timesheetProviderStatus !== timesheetStatuses.SubmittedOffline;else offlineCaption">
+          <div class="text-overflow-ellipsis-submittedtime noselect" (click)="onToggleCard(timesheet.timesheetId)">
+            {{timesheet.workLocationName}}
+          </div>
+        </div>
+        <ng-template #offlineCaption>
+          <div class="w-100">
+            <div class="text-overflow-ellipsis-submittedtime noselect">
+              {{timesheet.workLocationName}}
+            </div>
+          </div>
+        </ng-template>
+        <div class="w-100">
+          {{timesheet.city}}, {{timesheet.state}} <br />
+          Recruiter: {{timesheet.recConsultantFirstName}} {{timesheet.recConsultantLastName}}<br />
+          <span class="timesheet-submittedtext-client">
+            <i class="far fa-calendar-alt"></i>
+            Submitted {{timesheet.timesheetProviderStatus === timesheetStatuses.SubmittedOffline?" Offline":""}}:
+            {{timesheet.submittedOn | date:"short"}}
+          </span>
+          <span class="timesheet-submittedtext-client" *ngIf="timesheet.timesheetDeclineHistory && timesheet.timesheetDeclineHistory.resubmittedOn">
+            <br /><i class="far fa-calendar-plus"></i>
+            Re-Submitted {{timesheet.timesheetDeclineHistory.resubmittedOn| date:"short"}}
+          </span>
+
+        </div><br />
+
+        <div class="w-100 border-top pt-3" id="summeryInfo-{{timesheet.timesheetId}}" *ngIf="getDisplayState()">
+
+          <div [innerHtml]="dynamicContent"></div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>

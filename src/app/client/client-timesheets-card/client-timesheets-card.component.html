@@ -1,0 +1,252 @@
+  <div class="row">
+    <div class="col-12">
+      <div class="text-muted w-100">
+        <h5>Week of {{getWeekOf(timesheet.firstOfWeek)}}</h5>
+      </div>
+    </div>
+  </div>
+  <div class="time-expense-card-box p-2">
+    <div class="row no-gutters">
+      <div class="col-1 hover-pointer pl-1 blue" *ngIf="timesheet.timesheetClientStatus != timesheetStatuses.ApprovedOffline" id="timesheetViewToggle-{{timesheet.timesheetId}}" (click)="onToggleCard(timesheet.timesheetId)">
+        <i [class]="getDisplayState()?'fa fa-minus-square':'fa fa-plus-square'"></i>
+      </div>
+
+      <div *ngIf="timesheet.timesheetClientStatus === timesheetStatuses.ApprovedOffline" class="col-1"></div>
+
+      <div class="col-11 pb-2">
+        <div class="w-100 hover-pointer" *ngIf="timesheet.timesheetClientStatus != timesheetStatuses.ApprovedOffline; else captionOffline">
+          <div id="timesheetViewToggleWl-{{timesheet.timesheetId}}" (click)="onToggleCard()">
+            <h5 class="row no-gutters">
+              <div class="col-7 text-overflow-ellipsis-submittedtime">
+                {{timesheet.providerFirstName}} {{timesheet.providerLastName}}
+              </div>
+              <div class="col-5 text-right pr-1">
+                <span class="timesheet-card-totalhrs pr-0">
+                  {{totalHours(timesheet) | number:'1.0-2'}} hrs
+                </span>
+              </div>
+            </h5>
+          </div>
+        </div>
+        <ng-template #captionOffline>
+          <div class="w-100">
+            <div class="text-overflow-ellipsis-submittedtime">
+              <h5 class="row no-gutters">
+                <div class="col-7">
+                  {{timesheet.providerFirstName}} {{timesheet.providerLastName}}
+                </div>
+                <div class="col-5 text-right pr-1">
+                  <span class="timesheet-card-totalhrs pr-0">
+                    {{totalHours(timesheet)}} hrs
+                  </span>
+                </div>
+              </h5>
+            </div>
+          </div>
+        </ng-template>
+
+        <div class="w-100 p-0 m-0">
+          <div id="timesheetViewToggle-@st.timesheetId" class="client-work-location text-left" data-bind="events: { click: timesheetToggle }">
+            {{timesheet.workLocationName}}
+          </div>
+        </div>
+
+        <div class="w-100 client-city-state">
+          {{timesheet.city}}, {{timesheet.state}} <br />
+          <span class="client-weekof-text">
+            Recruiter: {{timesheet.recConsultantFirstName}} {{timesheet.recConsultantLastName}}
+          </span><br />
+
+          <span class="timesheet-submittedtext-client" *ngIf="timesheet.timesheetClientStatus === timesheetStatuses.None || timesheet.timesheetClientStatus === timesheetStatuses.Approved">
+            <span class="timesheet-duedatetext-client">
+              <i class="far fa-calendar-check pr-1"></i>
+              <strong>Due: </strong>
+            </span>
+            <span class="timesheet-duedatetext-client mr-1"> {{timesheet.dueOn  | date:"shortDate"}}   </span><br />
+          </span>
+
+          <span class="timesheet-submittedtext-client" *ngIf="(!timesheet.timesheetDeclineHistory || !timesheet.timesheetDeclineHistory.resubmittedOn) && timesheet.timesheetClientStatus !== timesheetStatuses.Declined">
+            <i class="far fa-calendar-alt"></i>
+            <strong class="timesheet-submittedtext-client">
+              {{
+                      (timesheet.timesheetClientStatus === timesheetStatuses.ApprovedOffline)?
+                        "Submitted Offline: ": "Submitted: "
+              }}
+            </strong>
+            {{timesheet.submittedOn | date:"short"}}<br />
+          </span>
+
+          <!--Decline info-->
+          <ng-container *ngIf="timesheet.timesheetDeclineHistory; else noHistory">
+            <span class="text-danger">
+              <i class="timesheet-duedatetext-client fa fa-calendar-times-o"></i>
+              Declined:
+              <span class=" mr-1"> {{timesheet.timesheetDeclineHistory.declinedOn  | date:"short"}}   <br /></span>
+            </span>
+            <span class="timesheet-submittedtext-client" *ngIf="timesheet.timesheetDeclineHistory.resubmittedOn">
+              <i class="far fa-calendar-plus pr-1"></i>
+              <strong>Re-Submitted</strong>
+              {{timesheet.timesheetDeclineHistory.resubmittedOn| date:"short"}}<br />
+            </span>
+
+            <span class="timesheet-approvedtext-client" style="color:green" *ngIf="timesheet.timesheetClientStatus === timesheetStatuses.Approved">
+              <b>
+                <i class="far fa-calendar-alt"></i> Approved:
+                {{timesheet.reviewedOn | date:"short"}}
+              </b>
+            </span>
+
+
+            <div class="alert alert-danger border-danger mt-2">
+              <strong>Reason: </strong>{{timesheet.timesheetDeclineHistory.declineReason}}<br />
+              <strong>Comments: </strong>{{timesheet.timesheetDeclineHistory.reviewComment}}<br />
+              <span style="color: black">
+                <strong>Status: </strong>{{
+                      timesheet.timesheetClientStatus === timesheetStatuses.Declined?
+                        "Returned to contractor for correction":
+                        "Contractor re-submitted"
+                }}
+              </span>
+            </div>
+
+          </ng-container>
+          <ng-template #noHistory>
+            <span class="timesheet-approvedtext-client" style="color:green" *ngIf="timesheet.timesheetClientStatus === timesheetStatuses.Approved">
+              <b>
+                <i class="far fa-calendar-alt"></i> Approved:
+                {{timesheet.reviewedOn | date:"short"}}
+              </b>
+            </span>
+          </ng-template>
+
+
+        </div>
+        <br />
+        <div class="w-100 border-top border-info pt-3" id="summeryInfo-{{timesheet.timesheetId}}" *ngIf="getDisplayState()">
+
+
+          <div [innerHtml]="dynamicContent"></div>
+
+
+          <div *ngIf="timesheetStatus === timesheetStatuses.Pending">
+
+            <button [disabled]="getIsImpersonating()" class="btn btn-primary w-50 card-button-state text-overflow-ellipsis-button" (click)="onApproveTime(timesheet)">
+              <i class="fa fa-check pr-2"></i>Approve Time
+            </button>
+
+            <button class="btn btn-danger w-50 card-button-state text-overflow-ellipsis-button" (click)="onDeclineTime(timesheet)">
+              <i class="fa fa-times pr-2"></i>Decline Time
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+<!--Approve/decline dialog-->
+<kendo-dialog [title]="showDialog===dialogTypes.Approve?'Approve Timesheet':'Decline Timesheet'"
+              (close)="closeDialog()"
+              *ngIf="showDialog!==dialogTypes.None">
+
+  <form [formGroup]="form" class="atlas-dialog-form" >
+    <ng-container *ngIf="showDialog===dialogTypes.Decline">
+      <div class="w-100">
+        <p class="decline-dlg-info mb-3">
+          Please select a reason for not approving this timesheet and provide any details so the timesheet can be corrected.
+        </p>
+        <span class="required-star">*</span>
+        Decline Reason
+        <span class="ml-1 k-widget k-tooltip k-tooltip-validation k-invalid-msg field-validation-error" role="alert"
+              *ngIf="form.controls['declineReason'].hasError('innerPropertyRequired')  && wantDecline">
+          <span class="k-icon k-i-warning"> </span>Decline reason is required
+        </span>
+        <kendo-dropdownlist #dropList
+                            class="k-dropdown-wrap mb-3"
+                            [data]="declineReasons"
+                            [defaultItem]="defaultReason"
+                            [textField]="'text'"
+                            [valueField]="'value'"
+                            [id]="declRes"
+                            [valuePrimitive]="false"
+                            [formControlName]="'declineReason'"
+                            [popupSettings]="{popupClass:'reason-list'}"
+                            (open)="onOpenList()">
+
+          <ng-template kendoDropDownListItemTemplate let-dataItem>
+            <div [class]="'w-100 ' + (dataItem.value===declineReasons.length? 'decline-reasons-item-last' : 'border-bottom decline-reasons-item')">
+              <span *ngIf="dataItem.value">&#8226;</span> {{dataItem.text}}
+            </div>
+          </ng-template>
+
+        </kendo-dropdownlist>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="showDialog===dialogTypes.Decline">
+      <div class="w-100">
+        <span class="required-star" *ngIf="showDialog===dialogTypes.Decline">*</span>
+        Comments/Feedback {{showDialog===dialogTypes.Approve?" (optional)":""}}
+        <span class="ml-1 k-widget k-tooltip k-tooltip-validation k-invalid-msg field-validation-error" role="alert"
+              *ngIf="(form.controls['comment'].hasError('required')
+                || form.controls['comment'].hasError('whitespace'))
+                && wantDecline">
+          <span class="k-icon k-i-warning"> </span>Comment is required
+        </span>
+        <br />
+        <div class="form-group">
+          <textarea class="w-100 client-comment" formControlName="comment" maxlength="250"></textarea>
+        </div>
+      </div>
+    </ng-container>
+    <form  [formGroup]="imrForm" *ngIf="showDialog===dialogTypes.Decline && getIsImpersonating()">
+      <p>
+        Note: You are declining this timesheet on behalf of a client. Please enter the reason for the impersonation.
+      </p>
+      <div class="row">
+        <div class="col-12 mb-3">
+          <span class="required-star">*</span> Impersonation Reason
+          <ng-container *ngIf="imrForm?.controls?.reason?.errors"> 
+            <span *ngIf="(imrForm.controls['reason'].hasError('required')
+              || imrForm.controls['reason'].hasError('whitespace'))
+              && wantDecline" >
+              <span class="ml-1 k-widget k-tooltip k-tooltip-validation k-invalid-msg field-validation-error" role="alert">
+                <span class="k-icon k-i-warning"></span>Impersonation reason is required
+              </span>
+            </span>
+            <span *ngIf="(imrForm?.controls?.reason?.errors?.maxlength && imrForm?.controls?.reason?.touched)">
+              <span class="ml-1 k-widget k-tooltip k-tooltip-validation k-invalid-msg field-validation-error" role="alert">
+                <span class="k-icon k-i-warning"></span>Maximum 250 characters are allowed
+              </span>
+            </span>
+          </ng-container>
+          <input type="text" formControlName="reason" class="hide-input-clear input-group input-group-lg"/>
+                
+        </div>
+      </div>
+    </form>
+  </form>
+  <div class="alert alert-danger mb-0 mt-1" role="alert" *ngIf="showDialog===dialogTypes.Decline">
+    Please confirm that you want to decline this timesheet.
+  </div>
+  <div class="alert alert-primary mb-0 mt-1" role="alert" *ngIf="showDialog===dialogTypes.Approve">
+    By approving this, you are providing your electronic
+    signature that this completed and signed timesheet shall serve
+    as Contractors invoice for services rendered.
+  </div>
+
+  <kendo-dialog-actions class="mt-0">
+    <button kendoButton (click)="finishDecline()" primary="true" class="btn-decline"
+            [disabled]="dropList && dropList.isOpen"
+            *ngIf="showDialog===dialogTypes.Decline">
+      <i class="fa fa-times pr-2"></i>Decline Time
+    </button>
+    <button kendoButton (click)="finishApprove()" primary="true" class="btn-submit"
+            *ngIf="showDialog===dialogTypes.Approve">
+      <i class="fa fa-check pr-2"></i>Approve Time
+    </button>
+    <button kendoButton (click)="closeDialog()"
+            [disabled]="dropList && dropList.isOpen">Cancel</button>
+  </kendo-dialog-actions>
+</kendo-dialog>

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<testsuite name="HeadlessChrome 85.0.4182 (Windows 10.0.0)" package="" timestamp="2020-11-03T06:31:00" id="0" hostname="Lenovo" tests="17" errors="0" failures="0" time="0.725">
+  <properties>
+    <property name="browser.fullName" value="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/85.0.4182.0 Safari/537.36"/>
+  </properties>
+  <testcase name="ForgotPasswordCompleteComponent can load instance" time="0.084" classname="HeadlessChrome_85_0_4182_(Windows_10_0_0).ForgotPasswordCompleteComponent"/>
+  <testcase name="ForgotPasswordCompleteComponent serverSideErrors has default value" time="0.046" classname="HeadlessChrome_85_0_4182_(Windows_10_0_0).ForgotPasswordCompleteComponent"/>
+  <testcase name="ForgotPasswordCompleteComponent passwordSuccessfullyChanged has default value" time="0.035" classname="HeadlessChrome_85_0_4182_(Windows_10_0_0).ForgotPasswordCompleteComponent"/>
+  <testcase name="ForgotPasswordCompleteComponent submitAttempted has default value" time="0.037" classname="HeadlessChrome_85_0_4182_(Windows_10_0_0).ForgotPasswordCompleteComponent"/>
+  <testcase name="ForgotPasswordCompleteComponent ngOnInit makes expected calls" time="0.045" classname="HeadlessChrome_85_0_4182_(Windows_10_0_0).ForgotPasswordCompleteComponent ngOnInit"/>
+  <testcase name="ForgotPasswordCompleteComponent get email makes expected calls" time="0.031" classname="HeadlessChrome_85_0_4182_(Windows_10_0_0).ForgotPasswordCompleteComponent get email"/>
+  <testcase name="ForgotPasswordCompleteComponent get password makes expected calls" time="0.038" classname="HeadlessChrome_85_0_4182_(Windows_10_0_0).ForgotPasswordCompleteComponent get password"/>
+  <testcase name="ForgotPasswordCompleteComponent get confirmPassword makes expected calls" time="0.036" classname="HeadlessChrome_85_0_4182_(Windows_10_0_0).ForgotPasswordCompleteComponent get confirmPassword"/>
+  <testcase name="ForgotPasswordCompleteComponent onSubmit sucssess call back" time="0.039" classname="HeadlessChrome_85_0_4182_(Windows_10_0_0).ForgotPasswordCompleteComponent onSubmit"/>
+  <testcase name="ForgotPasswordCompleteComponent onSubmit error call back" time="0.039" classname="HeadlessChrome_85_0_4182_(Windows_10_0_0).ForgotPasswordCompleteComponent onSubmit"/>
+  <testcase name="ForgotPasswordCompleteComponent ngAfterViewInit makes expected calls" time="0.049" classname="HeadlessChrome_85_0_4182_(Windows_10_0_0).ForgotPasswordCompleteComponent ngAfterViewInit"/>
+  <testcase name="ForgotPasswordCompleteComponent ngAfterViewInit makes expected calls" time="0.067" classname="HeadlessChrome_85_0_4182_(Windows_10_0_0).ForgotPasswordCompleteComponent ngAfterViewInit"/>
+  <testcase name="ForgotPasswordCompleteComponent innerPropertyRequired makes expected calls" time="0.036" classname="HeadlessChrome_85_0_4182_(Windows_10_0_0).ForgotPasswordCompleteComponent innerPropertyRequired"/>
+  <testcase name="ForgotPasswordCompleteComponent matchingFields makes expected calls" time="0.036" classname="HeadlessChrome_85_0_4182_(Windows_10_0_0).ForgotPasswordCompleteComponent matchingFields"/>
+  <testcase name="ForgotPasswordCompleteComponent lessThan makes expected calls" time="0.032" classname="HeadlessChrome_85_0_4182_(Windows_10_0_0).ForgotPasswordCompleteComponent lessThan"/>
+  <testcase name="ForgotPasswordCompleteComponent greatThan makes expected calls" time="0.041" classname="HeadlessChrome_85_0_4182_(Windows_10_0_0).ForgotPasswordCompleteComponent greatThan"/>
+  <testcase name="ForgotPasswordCompleteComponent noWhitespaceRequired makes expected calls" time="0.034" classname="HeadlessChrome_85_0_4182_(Windows_10_0_0).ForgotPasswordCompleteComponent noWhitespaceRequired"/>
+  <system-out>
+    <![CDATA[
+]]>
+  </system-out>
+  <system-err/>
+</testsuite>

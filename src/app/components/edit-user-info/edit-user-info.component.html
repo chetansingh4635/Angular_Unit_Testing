@@ -1,0 +1,30 @@
+<ng-container *ngIf="userInfo">
+  <jclt-edit-user-info-subtitle [userInfo]="userInfo" [typeOfEditProfile]="inputData.typeOfEditProfile">
+  </jclt-edit-user-info-subtitle>
+  <form [formGroup]="form">
+    <div class="row">
+      <div class="col-12 mb-3">
+        <div *ngIf="email.invalid">
+          <span class="k-widget k-tooltip k-tooltip-validation k-invalid-msg field-validation-error" role="alert"
+                *ngIf="form.dirty && form.controls['email'].hasError('required')">
+            <span class="k-icon k-i-warning"> </span>Email is required
+          </span>
+          <span class="k-widget k-tooltip k-tooltip-validation k-invalid-msg field-validation-error" role="alert"
+                *ngIf="form.dirty && form.controls['email'].hasError('pattern')">
+            <span class="k-icon k-i-warning"> </span>Email is invalid
+          </span>
+        </div>
+        <input type="email"
+               (keyup)="updateEmail($event)"
+               maxlength="255"
+               formControlName="email"
+               class="hide-input-clear input-group input-group-lg">
+      </div>
+    </div>
+  </form>
+  <div class="row">
+    <div class="col-12">
+      Note: Modifying this email address only changes where you will receive contact emails. It will not affect your user login.
+    </div>
+  </div>
+</ng-container>

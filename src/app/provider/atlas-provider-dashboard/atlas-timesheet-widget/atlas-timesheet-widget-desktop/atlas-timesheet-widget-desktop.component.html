@@ -1,0 +1,93 @@
+<div>
+  <div>   
+    <div class="card atlas-card atlas-card-raised noScroll">
+      <div class="atlas-card-title-forward atlas-card-title-wrapper atlas-border-bottom-lg-0">
+        <h3 (click)="navigateToTimesheets('all')" class="atlas-card-title-xl">Time<i
+            class="fal fa-chevron-right float-right atlas-pr-2" aria-hidden="true"></i></h3>
+      </div>
+      <div class="row p-lg-3 atlas-white-bg atlas-lg-height-228 atlas-md-height-450">
+        <!-- START: If you have NO Timesheets -->
+        <div *ngIf="numCurrentDisplay+numDeclinedDisplay+numPastDisplay===0;" class="p-3 text-center mx-auto">
+          <p class="atlas-mb-2 mt-lg-4">You have no electronic timesheets
+            at this time.</p>
+          <i class="fas fa-clock fa-5x atlas-gray-text"></i>
+        </div>
+        <!-- End: If you have NO Timesheets -->
+
+        <!-- Declined TimeSheet -->
+        <div class="col-6" #cardContainer1 *ngFor="let declined of declinedTimesheet.slice(0,numDeclinedDisplay)">
+          <div (click)="declined.totalCount > 1 ? navigateToTimesheets('declined') : navigateToSelectedTimesheet(declined)" id="test" class="mr-lg-0  atlas-ie-vertical-center atlas-hover-danger-light atlas-min-height-90 
+                    atlas-border-right-lg-0 atlas-border-bottom-lg-0 atlas-cursor-pointer card atlas-card 
+                    atlas-card-sharp atlas-border-left-danger mb-lg-3" role="button">
+            <i aria-hidden="true" class="fal fa-chevron-right position-absolute atlas-right pr-2 pt-2"></i>
+            <div class="my-auto pl-3 pr-2"
+              *ngIf="declined.totalCount > 1; else declinedDetails">
+              <p class="atlas-mb-0 atlas-danger-text atlas-font-weight-semi-bold"> {{declined.totalCount }}
+                Declined Timesheets </p>
+            </div>
+            <ng-template #declinedDetails>
+              <div class="pl-3 pr-2 my-auto">
+                <p class="atlas-mb-0 atlas-font-weight-semi-bold w-75 text-truncate"> {{declined?.workLocationName}}
+                </p>
+                <p class="atlas-mb-0 atlas-danger-text atlas-font-weight-semi-bold"> Declined:
+                  {{declined.dueOn | date : 'MMMM dd'}} </p>
+                <p class="atlas-mb-0  w-75 text-truncate">Week of {{declined.firstOfWeek | date : 'MMM dd'}} -
+                  {{(declined.firstOfWeek | date : 'M') === (declined.lastOfWeek | date : 'M') ? (declined.lastOfWeek | date : 'dd') : (declined.lastOfWeek | date : 'MMM dd')}}
+                </p>
+              </div>
+            </ng-template>
+          </div>
+        </div>
+        <!-- Declined TimeSheet Ended-->
+
+        <!-- Past TimeSheet Started-->
+        <div class="col-6" #cardContainer2 *ngFor="let past of pastTimesheet.slice(0,numPastDisplay)">
+          <div (click)="past.totalCount > 1 ? navigateToTimesheets('past') : navigateToSelectedTimesheet(past)" id="test" class="atlas-ie-vertical-center atlas-hover-danger-light atlas-min-height-90     
+                        atlas-border-right-lg-0 atlas-border-bottom-lg-0 atlas-cursor-pointer card atlas-card     
+                       atlas-card-sharp atlas-border-left-danger mb-lg-3" role="button">
+            <i aria-hidden="true" class="fal fa-chevron-right position-absolute atlas-right pr-2 pt-2"></i>
+            <div class="my-auto pl-3 pr-2" *ngIf="past.totalCount > 1; else pastDetails">
+              <p class="atlas-mb-0 atlas-danger-text atlas-font-weight-semi-bold"> {{ past.totalCount }} Past Due
+                Timesheets </p>
+            </div>
+            <ng-template #pastDetails>
+              <div class="pl-3 pr-2 my-auto">
+                <p class="atlas-mb-0 atlas-font-weight-semi-bold w-75 text-truncate"> {{past?.workLocationName }} </p>
+                <p class="atlas-mb-0 atlas-danger-text atlas-font-weight-semi-bold"> Past Due:
+                  {{getDateDiff(today, past.dueOn)}} day(s) </p>
+                <p class="atlas-mb-0  w-75 text-truncate">Week of {{past.firstOfWeek | date : 'MMM dd'}} -
+                  {{(past.firstOfWeek | date : 'M') === (past.lastOfWeek | date : 'M') ? (past.lastOfWeek | date : 'dd') : (past.lastOfWeek | date : 'MMM dd')}}
+                </p>
+              </div>
+            </ng-template>
+          </div>
+        </div>
+        <!-- Past TimeSheet Ended-->
+
+        <!-- Current TimeSheet Started-->
+        <div class="col-6" #cardContainer
+          *ngFor="let current of currentTimesheets.slice(0,numCurrentDisplay);let i=index;">
+          <div (click)="navigateToSelectedTimesheet(current)"
+            class="atlas-cursor-pointer atlas-ie-vertical-center atlas-hover-success-light atlas-min-height-90 card atlas-card atlas-card-sharp atlas-border-left-success atlas-border-right-lg-0"
+            role="button">
+            <i aria-hidden="true" class="fal fa-chevron-right position-absolute atlas-right pr-2 pt-2"></i>
+            <div class="pl-3 pr-2 my-auto">
+              <p class="atlas-mb-0 atlas-font-weight-semi-bold w-75 text-truncate"> {{current?.workLocationName}} </p>
+              <p class="atlas-mb-0"><span class="atlas-font-weight-semi-bold">Due:</span>
+                {{current.dueOn | date : 'MMMM dd'}}</p>
+              <p class="atlas-mb-0  w-75 text-truncate">Week of {{current.firstOfWeek | date : 'MMM dd'}} -
+                {{(current.firstOfWeek | date : 'M') === (current.lastOfWeek | date : 'M') ? (current.lastOfWeek | date : 'dd') : (current.lastOfWeek | date : 'MMM dd')}}
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Current TimeSheet Ended-->
+      </div>
+      <div class="atlas-card-footer bg-white text-center" *ngIf="total > 4">
+        <p class="atlas-mb-0">
+          <a routerLink="/provider/timesheetList/Current"  class="atlas-link float-none">
+            {{total - currentTimesheets.length - numDeclinedDisplay - numPastDisplay }} More Timesheets </a></p>
+      </div>
+    </div>
+  </div>
+</div>

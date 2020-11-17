@@ -1,0 +1,41 @@
+<div class="atlas-sidebar position-fixed" [ngClass]="{'atlas-mini-sidebar': data.navExpanded, 'atlas-sidebar-modal':data.navExpandedMobile}">
+  <div class="atlas-nav-wrapper position-relative">
+    <nav class="atlas-sidebar-nav">
+      <p class="atlas-nav-subtitle">Menu</p>
+      <ul class="list-unstyled">
+        <ng-container *ngFor="let menuItem of menuItems; let i = index">
+          <li [ngClass]="{'atlas-nav-menu-lg-link': menuItem.title.length > 14}" *ngIf="!menuItem.subMenu && (menuItem.showByContext)"
+              class="atlas-nav-list-item" routerLinkActive="active">
+            <a [routerLink]="[menuItem.path]" class="atlas-nav-link" (click)="navLink()">
+              <i class="atlas-nav-link-icon atlas-jc-blue-text {{menuItem.icon}}"></i>
+              <span [ngClass]="{'atlas-ml-6': isDesktop && i === 4, 'atlas-ml-5' : isDesktop && i === 5}" class="atlas-nav-link-text">{{menuItem.title}}</span>
+            </a>
+          </li>
+          <ng-container *ngIf="menuItem.subMenu && (menuItem.showByContext)">
+            <!-- What if I need is a list item that opens to a submenu of children navigation? Uncomment the code below -->
+            <li class="atlas-nav-list-item atlas-nav-sub-menu-link" routerLinkActive="active">
+              <a href="#" role="button" class="atlas-nav-link" data-toggle="collapse" [attr.data-target]="'#' + menuItem.title"
+                 [attr.aria-controls]="menuItem.title" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="atlas-nav-link-icon atlas-jc-blue-text far fa-ruler-combined"></i>
+                <span class="atlas-nav-link-text">{{menuItem.title}}</span>
+              </a>
+            </li>
+            <!-- Clicking the above list item will display the below submenu -->
+            <ul class="list-unstyled atlas-nav-submenu collapse" [id]="menuItem.title">
+              <ng-container *ngFor="let subMenuItem of subMenuItems;">
+                <li *ngIf="subMenuItem.id === menuItem.title" class="atlas-nav-submenu-list-item py-2 pl-3" routerLinkActive="active">
+                  <a [routerLink]="[subMenuItem.path]" class="atlas-smallest-text">
+                    <span class="atlas-ml-13">{{subMenuItem.title}}</span>
+                  </a>
+                </li>
+              </ng-container>
+            </ul>
+            <!-- End of the submenu the above list item will display the below submenu -->
+          </ng-container>
+        </ng-container>
+      </ul>
+      <jclt-support-navigation></jclt-support-navigation>
+    </nav>
+  </div>
+</div>
+<div class="atlas-sidebar-overlay" *ngIf="data.navExpandedMobile"></div>

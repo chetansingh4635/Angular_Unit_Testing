@@ -1,0 +1,340 @@
+<div id="createExpenseContent">
+  <div class="row pb-3">
+    <div class="col-12">
+      <h5 class="create-expense-header">
+        {{isNewExpenses ? "Create New" : "Update"}} Expense
+      </h5>
+    </div>
+  </div>
+
+  <form [formGroup]="form">
+    <div formArrayName="expense" class="row ml-0 mr-0">
+      <div *ngIf="errorList" class="col-12 no-gutters">
+        <div class="w-100 text-center text-danger">
+          <ul>
+            <li class="error-message col-12" *ngFor="let error of errorList">{{error}}</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="w-100 k-widget k-listview" *ngFor="let exp of expenseControl.controls; let i = index" [formGroupName]="i">
+
+        <div class="row p-3" style="position: relative;">
+
+          <div class="icon-expense undo-expense">
+            <i class="fa fa-undo hover-pointer ml-2"
+               (click)="isImpersonating ? null : onRefreshClick(i)"
+               [ngClass]="{'atlas-card-disable': isImpersonating}"></i>
+          </div>
+
+          <div class="icon-expense cancel-expense text-danger" *ngIf="!isNewExpenses">
+            <i class="fa hover-pointer fa-trash"
+               (click)="onTrashClick(i)"></i>
+          </div>
+
+          <div class="m-2 col-11">
+            <label [for]="'work-location-' + i" class="create-expense-labels pr-1"><span class="required-star">*</span> Work location </label>
+
+            <span class="k-widget k-tooltip k-tooltip-validation k-invalid-msg field-validation-error" role="alert"
+                  *ngIf="exp.hasError('innerPropertyRequired', ['workLocation'])">
+              <span class="k-icon k-i-warning"> </span> Select Work Location
+            </span>
+            <span class="work-location-missing p-sm-4">
+              (If you don't see the correct work location please contact your recruiter)
+            </span>
+            <span title="" class="k-widget k-dropdown k-header w-100">
+              <kendo-dropdownlist class="k-dropdown-wrap"
+                                  [ngClass]="{'atlas-card-disable': isImpersonating}"
+                                  [data]="workLocationDropDownData"
+                                  [defaultItem]="{text: 'Select work location …', value: null}"
+                                  [textField]="'text'"
+                                  [valueField]="'value'"
+                                  [id]="'work-location-' + i"
+                                  [valuePrimitive]="false"
+                                  [formControlName]="'workLocation'"
+                                  (valueChange)="onWorkLocationChange($event)">
+              </kendo-dropdownlist>
+            </span>
+          </div>
+
+          <div class="m-2 col-11">
+            <label [for]="'expense-type-' + i" class="create-expense-labels pr-1"><span class="required-star">*</span> Expense type </label>
+
+            <span class="k-widget k-tooltip k-tooltip-validation k-invalid-msg field-validation-error" role="alert"
+                  *ngIf="exp.hasError('innerPropertyRequired', ['expenseType'])">
+              <span class="k-icon k-i-warning"> </span> Select Expense Type
+            </span>
+
+            <span title="" class="k-widget k-dropdown k-header w-100">
+              <kendo-dropdownlist class="k-dropdown-wrap"
+                                  [ngClass]="{'atlas-card-disable': isImpersonating}"
+                                  [data]="expenseTypes"
+                                  [defaultItem]="{text: 'Select expense type …', value: null}"
+                                  [textField]="'text'"
+                                  [valueField]="'value'"
+                                  [id]="'expense-type-' + i"
+                                  [valuePrimitive]="false"
+                                  [formControlName]="'expenseType'">
+              </kendo-dropdownlist>
+            </span>
+          </div>
+
+          <div class="m-2 col-11 row">
+            <!-- Date From and To -->
+            <div class="col-md-6 pl-0 pr-1">
+              <label [for]="'from' + i" class="create-expense-labels pr-1"><span class="required-star">*</span> From Date </label>
+              <span class="k-widget k-tooltip k-tooltip-validation k-invalid-msg field-validation-error"
+                    *ngIf="exp.hasError('required', ['from']) && wantToSubmit">
+                <span class="k-icon k-i-warning ml-1 mr-0"></span>
+                Field is required
+              </span>
+              <span class="k-widget k-tooltip k-tooltip-validation k-invalid-msg field-validation-error"
+                    *ngIf="!exp.hasError('required', ['from']) && exp.hasError('lessThan', ['from'])">
+                <span class="k-icon k-i-warning ml-1 mr-0"></span>
+                Should be before {{maxDate | date}}
+              </span>
+              <span class="k-widget k-tooltip k-tooltip-validation k-invalid-msg field-validation-error"
+                    *ngIf="!exp.hasError('required', ['from']) && exp.hasError('greatThan', ['from'])">
+                <span class="k-icon k-i-warning ml-1 mr-0"></span>
+                Should be after {{minDate | date}}
+              </span>
+              <span class="k-widget k-datepicker k-header w-100" [ngClass]="{'atlas-card-disable': isImpersonating}">
+                <kendo-datepicker #dateKendo1
+                                  class="k-picker-wrap"
+                                  [popupSettings]="{ animate: !isIe(), popupClass:'timePickerPopup'  }"
+                                  [navigation]="false"
+                                  [formControlName]="'from'"
+                                  [id]="'from' + i"
+                                  [min]="minDate"
+                                  [max]="maxDate"
+                                  (valueChange)="onDateChange(dateKendo1,'from',i)"
+                                  (open)="onKendoOpen()"
+                                  (close)="onKendoClose()"
+                                  required>
+                </kendo-datepicker>
+                <div class="kendoOverlay" *ngIf="isMobile"
+                     (click)="isImpersonating ? null : onOverlayClick(dateKendo1)">
+                </div>
+              </span>
+            </div>
+
+            <div class="col-md-6 pl-0 pr-1">
+              <label [for]="'to' + i" class="create-expense-labels pr-1"><span class="required-star">*</span> To Date </label>
+              <span class="k-widget k-tooltip k-tooltip-validation k-invalid-msg field-validation-error"
+                    *ngIf="exp.hasError('required', ['to']) && wantToSubmit">
+                <span class="k-icon k-i-warning ml-1 mr-0"></span>
+                Field is required
+              </span>
+              <span class="k-widget k-tooltip k-tooltip-validation k-invalid-msg field-validation-error"
+                    *ngIf="!exp.hasError('required', ['to']) && exp.hasError('lessThan', ['to'])">
+                <span class="k-icon k-i-warning ml-1 mr-0"></span>
+                Should be before {{maxDate | date}}
+              </span>
+              <span class="k-widget k-tooltip k-tooltip-validation k-invalid-msg field-validation-error"
+                    *ngIf="!exp.hasError('required', ['to']) && exp.hasError('greatThan', ['to'])">
+                <span class="k-icon k-i-warning ml-1 mr-0"></span>
+                Should be after {{minDate | date}}
+              </span>
+              <span class="k-widget k-tooltip k-tooltip-validation k-invalid-msg field-validation-error"
+                    *ngIf="!exp.hasError('required', ['to']) && exp.errors && exp.errors['dates']">
+                <span class="k-icon k-i-warning ml-1 mr-0"></span>
+                {{exp.errors['dates']}}
+              </span>
+              <span class="k-widget k-tooltip k-tooltip-validation k-invalid-msg field-validation-error"
+                    *ngIf="exp.errors && exp.errors['calendarDayIds']">
+                <span class="k-icon k-i-warning ml-1 mr-0"></span>
+                {{exp.errors['calendarDayIds']}}
+              </span>
+              <span class="k-widget k-datepicker k-header w-100" [ngClass]="{'atlas-card-disable': isImpersonating}">
+                <kendo-datepicker #dateKendo2
+                                  class="k-picker-wrap"
+                                  [popupSettings]="{ animate: !isIe(), popupClass:'timePickerPopup'  }"
+                                  [navigation]="false"
+                                  [formControlName]="'to'"
+                                  [id]="'to' + i"
+                                  [min]="minDate"
+                                  [max]="maxDate"
+                                  (valueChange)="onDateChange(dateKendo2,'to',i)"
+                                  (open)="onKendoOpen()"
+                                  (close)="onKendoClose()"
+                                  required>
+                </kendo-datepicker>
+                <div class="kendoOverlay" *ngIf="isMobile"
+                     (click)="isImpersonating ? null : onOverlayClick(dateKendo2)">
+                </div>
+              </span>
+            </div>
+          </div>
+          <!-- Total Amount -->
+          <div class="m-2 col-11">
+            <label [for]="'totalAmount' + i" class="create-expense-labels pr-1">
+              <span class="required-star">*</span> {{
+getVerboseTotalAmountName(exp['controls']['expenseType'].value.value)
+              }}
+            </label>
+
+            <span class="k-widget k-tooltip k-tooltip-validation k-invalid-msg field-validation-error"
+                  *ngIf="exp.hasError('required', ['totalAmount']) && wantToSubmit">
+              <span class="k-icon k-i-warning"> </span>
+              Field is required
+            </span>
+            <span class="k-widget k-tooltip k-tooltip-validation k-invalid-msg field-validation-error"
+                  *ngIf="exp.hasError('min', ['totalAmount'])">
+              <span class="k-icon k-i-warning"> </span>
+              Must not be lower than {{minAmount}}
+            </span>
+            <span class="k-widget k-tooltip k-tooltip-validation k-invalid-msg field-validation-error"
+                  *ngIf="exp.hasError('max', ['totalAmount'])">
+              <span class="k-icon k-i-warning"> </span>
+              Must not be higher than {{maxAmount}}
+            </span>
+
+            <span class="k-widget k-numerictextbox w-100" [ngClass]="{'atlas-card-disable': isImpersonating}">
+              <kendo-numerictextbox class="k-numeric-wrap"
+                                    [ngClass]="{'atlas-card-disable': isImpersonating}"
+                                    [format]="getTotalAmountFormat(exp['controls']['expenseType'].value.value)"
+                                    [formControlName]="'totalAmount'"
+                                    [id]="'totalAmount' + i"
+                                    [min]="minAmount"
+                                    [max]="maxAmount"
+                                    (blur)="fixTotalAmount(i)">
+              </kendo-numerictextbox>
+            </span>
+
+          </div>
+
+          <div class="m-2 col-11">
+
+            <label class="create-expense-labels pr-1"><span class="required-star">*</span> Upload Receipt</label>
+            <span class="k-widget k-tooltip k-tooltip-validation k-invalid-msg field-validation-error"
+                  *ngIf="exp.errors && exp.errors['filesRequired'] && wantToSubmit">
+              <span class="k-icon k-i-warning"> </span>
+              A receipt is required to submit expenses
+            </span>
+            <span class="w-100" [ngClass]="{'atlas-card-disable': isImpersonating}">
+              <kendo-upload [saveUrl]="uploadSaveUrl + '?unsavedId=' + exp.get('unsavedId').value"
+                            [ngClass]="{'atlas-card-disable': isImpersonating}"
+                            [removeUrl]="uploadRemoveUrl"
+                            [id]="'uploadedFiles' + i"
+                            [formControlName]="'uploadedFiles'"
+                            [withCredentials]="true"
+                            (upload)="onDocumentUploadHandler($event)"
+                            (remove)="onDocumentRemoveHandler($event, exp.get('unsavedId').value)">
+              </kendo-upload>
+            </span>
+          </div>
+          <div class="card-divider-light"></div>
+        </div>
+
+      </div>
+    </div>
+
+    <div id="expense-controls" class="row p-1">
+      <div class="col-6 text-center">
+        <div class="row justify-content-center">
+          <div id="add-expense" class="text-primary text-center hover-pointer"
+               *ngIf="canAddExpense"
+               (click)="isImpersonating ? null : onAddExpense()"
+               [ngClass]="{'atlas-card-disable':isImpersonating}">
+            <i class="fa fa-plus-circle fa-lg"></i> <br>
+            <span class="text-underline">Add expense</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 text-center">
+        <div class="row justify-content-center">
+          <div class="text-secondary text-center hover-pointer" [ngClass]="{'atlas-card-disable':isImpersonating}" (click)="isImpersonating ? null : onCancelExpense()">
+            <span class="text-black-50">
+              <i class="fa fa-times-circle fa-lg"></i><br>
+              <span class="text-underline">Cancel</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </form>
+
+  <div class="create-expense-button-divider"></div>
+
+
+  <div class="row text-center">
+    <div class="col w-75">
+      <button [disabled]="isImpersonating" class="btn btn-primary expense-edit-button text-overflow-ellipsis-button"
+              [ngClass]="{'atlas-card-disable': isImpersonating}" (click)="isImpersonating ? null : onSaveForm(isNewExpenses ? 2 : 0)">
+        <i class="fa fa-floppy-o pr-1"></i>Save
+      </button>
+    </div>
+
+    <ng-container *ngIf="!isNewExpenses">
+      <div class="col w-75 display-wide-screen">
+        <button [disabled]="isImpersonating || !prevExpenseId" class="btn btn-primary expense-edit-button text-overflow-ellipsis-button"
+                [ngClass]="{'atlas-card-disable': isImpersonating}" (click)="isImpersonating ? null : onSaveForm(-1)">
+          <i class="fa fa-floppy-o pr-1"></i>Save & Previous
+        </button>
+      </div>
+      <div class="col w-75 display-wide-screen">
+        <button [disabled]="isImpersonating || !nextExpenseId" class="btn btn-primary expense-edit-button text-overflow-ellipsis-button"
+                [ngClass]="{'atlas-card-disable': isImpersonating}" (click)="isImpersonating ? null : onSaveForm(1)">
+          <i class="fa fa-floppy-o pr-1"></i>Save & Next
+        </button>
+      </div>
+    </ng-container>
+
+    <div class="col w-75">
+      <button [disabled]="isImpersonating" class="btn btn-success expense-edit-button text-overflow-ellipsis-button"
+              [ngClass]="{'atlas-card-disable': isImpersonating}" (click)="isImpersonating ? null : onSubmitForm()">
+        <i class="fa fa-check pr-1"></i>Submit
+      </button>
+    </div>
+  </div>
+
+  <div class="mt-2 display-narrow-screen" *ngIf="!isNewExpenses">
+    <div class="row text-center">
+      <div class="col w-75">
+        <button [disabled]="isImpersonating || !prevExpenseId" class="btn btn-primary expense-edit-button text-overflow-ellipsis-button"
+                [ngClass]="{'atlas-card-disable': isImpersonating}" (click)="isImpersonating ? null : onSaveForm(-1)">
+          <i class="fa fa-floppy-o pr-1"></i>Save & Previous
+        </button>
+      </div>
+      <div class="col w-75">
+        <button [disabled]="isImpersonating || !nextExpenseId" class="btn btn-primary expense-edit-button text-overflow-ellipsis-button"
+                [ngClass]="{'atlas-card-disable': isImpersonating}" (click)="isImpersonating ? null : onSaveForm(1)">
+          <i class="fa fa-floppy-o pr-1"></i>Save & Next
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+<!--Confirm Delete dialog-->
+<kendo-dialog title="Confirm Delete" *ngIf="showDialog===dialogTypes.Delete" (close)="closeDialog()">
+  <p class="dialog-text">Are you sure you want to delete this expense entry?</p>
+  <kendo-dialog-actions>
+    <button kendoButton (click)="closeDialog();removeExpense();" primary="true">OK</button>
+    <button kendoButton (click)="closeDialog()">Cancel</button>
+  </kendo-dialog-actions>
+</kendo-dialog>
+
+<!--Confirm Submit dialog-->
+<kendo-dialog title="Confirm Submit" *ngIf="showDialog===dialogTypes.Submit" (close)="closeDialog()">
+  <p class="dialog-text">Are you sure you want to submit this expense entry?</p>
+  <kendo-dialog-actions>
+    <button kendoButton (click)="closeDialog();continueSubmit();" primary="true">OK</button>
+    <button kendoButton (click)="closeDialog()">Cancel</button>
+  </kendo-dialog-actions>
+</kendo-dialog>
+
+<!--Confirm Cancel dialog-->
+<kendo-dialog title="Confirm Canceling" *ngIf="showDialog===dialogTypes.Cancel" (close)="closeDialog()">
+  <p class="dialog-text">Are you sure you want to navigate away? Your changes have not been saved!</p>
+  <kendo-dialog-actions>
+    <button kendoButton (click)="closeDialog();continueCancel();" primary="true">OK</button>
+    <button kendoButton (click)="closeDialog()">Cancel</button>
+  </kendo-dialog-actions>
+</kendo-dialog>
+
+<div class="tne-kendo-shadow" *ngIf="datePickerOpenMobile" (click)="onClickKendoShadow()"></div>

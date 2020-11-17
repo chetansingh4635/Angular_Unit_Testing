@@ -1,0 +1,74 @@
+<div class="dayoftheweek-divider p-1">
+
+  <div class="row">
+    <div class="col-md-6 form-group">
+      <label [for]="'start-time-picker-' + timesheetDetail.timesheetDetailId" class="required-value">
+        <span class="required-star">*</span> Start Time
+      </label>
+      <jclt-time-combo
+        [id]="'start-time-picker-' + timesheetDetail.timesheetDetailId"
+        [value]="timesheetDetail.startTime"
+        [steps]="timepickerSteps"
+        (valueChange)="onStartTimeChange($event)">
+      </jclt-time-combo>
+      <p class="error-message" *ngFor="let errorMessage of errors['startTime']">
+        {{errorMessage}}
+      </p>
+    </div>
+
+    <div class="col-md-6 form-group">
+      <label [for]="'end-time-picker-' + timesheetDetail.timesheetDetailId" class="required-value">
+        <span class="required-star">*</span> End Time
+      </label>
+      <jclt-time-combo
+        [id]="'end-time-picker-' + timesheetDetail.timesheetDetailId"
+        [value]="timesheetDetail.endTime"
+        [steps]="timepickerSteps"
+        (valueChange)="onEndTimeChange($event)">
+      </jclt-time-combo>
+
+      <p class="error-message" *ngFor="let errorMessage of errors['endTime']">
+        {{errorMessage}}
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 form-group">
+      <label>
+        Break Total Hours
+      </label>
+      
+      <br>
+      <jclt-range-dropdown [steps]="0.25" [from]="0" [to]="totalHoursWithoutBreak"
+                           [value]="timesheetDetail.breakTotalHours"
+                           [disabled]="!canSelectDuration"
+                           (onDropDownChangeValue)="onBreakTotalHoursChange($event)">
+      </jclt-range-dropdown>
+      <p class="error-message" *ngFor="let errorMessage of errors['breakTotalHours']">
+        {{errorMessage}}
+      </p>
+    </div>
+    <div class="col-md-6 form-group">
+      <label class="required-value">
+        <span class="required-star">*</span> Total Patient Contact Hours
+      </label>
+      <br>
+      <jclt-range-dropdown [steps]="0.25" [from]="0" [to]="totalHours"
+                           [disabled]="!canSelectDuration" [value]="timesheetDetail.totalPatientHours"
+                           (onDropDownChangeValue)="onTotalPatientHoursChange($event)">
+      </jclt-range-dropdown>
+      <p class="error-message" *ngFor="let errorMessage of errors['totalPatientHours']">
+        {{errorMessage}}
+      </p>
+    </div>
+  </div>
+
+  <div class="col-12 text-center pt-4">
+    <span class="totalhourstext-edittime">Total Hours</span>
+    <div class="totalhoursamount-edittime py-0">
+      {{totalHoursString}}
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,498 @@
+<?xml version="1.0"?>
+<testsuite name="Chrome 85.0.4183 (Windows 10.0.0)" package="" timestamp="2020-09-24T11:43:40" id="0" hostname="Lenovo" tests="476" errors="0" failures="1" time="20.061">
+  <properties>
+    <property name="browser.fullName" value="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36"/>
+  </properties>
+  <testcase name="AdminDashboardComponent can load instance" time="0.332" classname="Chrome_85_0_4183_(Windows_10_0_0).AdminDashboardComponent"/>
+  <testcase name="AdminRoutingModule can load instance" time="0.006" classname="Chrome_85_0_4183_(Windows_10_0_0).AdminRoutingModule"/>
+  <testcase name="AdminUserCreateComponent can load instance" time="0.073" classname="Chrome_85_0_4183_(Windows_10_0_0).AdminUserCreateComponent"/>
+  <testcase name="AdminUserCreateComponent ngOnInit makes expected calls" time="0.05" classname="Chrome_85_0_4183_(Windows_10_0_0).AdminUserCreateComponent ngOnInit"/>
+  <testcase name="UserLookupService can load instance" time="0.01" classname="Chrome_85_0_4183_(Windows_10_0_0).UserLookupService"/>
+  <testcase name="UserImpersonationComponent can load instance" time="0.037" classname="Chrome_85_0_4183_(Windows_10_0_0).UserImpersonationComponent"/>
+  <testcase name="UserImpersonationComponent users has default value" time="0.033" classname="Chrome_85_0_4183_(Windows_10_0_0).UserImpersonationComponent"/>
+  <testcase name="UserImpersonationComponent searchResults has default value" time="0.042" classname="Chrome_85_0_4183_(Windows_10_0_0).UserImpersonationComponent"/>
+  <testcase name="UserImpersonationComponent isSubmittedError has default value" time="0.066" classname="Chrome_85_0_4183_(Windows_10_0_0).UserImpersonationComponent"/>
+  <testcase name="UserImpersonationComponent ngOnInit makes expected calls" time="0.035" classname="Chrome_85_0_4183_(Windows_10_0_0).UserImpersonationComponent ngOnInit"/>
+  <testcase name="UserImpersonationComponent searchByUserName makes expected calls" time="0.022" classname="Chrome_85_0_4183_(Windows_10_0_0).UserImpersonationComponent searchByUserName"/>
+  <testcase name="ClientApprovedTimesheetsComponent can load instance" time="0.019" classname="Chrome_85_0_4183_(Windows_10_0_0).ClientApprovedTimesheetsComponent"/>
+  <testcase name="ClientDeclinedTimesheetsComponent can load instance" time="0.01" classname="Chrome_85_0_4183_(Windows_10_0_0).ClientDeclinedTimesheetsComponent"/>
+  <testcase name="ClientTimesheetsCardComponent can load instance" time="0.093" classname="Chrome_85_0_4183_(Windows_10_0_0).ClientTimesheetsCardComponent"/>
+  <testcase name="ClientTimesheetsCardComponent showDetails has default value" time="0.119" classname="Chrome_85_0_4183_(Windows_10_0_0).ClientTimesheetsCardComponent"/>
+  <testcase name="ClientTimesheetsCardComponent wantDecline has default value" time="0.073" classname="Chrome_85_0_4183_(Windows_10_0_0).ClientTimesheetsCardComponent"/>
+  <testcase name="ClientTimesheetsCardComponent dialogTypes has default value" time="0.103" classname="Chrome_85_0_4183_(Windows_10_0_0).ClientTimesheetsCardComponent"/>
+  <testcase name="ClientTimesheetsCardComponent showDialog has default value" time="0.082" classname="Chrome_85_0_4183_(Windows_10_0_0).ClientTimesheetsCardComponent"/>
+  <testcase name="ClientTimesheetsCardComponent scrollPos has default value" time="0.499" classname="Chrome_85_0_4183_(Windows_10_0_0).ClientTimesheetsCardComponent"/>
+  <testcase name="ClientTimesheetsCardComponent ngOnInit makes expected calls" time="0.096" classname="Chrome_85_0_4183_(Windows_10_0_0).ClientTimesheetsCardComponent ngOnInit"/>
+  <testcase name="ClientTimesheetsCardComponent getIsImpersonating makes expected calls" time="0.114" classname="Chrome_85_0_4183_(Windows_10_0_0).ClientTimesheetsCardComponent getIsImpersonating"/>
+  <testcase name="ClientUnapprovedTimesheetsComponent can load instance" time="0.026" classname="Chrome_85_0_4183_(Windows_10_0_0).ClientUnapprovedTimesheetsComponent"/>
+  <testcase name="ClientModule can load instance" time="0.005" classname="Chrome_85_0_4183_(Windows_10_0_0).ClientModule"/>
+  <testcase name="FaqComponent can load instance" time="0.758" classname="Chrome_85_0_4183_(Windows_10_0_0).FaqComponent"/>
+  <testcase name="DashboardTimesheetService can load instance" time="0.008" classname="Chrome_85_0_4183_(Windows_10_0_0).DashboardTimesheetService"/>
+  <testcase name="DashboardTimesheetService getDashboardTimesheets makes expected calls" time="0.014" classname="Chrome_85_0_4183_(Windows_10_0_0).DashboardTimesheetService getDashboardTimesheets"/>
+  <testcase name="ReviewedTimesheetService when getTimesheetListByClientStatus is called it should" time="0.001" classname="Chrome_85_0_4183_(Windows_10_0_0).ReviewedTimesheetService"/>
+  <testcase name="ReviewedTimesheetService when setTimeStatus is called it should" time="0" classname="Chrome_85_0_4183_(Windows_10_0_0).ReviewedTimesheetService"/>
+  <testcase name="ForgotPasswordCompleteComponent can load instance" time="0.068" classname="Chrome_85_0_4183_(Windows_10_0_0).ForgotPasswordCompleteComponent"/>
+  <testcase name="ForgotPasswordCompleteComponent serverSideErrors has default value" time="0.908" classname="Chrome_85_0_4183_(Windows_10_0_0).ForgotPasswordCompleteComponent"/>
+  <testcase name="ForgotPasswordCompleteComponent passwordSuccessfullyChanged has default value" time="0.042" classname="Chrome_85_0_4183_(Windows_10_0_0).ForgotPasswordCompleteComponent"/>
+  <testcase name="ForgotPasswordCompleteComponent submitAttempted has default value" time="0.036" classname="Chrome_85_0_4183_(Windows_10_0_0).ForgotPasswordCompleteComponent"/>
+  <testcase name="ForgotPasswordCompleteComponent ngOnInit makes expected calls" time="0.034" classname="Chrome_85_0_4183_(Windows_10_0_0).ForgotPasswordCompleteComponent ngOnInit"/>
+  <testcase name="ForgotPasswordCompleteComponent onSubmit makes expected calls" time="0.047" classname="Chrome_85_0_4183_(Windows_10_0_0).ForgotPasswordCompleteComponent onSubmit"/>
+  <testcase name="ForgotPasswordComponent can load instance" time="0.023" classname="Chrome_85_0_4183_(Windows_10_0_0).ForgotPasswordComponent"/>
+  <testcase name="ForgotPasswordComponent passwordSuccessfullySubmitted has default value" time="0.028" classname="Chrome_85_0_4183_(Windows_10_0_0).ForgotPasswordComponent"/>
+  <testcase name="ForgotPasswordComponent submitAttempted has default value" time="0.787" classname="Chrome_85_0_4183_(Windows_10_0_0).ForgotPasswordComponent"/>
+  <testcase name="ForgotPasswordComponent ngOnInit makes expected calls" time="0.019" classname="Chrome_85_0_4183_(Windows_10_0_0).ForgotPasswordComponent ngOnInit"/>
+  <testcase name="ResendPdfComponent can load instance" time="0.031" classname="Chrome_85_0_4183_(Windows_10_0_0).ResendPdfComponent"/>
+  <testcase name="ResendPdfComponent isSuccessfullyResent has default value" time="0.017" classname="Chrome_85_0_4183_(Windows_10_0_0).ResendPdfComponent"/>
+  <testcase name="ResendPdfComponent submitAttempted has default value" time="0.022" classname="Chrome_85_0_4183_(Windows_10_0_0).ResendPdfComponent"/>
+  <testcase name="ResendPdfComponent ngOnInit makes expected calls" time="0.019" classname="Chrome_85_0_4183_(Windows_10_0_0).ResendPdfComponent ngOnInit"/>
+  <testcase name="ResetPasswordComponent can load instance" time="0.892" classname="Chrome_85_0_4183_(Windows_10_0_0).ResetPasswordComponent"/>
+  <testcase name="ResetPasswordComponent submitAttempted has default value" time="0.052" classname="Chrome_85_0_4183_(Windows_10_0_0).ResetPasswordComponent"/>
+  <testcase name="ResetPasswordComponent ngOnInit makes expected calls" time="0.069" classname="Chrome_85_0_4183_(Windows_10_0_0).ResetPasswordComponent ngOnInit"/>
+  <testcase name="ResetPasswordComponent onSubmit makes expected calls" time="0.042" classname="Chrome_85_0_4183_(Windows_10_0_0).ResetPasswordComponent onSubmit"/>
+  <testcase name="AtlasFooterComponent can load instance" time="0.007" classname="Chrome_85_0_4183_(Windows_10_0_0).AtlasFooterComponent"/>
+  <testcase name="AtlasFooterComponent isUserLoggedIn has default value" time="0.008" classname="Chrome_85_0_4183_(Windows_10_0_0).AtlasFooterComponent"/>
+  <testcase name="AdminNavigationComponent can load instance" time="0.819" classname="Chrome_85_0_4183_(Windows_10_0_0).AdminNavigationComponent"/>
+  <testcase name="AdminNavigationComponent reload has default value" time="0.026" classname="Chrome_85_0_4183_(Windows_10_0_0).AdminNavigationComponent"/>
+  <testcase name="AdminNavigationComponent isDesktop has default value" time="0.034" classname="Chrome_85_0_4183_(Windows_10_0_0).AdminNavigationComponent"/>
+  <testcase name="AdminNavigationComponent providerHasWorkLocations has default value" time="0.022" classname="Chrome_85_0_4183_(Windows_10_0_0).AdminNavigationComponent"/>
+  <testcase name="AdminNavigationComponent isMobile has default value" time="0.023" classname="Chrome_85_0_4183_(Windows_10_0_0).AdminNavigationComponent"/>
+  <testcase name="AdminNavigationComponent width has default value" time="0.016" classname="Chrome_85_0_4183_(Windows_10_0_0).AdminNavigationComponent"/>
+  <testcase name="AdminNavigationComponent height has default value" time="0.036" classname="Chrome_85_0_4183_(Windows_10_0_0).AdminNavigationComponent"/>
+  <testcase name="AdminNavigationComponent mobileWidth has default value" time="0.047" classname="Chrome_85_0_4183_(Windows_10_0_0).AdminNavigationComponent"/>
+  <testcase name="AdminNavigationComponent faq has default value" time="0.032" classname="Chrome_85_0_4183_(Windows_10_0_0).AdminNavigationComponent"/>
+  <testcase name="AdminNavigationComponent createAccount has default value" time="0.02" classname="Chrome_85_0_4183_(Windows_10_0_0).AdminNavigationComponent"/>
+  <testcase name="AdminNavigationComponent passwordReset has default value" time="0.742" classname="Chrome_85_0_4183_(Windows_10_0_0).AdminNavigationComponent"/>
+  <testcase name="AdminNavigationComponent resendPdf has default value" time="0.029" classname="Chrome_85_0_4183_(Windows_10_0_0).AdminNavigationComponent"/>
+  <testcase name="AdminNavigationComponent impersonationContact has default value" time="0.03" classname="Chrome_85_0_4183_(Windows_10_0_0).AdminNavigationComponent"/>
+  <testcase name="AdminNavigationComponent impersonationProvider has default value" time="0.034" classname="Chrome_85_0_4183_(Windows_10_0_0).AdminNavigationComponent"/>
+  <testcase name="AdminNavigationComponent ngOnInit makes expected calls" time="0.017" classname="Chrome_85_0_4183_(Windows_10_0_0).AdminNavigationComponent ngOnInit"/>
+  <testcase name="AdminNavigationComponent navLink makes expected calls" time="0.022" classname="Chrome_85_0_4183_(Windows_10_0_0).AdminNavigationComponent navLink"/>
+  <testcase name="AdminNavigationComponent initializeMenuItems makes expected calls" time="0.029" classname="Chrome_85_0_4183_(Windows_10_0_0).AdminNavigationComponent initializeMenuItems"/>
+  <testcase name="AdminNavigationComponent stopImpersonating makes expected calls" time="0.837" classname="Chrome_85_0_4183_(Windows_10_0_0).AdminNavigationComponent stopImpersonating"/>
+  <testcase name="AdminNavigationComponent logOut makes expected calls" time="0.021" classname="Chrome_85_0_4183_(Windows_10_0_0).AdminNavigationComponent logOut"/>
+  <testcase name="AtlasNavigationComponent can load instance" time="0.008" classname="Chrome_85_0_4183_(Windows_10_0_0).AtlasNavigationComponent"/>
+  <testcase name="AtlasNavigationComponent hide has default value" time="0.009" classname="Chrome_85_0_4183_(Windows_10_0_0).AtlasNavigationComponent"/>
+  <testcase name="AtlasNavigationComponent isMobile has default value" time="0.008" classname="Chrome_85_0_4183_(Windows_10_0_0).AtlasNavigationComponent"/>
+  <testcase name="AtlasNavigationComponent width has default value" time="0.01" classname="Chrome_85_0_4183_(Windows_10_0_0).AtlasNavigationComponent"/>
+  <testcase name="AtlasNavigationComponent height has default value" time="0.008" classname="Chrome_85_0_4183_(Windows_10_0_0).AtlasNavigationComponent"/>
+  <testcase name="AtlasNavigationComponent mobileWidth has default value" time="0.937" classname="Chrome_85_0_4183_(Windows_10_0_0).AtlasNavigationComponent"/>
+  <testcase name="AtlasNavigationComponent reload has default value" time="0.026" classname="Chrome_85_0_4183_(Windows_10_0_0).AtlasNavigationComponent"/>
+  <testcase name="AtlasNavigationComponent ngOnInit makes expected calls" time="0.012" classname="Chrome_85_0_4183_(Windows_10_0_0).AtlasNavigationComponent ngOnInit"/>
+  <testcase name="AtlasNavigationComponent stopImpersonating makes expected calls" time="0.009" classname="Chrome_85_0_4183_(Windows_10_0_0).AtlasNavigationComponent stopImpersonating"/>
+  <testcase name="AtlasNavigationComponent logOut makes expected calls" time="0.007" classname="Chrome_85_0_4183_(Windows_10_0_0).AtlasNavigationComponent logOut"/>
+  <testcase name="ClientNavigationComponent can load instance" time="0.014" classname="Chrome_85_0_4183_(Windows_10_0_0).ClientNavigationComponent"/>
+  <testcase name="ClientNavigationComponent reload has default value" time="0.929" classname="Chrome_85_0_4183_(Windows_10_0_0).ClientNavigationComponent"/>
+  <testcase name="ClientNavigationComponent providerHasWorkLocations has default value" time="0.017" classname="Chrome_85_0_4183_(Windows_10_0_0).ClientNavigationComponent"/>
+  <testcase name="ClientNavigationComponent isMobile has default value" time="0.04" classname="Chrome_85_0_4183_(Windows_10_0_0).ClientNavigationComponent"/>
+  <testcase name="ClientNavigationComponent width has default value" time="0.02" classname="Chrome_85_0_4183_(Windows_10_0_0).ClientNavigationComponent"/>
+  <testcase name="ClientNavigationComponent height has default value" time="0.019" classname="Chrome_85_0_4183_(Windows_10_0_0).ClientNavigationComponent"/>
+  <testcase name="ClientNavigationComponent mobileWidth has default value" time="0.02" classname="Chrome_85_0_4183_(Windows_10_0_0).ClientNavigationComponent"/>
+  <testcase name="ClientNavigationComponent dashboard has default value" time="0.019" classname="Chrome_85_0_4183_(Windows_10_0_0).ClientNavigationComponent"/>
+  <testcase name="ClientNavigationComponent faq has default value" time="0.013" classname="Chrome_85_0_4183_(Windows_10_0_0).ClientNavigationComponent"/>
+  <testcase name="ClientNavigationComponent clientTime has default value" time="0.016" classname="Chrome_85_0_4183_(Windows_10_0_0).ClientNavigationComponent"/>
+  <testcase name="ClientNavigationComponent ngOnInit makes expected calls" time="0.016" classname="Chrome_85_0_4183_(Windows_10_0_0).ClientNavigationComponent ngOnInit"/>
+  <testcase name="ClientNavigationComponent navLink makes expected calls" time="0.018" classname="Chrome_85_0_4183_(Windows_10_0_0).ClientNavigationComponent navLink"/>
+  <testcase name="ClientNavigationComponent initializeMenuItems makes expected calls" time="0.02" classname="Chrome_85_0_4183_(Windows_10_0_0).ClientNavigationComponent initializeMenuItems"/>
+  <testcase name="ClientNavigationComponent stopImpersonating makes expected calls" time="0.036" classname="Chrome_85_0_4183_(Windows_10_0_0).ClientNavigationComponent stopImpersonating"/>
+  <testcase name="ClientNavigationComponent logOut makes expected calls" time="0.018" classname="Chrome_85_0_4183_(Windows_10_0_0).ClientNavigationComponent logOut"/>
+  <testcase name="ProviderNavigationComponent can load instance" time="0.906" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderNavigationComponent"/>
+  <testcase name="ProviderNavigationComponent reload has default value" time="0.019" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderNavigationComponent"/>
+  <testcase name="ProviderNavigationComponent providerHasWorkLocations has default value" time="0.019" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderNavigationComponent"/>
+  <testcase name="ProviderNavigationComponent isImpersonating has default value" time="0.022" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderNavigationComponent"/>
+  <testcase name="ProviderNavigationComponent showRpMenus has default value" time="0.021" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderNavigationComponent"/>
+  <testcase name="ProviderNavigationComponent isSyncedRpAndSyncedTneBookingsEnabled has default value" time="0.015" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderNavigationComponent"/>
+  <testcase name="ProviderNavigationComponent isMobile has default value" time="0.017" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderNavigationComponent"/>
+  <testcase name="ProviderNavigationComponent width has default value" time="0.017" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderNavigationComponent"/>
+  <testcase name="ProviderNavigationComponent height has default value" time="0.048" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderNavigationComponent"/>
+  <testcase name="ProviderNavigationComponent mobileWidth has default value" time="0.021" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderNavigationComponent"/>
+  <testcase name="ProviderNavigationComponent loaded has default value" time="0.801" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderNavigationComponent"/>
+  <testcase name="ProviderNavigationComponent dashboard has default value" time="0.018" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderNavigationComponent"/>
+  <testcase name="ProviderNavigationComponent faq has default value" time="0.017" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderNavigationComponent"/>
+  <testcase name="ProviderNavigationComponent providerTime has default value" time="0.023" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderNavigationComponent"/>
+  <testcase name="ProviderNavigationComponent expenses has default value" time="0.019" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderNavigationComponent"/>
+  <testcase name="ProviderNavigationComponent schedule has default value" time="0.023" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderNavigationComponent"/>
+  <testcase name="ProviderNavigationComponent appliedJobs has default value" time="0.014" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderNavigationComponent"/>
+  <testcase name="ProviderNavigationComponent opportunities has default value" time="0.015" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderNavigationComponent"/>
+  <testcase name="ProviderNavigationComponent timeDelay has default value" time="0.032" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderNavigationComponent"/>
+  <testcase name="ProviderNavigationComponent ngOnInit makes expected calls" time="0.021" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderNavigationComponent ngOnInit"/>
+  <testcase name="ProviderNavigationComponent navLink makes expected calls" time="0.026" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderNavigationComponent navLink"/>
+  <testcase name="ProviderNavigationComponent initializeMenuItems makes expected calls" time="0.02" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderNavigationComponent initializeMenuItems"/>
+  <testcase name="ProviderNavigationComponent setMenuVisibility makes expected calls" time="0.017" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderNavigationComponent setMenuVisibility"/>
+  <testcase name="ProviderNavigationComponent stopImpersonating makes expected calls" time="0.016" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderNavigationComponent stopImpersonating"/>
+  <testcase name="ProviderNavigationComponent logOut makes expected calls" time="0.015" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderNavigationComponent logOut"/>
+  <testcase name="SupportNavigationComponent can load instance" time="0.034" classname="Chrome_85_0_4183_(Windows_10_0_0).SupportNavigationComponent"/>
+  <testcase name="SupportNavigationComponent providerHasWorkLocations has default value" time="0.016" classname="Chrome_85_0_4183_(Windows_10_0_0).SupportNavigationComponent"/>
+  <testcase name="SupportNavigationComponent isMobile has default value" time="0.012" classname="Chrome_85_0_4183_(Windows_10_0_0).SupportNavigationComponent"/>
+  <testcase name="SupportNavigationComponent width has default value" time="0.021" classname="Chrome_85_0_4183_(Windows_10_0_0).SupportNavigationComponent"/>
+  <testcase name="SupportNavigationComponent height has default value" time="0.032" classname="Chrome_85_0_4183_(Windows_10_0_0).SupportNavigationComponent"/>
+  <testcase name="SupportNavigationComponent mobileWidth has default value" time="0.02" classname="Chrome_85_0_4183_(Windows_10_0_0).SupportNavigationComponent"/>
+  <testcase name="SupportNavigationComponent help has default value" time="0.016" classname="Chrome_85_0_4183_(Windows_10_0_0).SupportNavigationComponent"/>
+  <testcase name="SupportNavigationComponent logout has default value" time="0.012" classname="Chrome_85_0_4183_(Windows_10_0_0).SupportNavigationComponent"/>
+  <testcase name="SupportNavigationComponent ngOnInit makes expected calls" time="0.625" classname="Chrome_85_0_4183_(Windows_10_0_0).SupportNavigationComponent ngOnInit"/>
+  <testcase name="SupportNavigationComponent navLink makes expected calls" time="0.03" classname="Chrome_85_0_4183_(Windows_10_0_0).SupportNavigationComponent navLink"/>
+  <testcase name="SupportNavigationComponent initializeMenuItems makes expected calls" time="0.015" classname="Chrome_85_0_4183_(Windows_10_0_0).SupportNavigationComponent initializeMenuItems"/>
+  <testcase name="SupportNavigationComponent stopImpersonating makes expected calls" time="0.017" classname="Chrome_85_0_4183_(Windows_10_0_0).SupportNavigationComponent stopImpersonating"/>
+  <testcase name="SupportNavigationComponent logOut makes expected calls" time="0.015" classname="Chrome_85_0_4183_(Windows_10_0_0).SupportNavigationComponent logOut"/>
+  <testcase name="ConfirmTimesheetSubmittalComponent can load instance" time="0.11" classname="Chrome_85_0_4183_(Windows_10_0_0).ConfirmTimesheetSubmittalComponent"/>
+  <testcase name="ConfirmTimesheetSubmittalComponent isChecked has default value" time="0.011" classname="Chrome_85_0_4183_(Windows_10_0_0).ConfirmTimesheetSubmittalComponent"/>
+  <testcase name="DialogComponent can load instance" time="0.007" classname="Chrome_85_0_4183_(Windows_10_0_0).DialogComponent"/>
+  <testcase name="DialogComponent ngOnInit makes expected calls" time="0.006" classname="Chrome_85_0_4183_(Windows_10_0_0).DialogComponent ngOnInit"/>
+  <testcase name="SimpleDialogContentComponent can load instance" time="0.008" classname="Chrome_85_0_4183_(Windows_10_0_0).SimpleDialogContentComponent"/>
+  <testcase name="EditUserInfoComponent can load instance" time="0.015" classname="Chrome_85_0_4183_(Windows_10_0_0).EditUserInfoComponent"/>
+  <testcase name="EditUserInfoComponent emailPattern has default value" time="0.03" classname="Chrome_85_0_4183_(Windows_10_0_0).EditUserInfoComponent"/>
+  <testcase name="EditUserInfoComponent ngOnInit makes expected calls" time="0.012" classname="Chrome_85_0_4183_(Windows_10_0_0).EditUserInfoComponent ngOnInit"/>
+  <testcase name="FooterComponent can load instance" time="0.007" classname="Chrome_85_0_4183_(Windows_10_0_0).FooterComponent"/>
+  <testcase name="NotificationPopupComponent can load instance" time="0.011" classname="Chrome_85_0_4183_(Windows_10_0_0).NotificationPopupComponent"/>
+  <testcase name="NotificationPopupComponent notifications has default value" time="0.011" classname="Chrome_85_0_4183_(Windows_10_0_0).NotificationPopupComponent"/>
+  <testcase name="PaginatorComponent can load instance" time="0.013" classname="Chrome_85_0_4183_(Windows_10_0_0).PaginatorComponent"/>
+  <testcase name="PaginatorComponent ngOnChanges makes expected calls" time="0.009" classname="Chrome_85_0_4183_(Windows_10_0_0).PaginatorComponent ngOnChanges"/>
+  <testcase name="SpinnerComponent can load instance" time="0.013" classname="Chrome_85_0_4183_(Windows_10_0_0).SpinnerComponent"/>
+  <testcase name="SpinnerComponent forceShow has default value" time="0.014" classname="Chrome_85_0_4183_(Windows_10_0_0).SpinnerComponent"/>
+  <testcase name="StateAndSpecialitiesComponent can load instance" time="0.011" classname="Chrome_85_0_4183_(Windows_10_0_0).StateAndSpecialitiesComponent"/>
+  <testcase name="StateAndSpecialitiesComponent selectedStateData has default value" time="0.007" classname="Chrome_85_0_4183_(Windows_10_0_0).StateAndSpecialitiesComponent"/>
+  <testcase name="StateAndSpecialitiesComponent selectedSpecialityData has default value" time="0.011" classname="Chrome_85_0_4183_(Windows_10_0_0).StateAndSpecialitiesComponent"/>
+  <testcase name="AtlasExpenseWidgetComponent can load instance" time="0.056" classname="Chrome_85_0_4183_(Windows_10_0_0).AtlasExpenseWidgetComponent"/>
+  <testcase name="AtlasExpenseWidgetComponent onCreateExpenses when impersonating provider account does not makes expected calls" time="0.022" classname="Chrome_85_0_4183_(Windows_10_0_0).AtlasExpenseWidgetComponent onCreateExpenses when impersonating provider account"/>
+  <testcase name="AtlasExpenseWidgetComponent onCreateExpenses when not impersonating a provider account makes expected calls" time="0.015" classname="Chrome_85_0_4183_(Windows_10_0_0).AtlasExpenseWidgetComponent onCreateExpenses when not impersonating a provider account"/>
+  <testcase name="AtlasExpenseWidgetComponent onUnSubmittedExpenses when impersonating provider account does not makes expected calls" time="0.017" classname="Chrome_85_0_4183_(Windows_10_0_0).AtlasExpenseWidgetComponent onUnSubmittedExpenses when impersonating provider account"/>
+  <testcase name="AtlasExpenseWidgetComponent onUnSubmittedExpenses when not impersonating a provider account makes expected calls" time="0.017" classname="Chrome_85_0_4183_(Windows_10_0_0).AtlasExpenseWidgetComponent onUnSubmittedExpenses when not impersonating a provider account"/>
+  <testcase name="AtlasExpenseWidgetComponent onViewExpenses when impersonating provider account does not makes expected calls" time="0.016" classname="Chrome_85_0_4183_(Windows_10_0_0).AtlasExpenseWidgetComponent onViewExpenses when impersonating provider account"/>
+  <testcase name="AtlasExpenseWidgetComponent onViewExpenses when not impersonating a provider account makes expected calls" time="0.018" classname="Chrome_85_0_4183_(Windows_10_0_0).AtlasExpenseWidgetComponent onViewExpenses when not impersonating a provider account"/>
+  <testcase name="AtlasProviderDashboardComponent can load instance" time="0.007" classname="Chrome_85_0_4183_(Windows_10_0_0).AtlasProviderDashboardComponent"/>
+  <testcase name="AtlasProviderDashboardComponent ngOnInit makes expected calls" time="0.012" classname="Chrome_85_0_4183_(Windows_10_0_0).AtlasProviderDashboardComponent ngOnInit"/>
+  <testcase name="AtlasProviderDashboardComponent getIsImpersonating makes expected calls" time="0.009" classname="Chrome_85_0_4183_(Windows_10_0_0).AtlasProviderDashboardComponent getIsImpersonating"/>
+  <testcase name="AtlasProviderDashboardComponent getAtlasRpDashboardEnabled makes expected calls" time="0.008" classname="Chrome_85_0_4183_(Windows_10_0_0).AtlasProviderDashboardComponent getAtlasRpDashboardEnabled"/>
+  <testcase name="AtlasProviderDashboardComponent getIsSyncedRpAndSyncedTneBookings makes expected calls" time="0.012" classname="Chrome_85_0_4183_(Windows_10_0_0).AtlasProviderDashboardComponent getIsSyncedRpAndSyncedTneBookings"/>
+  <testcase name="AtlasProviderDashboardComponent onViewExpenses makes expected calls" time="0.008" classname="Chrome_85_0_4183_(Windows_10_0_0).AtlasProviderDashboardComponent onViewExpenses"/>
+  <testcase name="AtlasTimesheetWidgetDesktopComponent can load instance" time="0.031" classname="Chrome_85_0_4183_(Windows_10_0_0).AtlasTimesheetWidgetDesktopComponent"/>
+  <testcase name="AtlasTimesheetWidgetDesktopComponent onViewAllTimesheets makes expected calls" time="0.035" classname="Chrome_85_0_4183_(Windows_10_0_0).AtlasTimesheetWidgetDesktopComponent onViewAllTimesheets"/>
+  <testcase name="AtlasTimesheetWidgetMobileComponent can load instance" time="0.027" classname="Chrome_85_0_4183_(Windows_10_0_0).AtlasTimesheetWidgetMobileComponent"/>
+  <testcase name="AtlasTimesheetWidgetMobileComponent onViewAllTimesheets makes expected calls" time="0.028" classname="Chrome_85_0_4183_(Windows_10_0_0).AtlasTimesheetWidgetMobileComponent onViewAllTimesheets"/>
+  <testcase name="AtlasProviderTimesheetWidgetComponent can load instance" time="0.013" classname="Chrome_85_0_4183_(Windows_10_0_0).AtlasProviderTimesheetWidgetComponent"/>
+  <testcase name="AtlasProviderTimesheetWidgetComponent isDesktop has default value" time="0.007" classname="Chrome_85_0_4183_(Windows_10_0_0).AtlasProviderTimesheetWidgetComponent"/>
+  <testcase name="AtlasProviderTimesheetWidgetComponent ngOnInit makes expected calls" time="0.008" classname="Chrome_85_0_4183_(Windows_10_0_0).AtlasProviderTimesheetWidgetComponent ngOnInit"/>
+  <testcase name="InterestListDesktopComponent can load instance" time="0.046" classname="Chrome_85_0_4183_(Windows_10_0_0).InterestListDesktopComponent"/>
+  <testcase name="InterestListDesktopComponent interestRCId has default value" time="0.036" classname="Chrome_85_0_4183_(Windows_10_0_0).InterestListDesktopComponent"/>
+  <testcase name="InterestListDesktopComponent StatusListDefaultValues statusList has value" time="0.04" classname="Chrome_85_0_4183_(Windows_10_0_0).InterestListDesktopComponent StatusListDefaultValues"/>
+  <testcase name="InterestListDesktopComponent StatusListDefaultValues statusList contain value" time="0.037" classname="Chrome_85_0_4183_(Windows_10_0_0).InterestListDesktopComponent StatusListDefaultValues"/>
+  <testcase name="InterestListDesktopComponent dataStateChange makes expected calls" time="0.033" classname="Chrome_85_0_4183_(Windows_10_0_0).InterestListDesktopComponent dataStateChange"/>
+  <testcase name="InterestListDesktopComponent regionFilters makes expected calls" time="0.035" classname="Chrome_85_0_4183_(Windows_10_0_0).InterestListDesktopComponent regionFilters"/>
+  <testcase name="InterestListDesktopComponent specialtyFilters makes expected calls" time="0.037" classname="Chrome_85_0_4183_(Windows_10_0_0).InterestListDesktopComponent specialtyFilters"/>
+  <testcase name="InterestListDesktopComponent stateFilters makes expected calls" time="0.033" classname="Chrome_85_0_4183_(Windows_10_0_0).InterestListDesktopComponent stateFilters"/>
+  <testcase name="InterestListDesktopComponent statusFilters makes expected calls" time="0.038" classname="Chrome_85_0_4183_(Windows_10_0_0).InterestListDesktopComponent statusFilters"/>
+  <testcase name="InterestListDesktopComponent recruiterFilters makes expected calls" time="0.035" classname="Chrome_85_0_4183_(Windows_10_0_0).InterestListDesktopComponent recruiterFilters"/>
+  <testcase name="ProviderInterestListComponent can load instance" time="0.007" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderInterestListComponent"/>
+  <testcase name="ProviderInterestListComponent isDesktop has default value" time="0.006" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderInterestListComponent"/>
+  <testcase name="ProviderInterestListComponent ngOnInit makes expected calls" time="0.005" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderInterestListComponent ngOnInit"/>
+  <testcase name="ProviderInterestWidgetComponent can load instance" time="0.014" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderInterestWidgetComponent"/>
+  <testcase name="ProviderInterestWidgetComponent onViewAll makes expected calls" time="0.011" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderInterestWidgetComponent onViewAll"/>
+  <testcase name="ProviderOrderCardListComponent can load instance" time="0.014" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderOrderCardListComponent"/>
+  <testcase name="ProviderOrderCardListComponent onViewMoreJobs makes expected calls" time="0.011" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderOrderCardListComponent onViewMoreJobs"/>
+  <testcase name="ProviderOrderCardComponent can load instance" time="0.014" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderOrderCardComponent"/>
+  <testcase name="ProviderOrderCardComponent dateFormat has default value" time="0.016" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderOrderCardComponent"/>
+  <testcase name="ProviderOrderCardComponent isClicked has default value" time="0.012" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderOrderCardComponent"/>
+  <testcase name="ProviderOrderCardComponent isDesktop has default value" time="0.017" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderOrderCardComponent"/>
+  <testcase name="ProviderOrderCardComponent webAdDialogOpen has default value" time="0.013" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderOrderCardComponent"/>
+  <testcase name="ProviderOrderCardComponent ngOnInit makes expected calls" time="0.017" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderOrderCardComponent ngOnInit"/>
+  <testcase name="ProviderOrderCardComponent viewJobApply makes expected calls" time="0.012" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderOrderCardComponent viewJobApply"/>
+  <testcase name="ProviderOrderListDesktopComponent can load instance" time="0.028" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderOrderListDesktopComponent"/>
+  <testcase name="ProviderOrderListDesktopComponent scrollMode has default value" time="0.022" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderOrderListDesktopComponent"/>
+  <testcase name="ProviderOrderListDesktopComponent webAdDialogOpen has default value" time="0.021" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderOrderListDesktopComponent"/>
+  <testcase name="ProviderOrderListDesktopComponent dataStateChange makes expected calls" time="0.02" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderOrderListDesktopComponent dataStateChange"/>
+  <testcase name="ProviderOrderListDesktopComponent regionFilters makes expected calls" time="0.019" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderOrderListDesktopComponent regionFilters"/>
+  <testcase name="ProviderOrderListDesktopComponent recruiterFilters makes expected calls" time="0.02" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderOrderListDesktopComponent recruiterFilters"/>
+  <testcase name="ProviderOrderListDesktopComponent specialtyFilters makes expected calls" time="0.021" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderOrderListDesktopComponent specialtyFilters"/>
+  <testcase name="ProviderOrderListDesktopComponent stateFilters makes expected calls" time="0.02" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderOrderListDesktopComponent stateFilters"/>
+  <testcase name="ProviderOrderListDialogWebAdContentComponent can load instance" time="0.011" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderOrderListDialogWebAdContentComponent"/>
+  <testcase name="ProviderOrderListDialogWebAdContentComponent dialogOpened has default value" time="0.012" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderOrderListDialogWebAdContentComponent"/>
+  <testcase name="ProviderOrderListDialogWebAdContentComponent emailPattern has default value" time="0.009" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderOrderListDialogWebAdContentComponent"/>
+  <testcase name="ProviderOrderListDialogWebAdContentComponent ngOnInit makes expected calls" time="0.011" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderOrderListDialogWebAdContentComponent ngOnInit"/>
+  <testcase name="ProviderOrderListDialogWebAdContentComponent updateEmail makes expected calls" time="0.013" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderOrderListDialogWebAdContentComponent updateEmail"/>
+  <testcase name="ProviderOrderListDialogWebAdContentComponent getIsImpersonating makes expected calls" time="0.009" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderOrderListDialogWebAdContentComponent getIsImpersonating"/>
+  <testcase name="ProviderOrderListMobileComponent can load instance" time="0.257" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderOrderListMobileComponent"/>
+  <testcase name="ProviderOrderListMobileComponent sort has default value" time="0.032" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderOrderListMobileComponent"/>
+  <testcase name="ProviderOrderListMobileComponent pageSize has default value" time="0.029" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderOrderListMobileComponent"/>
+  <testcase name="ProviderOrderListMobileComponent gridData has default value" time="0.025" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderOrderListMobileComponent"/>
+  <testcase name="ProviderOrderListMobileComponent data has default value" time="0.03" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderOrderListMobileComponent"/>
+  <testcase name="ProviderOrderListMobileComponent listItems has default value" time="0.03" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderOrderListMobileComponent"/>
+  <testcase name="ProviderOrderListMobileComponent webAdDialogOpen has default value" time="0.021" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderOrderListMobileComponent"/>
+  <testcase name="ProviderOrderListMobileComponent sortFilterDialogOpen has default value" time="0.03" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderOrderListMobileComponent"/>
+  <testcase name="ProviderOrderListMobileComponent reload makes expected calls" time="0.023" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderOrderListMobileComponent reload"/>
+  <testcase name="ProviderOrderListComponent can load instance" time="0.005" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderOrderListComponent"/>
+  <testcase name="ProviderOrderListComponent isDesktop has default value" time="0.008" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderOrderListComponent"/>
+  <testcase name="ProviderOrderListComponent ngOnInit makes expected calls" time="0.007" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderOrderListComponent ngOnInit"/>
+  <testcase name="ProviderOrderListComponent can load instance" time="0.007" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderOrderListComponent"/>
+  <testcase name="ProviderOrderListComponent isDesktop has default value" time="0.005" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderOrderListComponent"/>
+  <testcase name="ProviderOrderListComponent ngOnInit makes expected calls" time="0.004" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderOrderListComponent ngOnInit"/>
+  <testcase name="ProviderScheduleCardComponent can load instance" time="0.015" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderScheduleCardComponent"/>
+  <testcase name="ProviderScheduleCardComponent dateFormat has default value" time="0.012" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderScheduleCardComponent"/>
+  <testcase name="ProviderScheduleCardComponent expandScheduleStatus has default value" time="0.014" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderScheduleCardComponent"/>
+  <testcase name="ProviderScheduleCardComponent collapse has default value" time="0.013" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderScheduleCardComponent"/>
+  <testcase name="ProviderScheduleCardComponent isRCMailViewed has default value" time="0.012" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderScheduleCardComponent"/>
+  <testcase name="ProviderScheduleCardComponent isSCMailViewed has default value" time="0.013" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderScheduleCardComponent"/>
+  <testcase name="ScheduleListDesktopComponent can load instance" time="0.024" classname="Chrome_85_0_4183_(Windows_10_0_0).ScheduleListDesktopComponent"/>
+  <testcase name="ScheduleListDesktopComponent dataStateChange makes expected calls" time="0.025" classname="Chrome_85_0_4183_(Windows_10_0_0).ScheduleListDesktopComponent dataStateChange"/>
+  <testcase name="ScheduleListDesktopComponent stateFilters makes expected calls" time="0.022" classname="Chrome_85_0_4183_(Windows_10_0_0).ScheduleListDesktopComponent stateFilters"/>
+  <testcase name="ScheduleListDesktopComponent recruiterFilters makes expected calls" time="0.023" classname="Chrome_85_0_4183_(Windows_10_0_0).ScheduleListDesktopComponent recruiterFilters"/>
+  <testcase name="ScheduleListDesktopComponent serviceCoordinatorFilters makes expected calls" time="0.021" classname="Chrome_85_0_4183_(Windows_10_0_0).ScheduleListDesktopComponent serviceCoordinatorFilters"/>
+  <testcase name="ScheduleListMobileComponent can load instance" time="0.026" classname="Chrome_85_0_4183_(Windows_10_0_0).ScheduleListMobileComponent"/>
+  <testcase name="ScheduleListMobileComponent pageSize has default value" time="0.022" classname="Chrome_85_0_4183_(Windows_10_0_0).ScheduleListMobileComponent"/>
+  <testcase name="ScheduleListMobileComponent isUpcoming has default value" time="0.023" classname="Chrome_85_0_4183_(Windows_10_0_0).ScheduleListMobileComponent"/>
+  <testcase name="ScheduleListMobileComponent isPast has default value" time="0.021" classname="Chrome_85_0_4183_(Windows_10_0_0).ScheduleListMobileComponent"/>
+  <testcase name="ScheduleListMobileComponent sort has default value" time="0.023" classname="Chrome_85_0_4183_(Windows_10_0_0).ScheduleListMobileComponent"/>
+  <testcase name="ScheduleListMobileComponent workLocationName has default value" time="0.025" classname="Chrome_85_0_4183_(Windows_10_0_0).ScheduleListMobileComponent"/>
+  <testcase name="ScheduleListMobileComponent dateRangeFilterName has default value" time="0.021" classname="Chrome_85_0_4183_(Windows_10_0_0).ScheduleListMobileComponent"/>
+  <testcase name="ScheduleListMobileComponent listItems has default value" time="0.023" classname="Chrome_85_0_4183_(Windows_10_0_0).ScheduleListMobileComponent"/>
+  <testcase name="ScheduleListMobileComponent dateRangeItems has default value" time="0.023" classname="Chrome_85_0_4183_(Windows_10_0_0).ScheduleListMobileComponent"/>
+  <testcase name="ScheduleListMobileComponent sortFilterDialogOpen has default value" time="0.023" classname="Chrome_85_0_4183_(Windows_10_0_0).ScheduleListMobileComponent"/>
+  <testcase name="ScheduleListMobileComponent dataStateChange makes expected calls" time="0.024" classname="Chrome_85_0_4183_(Windows_10_0_0).ScheduleListMobileComponent dataStateChange"/>
+  <testcase name="ScheduleListMobileComponent stateFilters makes expected calls" time="0.021" classname="Chrome_85_0_4183_(Windows_10_0_0).ScheduleListMobileComponent stateFilters"/>
+  <testcase name="ScheduleListMobileComponent getScheduleDataWithCurrentState makes expected calls" time="0.022" classname="Chrome_85_0_4183_(Windows_10_0_0).ScheduleListMobileComponent getScheduleDataWithCurrentState"/>
+  <testcase name="ScheduleListMobileComponent processFilterSort makes expected calls" time="0.024" classname="Chrome_85_0_4183_(Windows_10_0_0).ScheduleListMobileComponent processFilterSort"/>
+  <testcase name="ScheduleListMobileComponent reload makes expected calls" time="0.022" classname="Chrome_85_0_4183_(Windows_10_0_0).ScheduleListMobileComponent reload"/>
+  <testcase name="ScheduleListComponent can load instance" time="0.006" classname="Chrome_85_0_4183_(Windows_10_0_0).ScheduleListComponent"/>
+  <testcase name="ScheduleListComponent isDesktop has default value" time="0.008" classname="Chrome_85_0_4183_(Windows_10_0_0).ScheduleListComponent"/>
+  <testcase name="ScheduleListComponent ngOnInit makes expected calls" time="0.006" classname="Chrome_85_0_4183_(Windows_10_0_0).ScheduleListComponent ngOnInit"/>
+  <testcase name="ScheduleWidgetComponent can load instance" time="0.009" classname="Chrome_85_0_4183_(Windows_10_0_0).ScheduleWidgetComponent"/>
+  <testcase name="ScheduleWidgetComponent scheduleRoute has default value" time="0.014" classname="Chrome_85_0_4183_(Windows_10_0_0).ScheduleWidgetComponent"/>
+  <testcase name="ScheduleWidgetComponent expandScheduleStatus has default value" time="0.011" classname="Chrome_85_0_4183_(Windows_10_0_0).ScheduleWidgetComponent"/>
+  <testcase name="ScheduleWidgetComponent onViewAll makes expected calls" time="0.01" classname="Chrome_85_0_4183_(Windows_10_0_0).ScheduleWidgetComponent onViewAll"/>
+  <testcase name="AllExpensesComponent can load instance" time="0.011" classname="Chrome_85_0_4183_(Windows_10_0_0).AllExpensesComponent"/>
+  <testcase name="AllExpensesComponent onCreateNewExpense makes expected calls" time="0.006" classname="Chrome_85_0_4183_(Windows_10_0_0).AllExpensesComponent onCreateNewExpense"/>
+  <testcase name="ProviderExpenseCardComponent can load instance" time="0.061" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderExpenseCardComponent"/>
+  <testcase name="ProviderExpenseCardComponent expenseTypes has default value" time="0.022" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderExpenseCardComponent"/>
+  <testcase name="ProviderExpenseCardComponent expenseProviderStatuses has default value" time="0.02" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderExpenseCardComponent"/>
+  <testcase name="ProviderExpenseCardComponent dialogTypes has default value" time="0.023" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderExpenseCardComponent"/>
+  <testcase name="ProviderExpenseCardComponent showDialog has default value" time="0.021" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderExpenseCardComponent"/>
+  <testcase name="ProviderExpenseCardComponent continueSubmitting makes expected calls" time="0.022" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderExpenseCardComponent continueSubmitting"/>
+  <testcase name="ProviderExpenseFilesListComponent can load instance" time="0.016" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderExpenseFilesListComponent"/>
+  <testcase name="ProviderExpenseFilesListComponent viewAsSubmitted has default value" time="0.016" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderExpenseFilesListComponent"/>
+  <testcase name="ProviderExpenseFilesListComponent showFiles has default value" time="0.011" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderExpenseFilesListComponent"/>
+  <testcase name="ProviderNonSubmittedExpensesComponent can load instance" time="0.01" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderNonSubmittedExpensesComponent"/>
+  <testcase name="ProviderNonSubmittedExpensesComponent ngOnInit makes expected calls" time="0.011" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderNonSubmittedExpensesComponent ngOnInit"/>
+  <testcase name="ProviderNonSubmittedExpensesComponent onCreateNewExpense makes expected calls" time="0.008" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderNonSubmittedExpensesComponent onCreateNewExpense"/>
+  <testcase name="ProviderSubmittedExpensesComponent can load instance" time="0.011" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderSubmittedExpensesComponent"/>
+  <testcase name="ProviderSubmittedExpensesComponent ngOnInit makes expected calls" time="0.017" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderSubmittedExpensesComponent ngOnInit"/>
+  <testcase name="ProviderSubmittedExpensesComponent onCreateNewExpense makes expected calls" time="0.009" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderSubmittedExpensesComponent onCreateNewExpense"/>
+  <testcase name="FaqComponent can load instance" time="0.162" classname="Chrome_85_0_4183_(Windows_10_0_0).FaqComponent"/>
+  <testcase name="ProviderDashboardComponent can load instance" time="0.029" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderDashboardComponent"/>
+  <testcase name="ProviderTimesheetCardComponent can load instance" time="0.036" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderTimesheetCardComponent"/>
+  <testcase name="ProviderTimesheetCardComponent daysOfWeek has default value" time="0.032" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderTimesheetCardComponent"/>
+  <testcase name="ProviderTimesheetCardComponent dialogTypes has default value" time="0.031" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderTimesheetCardComponent"/>
+  <testcase name="ProviderTimesheetCardComponent showDialog has default value" time="0.034" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderTimesheetCardComponent"/>
+  <testcase name="ProviderTimesheetCardComponent isImpersonating has default value" time="0.031" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderTimesheetCardComponent"/>
+  <testcase name="ProviderTimesheetCardComponent editTimesheet makes expected calls" time="0.035" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderTimesheetCardComponent editTimesheet"/>
+  <testcase name="ProviderTimesheetCardComponent finishTimesheetSubmittal makes expected calls" time="0.028" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderTimesheetCardComponent finishTimesheetSubmittal"/>
+  <testcase name="ProviderTimesheetListComponent can load instance" time="0.024" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderTimesheetListComponent"/>
+  <testcase name="ProviderTimesheetListComponent listItems has default value" time="0.017" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderTimesheetListComponent"/>
+  <testcase name="ProviderTimesheetListComponent ngOnInit makes expected calls" time="0.019" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderTimesheetListComponent ngOnInit"/>
+  <testcase name="SubmittedTimesheetsComponent can load instance" time="0.007" classname="Chrome_85_0_4183_(Windows_10_0_0).SubmittedTimesheetsComponent"/>
+  <testcase name="ProviderExpenseComponent can load instance" time="0.059" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderExpenseComponent"/>
+  <testcase name="ProviderExpenseComponent defaultFiles has default value" time="0.058" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderExpenseComponent"/>
+  <testcase name="ProviderExpenseComponent expenseTypes has default value" time="0.058" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderExpenseComponent"/>
+  <testcase name="ProviderExpenseComponent uploadRemoveUrl has default value" time="0.108" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderExpenseComponent"/>
+  <testcase name="ProviderExpenseComponent minAmount has default value" time="0.056" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderExpenseComponent"/>
+  <testcase name="ProviderExpenseComponent maxAmount has default value" time="0.055" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderExpenseComponent"/>
+  <testcase name="ProviderExpenseComponent dialogTypes has default value" time="0.053" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderExpenseComponent"/>
+  <testcase name="ProviderExpenseComponent showDialog has default value" time="0.052" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderExpenseComponent"/>
+  <testcase name="ProviderExpenseComponent datePickerOpenMobile has default value" time="0.051" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderExpenseComponent"/>
+  <testcase name="ProviderExpenseComponent onSaveForm makes expected calls" time="0.052" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderExpenseComponent onSaveForm"/>
+  <testcase name="ProviderExpenseComponent onDocumentUploadHandler makes expected calls" time="0.052" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderExpenseComponent onDocumentUploadHandler"/>
+  <testcase name="ProviderExpenseComponent ngOnInit makes expected calls" time="0.05" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderExpenseComponent ngOnInit"/>
+  <testcase name="ProviderProfileComponent can load instance" time="0.01" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderProfileComponent"/>
+  <testcase name="ProviderProfileComponent stateData has default value" time="0.012" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderProfileComponent"/>
+  <testcase name="ProviderProfileComponent specialityData has default value" time="0.008" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderProfileComponent"/>
+  <testcase name="ProviderProfileComponent isSubmitted has default value" time="0.019" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderProfileComponent"/>
+  <testcase name="ProviderProfileComponent isLookupChanged has default value" time="0.01" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderProfileComponent"/>
+  <testcase name="ProviderProfileComponent stateLicenseTypeId has default value" time="0.013" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderProfileComponent"/>
+  <testcase name="CanDeactivateGuard can load instance" time="0.005" classname="Chrome_85_0_4183_(Windows_10_0_0).CanDeactivateGuard"/>
+  <testcase name="CanDeactivateGuard ExceptionURLs has default value" time="0.005" classname="Chrome_85_0_4183_(Windows_10_0_0).CanDeactivateGuard"/>
+  <testcase name="NonSubmittedExpenseListResolver can load instance" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).NonSubmittedExpenseListResolver"/>
+  <testcase name="NonSubmittedExpenseListResolver resolve makes expected calls" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).NonSubmittedExpenseListResolver resolve"/>
+  <testcase name="SubmittedExpenseListResolver can load instance" time="0.004" classname="Chrome_85_0_4183_(Windows_10_0_0).SubmittedExpenseListResolver"/>
+  <testcase name="SubmittedExpenseListResolver resolve makes expected calls" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).SubmittedExpenseListResolver resolve"/>
+  <testcase name="InitialExpenseResolver can load instance" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).InitialExpenseResolver"/>
+  <testcase name="InitialExpenseResolver resolve makes expected calls" time="0.006" classname="Chrome_85_0_4183_(Windows_10_0_0).InitialExpenseResolver resolve"/>
+  <testcase name="ProviderInterestResolver can load instance" time="0.004" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderInterestResolver"/>
+  <testcase name="ProviderInterestResolver resolve makes expected calls" time="0.004" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderInterestResolver resolve"/>
+  <testcase name="DashboardScheduleResolver can load instance" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).DashboardScheduleResolver"/>
+  <testcase name="DashboardScheduleResolver resolve makes expected calls" time="0.004" classname="Chrome_85_0_4183_(Windows_10_0_0).DashboardScheduleResolver resolve"/>
+  <testcase name="DashboardTimesheetCurrentResolver can load instance" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).DashboardTimesheetCurrentResolver"/>
+  <testcase name="DashboardTimesheetCurrentResolver resolve makes expected calls" time="0.005" classname="Chrome_85_0_4183_(Windows_10_0_0).DashboardTimesheetCurrentResolver resolve"/>
+  <testcase name="DashboardTimesheetDeclinedResolver can load instance" time="0.004" classname="Chrome_85_0_4183_(Windows_10_0_0).DashboardTimesheetDeclinedResolver"/>
+  <testcase name="DashboardTimesheetDeclinedResolver resolve makes expected calls" time="0.004" classname="Chrome_85_0_4183_(Windows_10_0_0).DashboardTimesheetDeclinedResolver resolve"/>
+  <testcase name="DashboardTimesheetPastResolver can load instance" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).DashboardTimesheetPastResolver"/>
+  <testcase name="DashboardTimesheetPastResolver resolve makes expected calls" time="0.006" classname="Chrome_85_0_4183_(Windows_10_0_0).DashboardTimesheetPastResolver resolve"/>
+  <testcase name="SubmittedTimesheetResolver can load instance" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).SubmittedTimesheetResolver"/>
+  <testcase name="SubmittedTimesheetResolver resolve makes expected calls" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).SubmittedTimesheetResolver resolve"/>
+  <testcase name="TimesheetListDeclinedResolver can load instance" time="0.002" classname="Chrome_85_0_4183_(Windows_10_0_0).TimesheetListDeclinedResolver"/>
+  <testcase name="TimesheetListDeclinedResolver resolve makes expected calls" time="0.006" classname="Chrome_85_0_4183_(Windows_10_0_0).TimesheetListDeclinedResolver resolve"/>
+  <testcase name="TimesheetListPastResolver can load instance" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).TimesheetListPastResolver"/>
+  <testcase name="TimesheetListPastResolver resolve makes expected calls" time="0.006" classname="Chrome_85_0_4183_(Windows_10_0_0).TimesheetListPastResolver resolve"/>
+  <testcase name="WorkLocationListForProviderResolver can load instance" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).WorkLocationListForProviderResolver"/>
+  <testcase name="WorkLocationListForProviderResolver resolve makes expected calls" time="0.005" classname="Chrome_85_0_4183_(Windows_10_0_0).WorkLocationListForProviderResolver resolve"/>
+  <testcase name="ExpenseLookupService can load instance" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).ExpenseLookupService"/>
+  <testcase name="ExpenseLookupService getWorkLocationArrayForProvider makes expected calls" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).ExpenseLookupService getWorkLocationArrayForProvider"/>
+  <testcase name="ExpenseService can load instance" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).ExpenseService"/>
+  <testcase name="ExpenseService updateExpense makes expected calls" time="0.006" classname="Chrome_85_0_4183_(Windows_10_0_0).ExpenseService updateExpense"/>
+  <testcase name="ProviderInterestService can load instance" time="0.004" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderInterestService"/>
+  <testcase name="ProviderInterestService getProviderInterestListData makes expected calls" time="0.004" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderInterestService getProviderInterestListData"/>
+  <testcase name="ProviderInterestService getDashboardInterests makes expected calls" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderInterestService getDashboardInterests"/>
+  <testcase name="ProviderOrderApplyService can load instance" time="0.006" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderOrderApplyService"/>
+  <testcase name="ProviderOrderApplyService submitOrderApply makes expected calls" time="0.004" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderOrderApplyService submitOrderApply"/>
+  <testcase name="ProviderOrderApplyService saveOrderApply makes expected calls" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderOrderApplyService saveOrderApply"/>
+  <testcase name="ProviderOrderListService can load instance" time="0.005" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderOrderListService"/>
+  <testcase name="ProviderOrderListService getProviderOrderListData makes expected calls" time="0.004" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderOrderListService getProviderOrderListData"/>
+  <testcase name="ProviderOrderListService getProviderDashboardOrderList makes expected calls" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderOrderListService getProviderDashboardOrderList"/>
+  <testcase name="WebAdService can load instance" time="0.004" classname="Chrome_85_0_4183_(Windows_10_0_0).WebAdService"/>
+  <testcase name="ProviderPreferencesLookupService can load instance" time="0.006" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderPreferencesLookupService"/>
+  <testcase name="ProviderPreferencesLookupService getPreferencesLookup makes expected calls" time="0.004" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderPreferencesLookupService getPreferencesLookup"/>
+  <testcase name="ProviderPreferencesLookupService getPreferencesChoiceLookup makes expected calls" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderPreferencesLookupService getPreferencesChoiceLookup"/>
+  <testcase name="ProviderLookupService can load instance" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderLookupService"/>
+  <testcase name="ProviderLookupService getSpecialtyLookup makes expected calls" time="0.005" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderLookupService getSpecialtyLookup"/>
+  <testcase name="ProviderLookupService getStateLookup makes expected calls" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderLookupService getStateLookup"/>
+  <testcase name="ProviderLookupService getStateAndSpecialityLookup makes expected calls" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderLookupService getStateAndSpecialityLookup"/>
+  <testcase name="ScheduleLookupService can load instance" time="0.004" classname="Chrome_85_0_4183_(Windows_10_0_0).ScheduleLookupService"/>
+  <testcase name="ScheduleLookupService getScheduleGridData makes expected calls" time="0.006" classname="Chrome_85_0_4183_(Windows_10_0_0).ScheduleLookupService getScheduleGridData"/>
+  <testcase name="ScheduleLookupService getDashboardSchedule makes expected calls" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).ScheduleLookupService getDashboardSchedule"/>
+  <testcase name="ScheduleLookupService getProviderStatesList makes expected calls" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).ScheduleLookupService getProviderStatesList"/>
+  <testcase name="GUIdGeneratorService can load instance" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).GUIdGeneratorService"/>
+  <testcase name="GUIdGeneratorService Should have getNextGUId method" time="0.005" classname="Chrome_85_0_4183_(Windows_10_0_0).GUIdGeneratorService"/>
+  <testcase name="PreSaveTimesheetService can load instance" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).PreSaveTimesheetService"/>
+  <testcase name="PreSaveTimesheetService getNonShowingErrors Should have getNonShowingErrors method" time="0.004" classname="Chrome_85_0_4183_(Windows_10_0_0).PreSaveTimesheetService getNonShowingErrors"/>
+  <testcase name="PreSaveTimesheetService getNewTimesheetDetailErrorsId Should have getNewTimesheetDetailErrorsId method" time="0.004" classname="Chrome_85_0_4183_(Windows_10_0_0).PreSaveTimesheetService getNewTimesheetDetailErrorsId"/>
+  <testcase name="PreSaveTimesheetService addNewErrorForTimesheetDetail Should have addNewErrorForTimesheetDetail method" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).PreSaveTimesheetService addNewErrorForTimesheetDetail"/>
+  <testcase name="PreSaveTimesheetService globalErrorOccurred Should have globalErrorOccurred method" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).PreSaveTimesheetService globalErrorOccurred"/>
+  <testcase name="PreSaveTimesheetService globalErrorFixed Should have globalErrorFixed method" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).PreSaveTimesheetService globalErrorFixed"/>
+  <testcase name="PreSaveTimesheetService cleanErrorsByTimesheetDetailId Should have cleanErrorsByTimesheetDetailId method" time="0.004" classname="Chrome_85_0_4183_(Windows_10_0_0).PreSaveTimesheetService cleanErrorsByTimesheetDetailId"/>
+  <testcase name="PreSaveTimesheetService cleanAllErrors Should have cleanAllErrors method " time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).PreSaveTimesheetService cleanAllErrors"/>
+  <testcase name="TimesheetLookupService can load instance" time="0.005" classname="Chrome_85_0_4183_(Windows_10_0_0).TimesheetLookupService"/>
+  <testcase name="TimesheetLookupService validateTimesheetData makes expected calls" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).TimesheetLookupService validateTimesheetData"/>
+  <testcase name="TimesheetLookupService getSubmittedTimesheets makes expected calls" time="0.01" classname="Chrome_85_0_4183_(Windows_10_0_0).TimesheetLookupService getSubmittedTimesheets"/>
+  <testcase name="TimesheetLookupService getProviderTimesheetList makes expected calls" time="0.004" classname="Chrome_85_0_4183_(Windows_10_0_0).TimesheetLookupService getProviderTimesheetList"/>
+  <testcase name="TimesheetLookupService getDashboardTimesheets makes expected calls" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).TimesheetLookupService getDashboardTimesheets"/>
+  <testcase name="TimesheetLookupService getTimesheetForEdit makes expected calls" time="0.007" classname="Chrome_85_0_4183_(Windows_10_0_0).TimesheetLookupService getTimesheetForEdit"/>
+  <testcase name="TimesheetLookupService submitTimesheetData makes expected calls" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).TimesheetLookupService submitTimesheetData"/>
+  <testcase name="TimesheetLookupService getDayDataForCopy makes expected calls" time="0.002" classname="Chrome_85_0_4183_(Windows_10_0_0).TimesheetLookupService getDayDataForCopy"/>
+  <testcase name="TimesheetService can load instance" time="0.002" classname="Chrome_85_0_4183_(Windows_10_0_0).TimesheetService"/>
+  <testcase name="TimesheetService Get Timesheet For Review makes expected calls" time="0.419" classname="Chrome_85_0_4183_(Windows_10_0_0).TimesheetService Get Timesheet For Review">
+    <failure type="">Error: Expected one matching request for criteria "Match URL: http://localhost:60558/api/provider/timesheet/getTimesheetForReview?bookingId=12&amp;calendarWeekId=13&amp;timesheetId=14", found none.
+    at HttpClientTestingBackend.push../node_modules/@angular/common/fesm5/http/testing.js.HttpClientTestingBackend.expectOne (node_modules/@angular/common/fesm5/http/testing.js:294:1)
+    at UserContext.&lt;anonymous&gt; (src/app/provider/shared/services/timesheet/timesheet.service.spec.ts:44:30)
+    at ZoneDelegate../node_modules/zone.js/dist/zone.js.ZoneDelegate.invoke (node_modules/zone.js/dist/zone.js:391:1)
+    at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (node_modules/zone.js/dist/zone-testing.js:289:1)
+    at ZoneDelegate../node_modules/zone.js/dist/zone.js.ZoneDelegate.invoke (node_modules/zone.js/dist/zone.js:390:1)
+    at Zone../node_modules/zone.js/dist/zone.js.Zone.run (node_modules/zone.js/dist/zone.js:150:1)
+    at runInTestZone (node_modules/zone.js/dist/zone-testing.js:510:1)
+    at UserContext.&lt;anonymous&gt; (node_modules/zone.js/dist/zone-testing.js:525:1)
+</failure>
+  </testcase>
+  <testcase name="TimesheetService Save Timesheet makes expected calls" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).TimesheetService Save Timesheet"/>
+  <testcase name="TimesheetService Change Week makes expected calls" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).TimesheetService Change Week"/>
+  <testcase name="WeeklySummaryTimesheetService can load instance" time="0.004" classname="Chrome_85_0_4183_(Windows_10_0_0).WeeklySummaryTimesheetService"/>
+  <testcase name="CopyFromAnotherDayComponent can load instance" time="0.014" classname="Chrome_85_0_4183_(Windows_10_0_0).CopyFromAnotherDayComponent"/>
+  <testcase name="CopyFromAnotherDayComponent expanded has default value" time="0.015" classname="Chrome_85_0_4183_(Windows_10_0_0).CopyFromAnotherDayComponent"/>
+  <testcase name="CopyFromAnotherDayComponent ngOnChanges makes expected calls" time="0.013" classname="Chrome_85_0_4183_(Windows_10_0_0).CopyFromAnotherDayComponent ngOnChanges"/>
+  <testcase name="CopyFromAnotherDayComponent ngOnInit makes expected calls" time="0.016" classname="Chrome_85_0_4183_(Windows_10_0_0).CopyFromAnotherDayComponent ngOnInit"/>
+  <testcase name="RangeDropdownComponent can load instance" time="0.005" classname="Chrome_85_0_4183_(Windows_10_0_0).RangeDropdownComponent"/>
+  <testcase name="RangeDropdownComponent dropdownData has default value" time="0.007" classname="Chrome_85_0_4183_(Windows_10_0_0).RangeDropdownComponent"/>
+  <testcase name="TimeComboComponent can load instance" time="0.01" classname="Chrome_85_0_4183_(Windows_10_0_0).TimeComboComponent"/>
+  <testcase name="TimeComboComponent isMobile has default value" time="0.013" classname="Chrome_85_0_4183_(Windows_10_0_0).TimeComboComponent"/>
+  <testcase name="TimeComboComponent initTimeList has default value" time="0.013" classname="Chrome_85_0_4183_(Windows_10_0_0).TimeComboComponent"/>
+  <testcase name="TimeComboComponent timeList has default value" time="0.014" classname="Chrome_85_0_4183_(Windows_10_0_0).TimeComboComponent"/>
+  <testcase name="TimesheetEditComponent can load instance" time="0.028" classname="Chrome_85_0_4183_(Windows_10_0_0).TimesheetEditComponent"/>
+  <testcase name="TimesheetEditComponent timesheetDetailForDelete has default value" time="0.027" classname="Chrome_85_0_4183_(Windows_10_0_0).TimesheetEditComponent"/>
+  <testcase name="TimesheetEditComponent isMobile has default value" time="0.03" classname="Chrome_85_0_4183_(Windows_10_0_0).TimesheetEditComponent"/>
+  <testcase name="TimesheetEditComponent isImpersonating has default value" time="0.026" classname="Chrome_85_0_4183_(Windows_10_0_0).TimesheetEditComponent"/>
+  <testcase name="TimesheetEditComponent onCopyDay makes expected calls" time="0.029" classname="Chrome_85_0_4183_(Windows_10_0_0).TimesheetEditComponent onCopyDay"/>
+  <testcase name="TimesheetEditComponent goToDayOfWeek makes expected calls" time="0.025" classname="Chrome_85_0_4183_(Windows_10_0_0).TimesheetEditComponent goToDayOfWeek"/>
+  <testcase name="TimesheetEditComponent ngOnInit makes expected calls" time="0.023" classname="Chrome_85_0_4183_(Windows_10_0_0).TimesheetEditComponent ngOnInit"/>
+  <testcase name="TimesheetEditComponent canDeactivate makes expected calls" time="0.026" classname="Chrome_85_0_4183_(Windows_10_0_0).TimesheetEditComponent canDeactivate"/>
+  <testcase name="TimesheetEditComponent previousWeekClick makes expected calls" time="0.027" classname="Chrome_85_0_4183_(Windows_10_0_0).TimesheetEditComponent previousWeekClick"/>
+  <testcase name="TimesheetEditComponent nextWeekClick makes expected calls" time="0.023" classname="Chrome_85_0_4183_(Windows_10_0_0).TimesheetEditComponent nextWeekClick"/>
+  <testcase name="TimesheetDetailEditFormForCallComponent can load instance" time="0.017" classname="Chrome_85_0_4183_(Windows_10_0_0).TimesheetDetailEditFormForCallComponent"/>
+  <testcase name="TimesheetDetailEditFormForCallComponent ngOnInit makes expected calls" time="0.015" classname="Chrome_85_0_4183_(Windows_10_0_0).TimesheetDetailEditFormForCallComponent ngOnInit"/>
+  <testcase name="TimesheetDetailEditFormForCallComponent ngOnDestroy makes expected calls" time="0.017" classname="Chrome_85_0_4183_(Windows_10_0_0).TimesheetDetailEditFormForCallComponent ngOnDestroy"/>
+  <testcase name="TimesheetDetailEditFormForCallComponent updateErrors makes expected calls" time="0.02" classname="Chrome_85_0_4183_(Windows_10_0_0).TimesheetDetailEditFormForCallComponent updateErrors"/>
+  <testcase name="TimesheetDetailEditFormForNonCallComponent can load instance" time="0.021" classname="Chrome_85_0_4183_(Windows_10_0_0).TimesheetDetailEditFormForNonCallComponent"/>
+  <testcase name="TimesheetDetailEditFormForNonCallComponent ngOnInit makes expected calls" time="0.017" classname="Chrome_85_0_4183_(Windows_10_0_0).TimesheetDetailEditFormForNonCallComponent ngOnInit"/>
+  <testcase name="TimesheetDetailEditFormForNonCallComponent ngOnDestroy makes expected calls" time="0.017" classname="Chrome_85_0_4183_(Windows_10_0_0).TimesheetDetailEditFormForNonCallComponent ngOnDestroy"/>
+  <testcase name="TimesheetDetailEditFormComponent can load instance" time="0.009" classname="Chrome_85_0_4183_(Windows_10_0_0).TimesheetDetailEditFormComponent"/>
+  <testcase name="TimesheetFormGroupComponent can load instance" time="0.033" classname="Chrome_85_0_4183_(Windows_10_0_0).TimesheetFormGroupComponent"/>
+  <testcase name="TimesheetFormGroupComponent MaxCountOfTimesheetDetail has default value" time="0.033" classname="Chrome_85_0_4183_(Windows_10_0_0).TimesheetFormGroupComponent"/>
+  <testcase name="TimesheetFormGroupComponent timeDropDownData has default value" time="0.031" classname="Chrome_85_0_4183_(Windows_10_0_0).TimesheetFormGroupComponent"/>
+  <testcase name="TimesheetFormGroupComponent defaultItemDropDownText has default value" time="0.029" classname="Chrome_85_0_4183_(Windows_10_0_0).TimesheetFormGroupComponent"/>
+  <testcase name="TimesheetFormGroupComponent timesheetDetailForEditList has default value" time="0.031" classname="Chrome_85_0_4183_(Windows_10_0_0).TimesheetFormGroupComponent"/>
+  <testcase name="TimesheetFormGroupComponent rateDropDownValue has default value" time="0.032" classname="Chrome_85_0_4183_(Windows_10_0_0).TimesheetFormGroupComponent"/>
+  <testcase name="TimesheetFormGroupComponent showEditForm has default value" time="0.029" classname="Chrome_85_0_4183_(Windows_10_0_0).TimesheetFormGroupComponent"/>
+  <testcase name="TimesheetFormGroupComponent editInfo has default value" time="0.029" classname="Chrome_85_0_4183_(Windows_10_0_0).TimesheetFormGroupComponent"/>
+  <testcase name="TimesheetFormGroupComponent needToUpdateInitialState has default value" time="0.031" classname="Chrome_85_0_4183_(Windows_10_0_0).TimesheetFormGroupComponent"/>
+  <testcase name="TimesheetFormGroupComponent workLocationDropdownData has default value" time="0.029" classname="Chrome_85_0_4183_(Windows_10_0_0).TimesheetFormGroupComponent"/>
+  <testcase name="TimesheetFormGroupComponent saveTimesheet makes expected calls" time="0.032" classname="Chrome_85_0_4183_(Windows_10_0_0).TimesheetFormGroupComponent saveTimesheet"/>
+  <testcase name="TimesheetWeekTotalComponent can load instance" time="0.008" classname="Chrome_85_0_4183_(Windows_10_0_0).TimesheetWeekTotalComponent"/>
+  <testcase name="TimesheetSubmitImpersonationDetailComponent can load instance" time="0.01" classname="Chrome_85_0_4183_(Windows_10_0_0).TimesheetSubmitImpersonationDetailComponent"/>
+  <testcase name="TimesheetSubmitImpersonationDetailComponent isImpersonating has default value" time="0.014" classname="Chrome_85_0_4183_(Windows_10_0_0).TimesheetSubmitImpersonationDetailComponent"/>
+  <testcase name="TimesheetSubmitImpersonationDetailComponent updateReason makes expected calls" time="0.011" classname="Chrome_85_0_4183_(Windows_10_0_0).TimesheetSubmitImpersonationDetailComponent updateReason"/>
+  <testcase name="WeeklyDayDetailsForDayComponent can load instance" time="0.008" classname="Chrome_85_0_4183_(Windows_10_0_0).WeeklyDayDetailsForDayComponent"/>
+  <testcase name="WeeklyDayDetailsForDayComponent showDetails has default value" time="0.017" classname="Chrome_85_0_4183_(Windows_10_0_0).WeeklyDayDetailsForDayComponent"/>
+  <testcase name="WeeklyDayDetailsForRateTypeNameComponent can load instance" time="0.018" classname="Chrome_85_0_4183_(Windows_10_0_0).WeeklyDayDetailsForRateTypeNameComponent"/>
+  <testcase name="WeeklyDayDetailsComponent can load instance" time="0.008" classname="Chrome_85_0_4183_(Windows_10_0_0).WeeklyDayDetailsComponent"/>
+  <testcase name="WeeklySummaryBookingInfoComponent can load instance" time="0.018" classname="Chrome_85_0_4183_(Windows_10_0_0).WeeklySummaryBookingInfoComponent"/>
+  <testcase name="WeeklySummaryBookingInfoComponent daysOfWeek has default value" time="0.018" classname="Chrome_85_0_4183_(Windows_10_0_0).WeeklySummaryBookingInfoComponent"/>
+  <testcase name="WeeklySummaryBookingInfoComponent goToDayOfWeek makes expected calls" time="0.016" classname="Chrome_85_0_4183_(Windows_10_0_0).WeeklySummaryBookingInfoComponent goToDayOfWeek"/>
+  <testcase name="WeeklySummaryBookingInfoComponent getStringHoursOfDay makes expected calls" time="0.015" classname="Chrome_85_0_4183_(Windows_10_0_0).WeeklySummaryBookingInfoComponent getStringHoursOfDay"/>
+  <testcase name="WeeklySummaryBookingInfoComponent bookedDayIsNotEntered makes expected calls" time="0.017" classname="Chrome_85_0_4183_(Windows_10_0_0).WeeklySummaryBookingInfoComponent bookedDayIsNotEntered"/>
+  <testcase name="WeeklySummaryTimesheetComponent can load instance" time="0.009" classname="Chrome_85_0_4183_(Windows_10_0_0).WeeklySummaryTimesheetComponent"/>
+  <testcase name="WeeklySummaryTimesheetComponent ngOnInit makes expected calls" time="0.007" classname="Chrome_85_0_4183_(Windows_10_0_0).WeeklySummaryTimesheetComponent ngOnInit"/>
+  <testcase name="WrapperProviderDashboardComponent can load instance" time="0.01" classname="Chrome_85_0_4183_(Windows_10_0_0).WrapperProviderDashboardComponent"/>
+  <testcase name="AuthGuard can load instance" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).AuthGuard"/>
+  <testcase name="AuthGuard canActivate makes expected calls" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).AuthGuard canActivate"/>
+  <testcase name="SessionGuard should ..." time="0.006" classname="Chrome_85_0_4183_(Windows_10_0_0).SessionGuard"/>
+  <testcase name="SessionGuard canActivate makes expected calls" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).SessionGuard canActivate"/>
+  <testcase name="LoginService can load instance" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).LoginService"/>
+  <testcase name="LoginService userIsAuthorization has default value" time="0.004" classname="Chrome_85_0_4183_(Windows_10_0_0).LoginService"/>
+  <testcase name="LoginService impersonationOn has default value" time="0.008" classname="Chrome_85_0_4183_(Windows_10_0_0).LoginService"/>
+  <testcase name="LoginService atlasRpEnabled has default value" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).LoginService"/>
+  <testcase name="LoginService presentDataFeatureFlag has default value" time="0.005" classname="Chrome_85_0_4183_(Windows_10_0_0).LoginService"/>
+  <testcase name="LoginService getCurrentUser makes expected calls" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).LoginService getCurrentUser"/>
+  <testcase name="LoginService getUserRoleId makes expected calls" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).LoginService getUserRoleId"/>
+  <testcase name="LoginService stopImpersonation makes expected calls" time="0.004" classname="Chrome_85_0_4183_(Windows_10_0_0).LoginService stopImpersonation"/>
+  <testcase name="LoginService logOut makes expected calls" time="0.002" classname="Chrome_85_0_4183_(Windows_10_0_0).LoginService logOut"/>
+  <testcase name="LoginService redirectToDashboard makes expected calls" time="0.002" classname="Chrome_85_0_4183_(Windows_10_0_0).LoginService redirectToDashboard"/>
+  <testcase name="PasswordChangeService can load instance" time="0.007" classname="Chrome_85_0_4183_(Windows_10_0_0).PasswordChangeService"/>
+  <testcase name="PasswordChangeService resetPassword makes expected calls" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).PasswordChangeService resetPassword"/>
+  <testcase name="PasswordChangeService forgotPassword makes expected calls" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).PasswordChangeService forgotPassword"/>
+  <testcase name="PasswordChangeService forgotPasswordComplete makes expected calls" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).PasswordChangeService forgotPasswordComplete"/>
+  <testcase name="ResendPdfService can load instance" time="0.006" classname="Chrome_85_0_4183_(Windows_10_0_0).ResendPdfService"/>
+  <testcase name="ResendPdfService resendPdf makes expected calls" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).ResendPdfService resendPdf"/>
+  <testcase name="CommonService can load instance" time="0.002" classname="Chrome_85_0_4183_(Windows_10_0_0).CommonService"/>
+  <testcase name="DataService can load instance" time="0.002" classname="Chrome_85_0_4183_(Windows_10_0_0).DataService"/>
+  <testcase name="DialogService can load instance" time="0.005" classname="Chrome_85_0_4183_(Windows_10_0_0).DialogService"/>
+  <testcase name="LocalStorageService should be created" time="0.005" classname="Chrome_85_0_4183_(Windows_10_0_0).LocalStorageService"/>
+  <testcase name="LocalStorageService should getting number" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).LocalStorageService"/>
+  <testcase name="LocalStorageService should getting string" time="0.004" classname="Chrome_85_0_4183_(Windows_10_0_0).LocalStorageService"/>
+  <testcase name="LocalStorageService should getting object" time="0.005" classname="Chrome_85_0_4183_(Windows_10_0_0).LocalStorageService"/>
+  <testcase name="LocalStorageService should removed" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).LocalStorageService"/>
+  <testcase name="LocalStorageService should cleaned" time="0.004" classname="Chrome_85_0_4183_(Windows_10_0_0).LocalStorageService"/>
+  <testcase name="LongRequestService can load instance" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).LongRequestService"/>
+  <testcase name="FilterListService can load instance" time="0.006" classname="Chrome_85_0_4183_(Windows_10_0_0).FilterListService"/>
+  <testcase name="FilterListService filterList has default value" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).FilterListService"/>
+  <testcase name="PaginatorService can load instance" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).PaginatorService"/>
+  <testcase name="ProviderInfoService can load instance" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderInfoService"/>
+  <testcase name="ProviderInfoService saveUserEmail makes expected calls" time="0.006" classname="Chrome_85_0_4183_(Windows_10_0_0).ProviderInfoService saveUserEmail"/>
+  <testcase name="LookupsService can load instance" time="0.004" classname="Chrome_85_0_4183_(Windows_10_0_0).LookupsService"/>
+  <testcase name="LookupsService getRecruitingConsultantLookup makes expected calls" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).LookupsService getRecruitingConsultantLookup"/>
+  <testcase name="LookupsService getBookingServiceCoordinatorLookup makes expected calls" time="0.002" classname="Chrome_85_0_4183_(Windows_10_0_0).LookupsService getBookingServiceCoordinatorLookup"/>
+  <testcase name="LookupsService getBookingRecruitingConsultantLookup makes expected calls" time="0.005" classname="Chrome_85_0_4183_(Windows_10_0_0).LookupsService getBookingRecruitingConsultantLookup"/>
+  <testcase name="LookupsService getRegionLookup makes expected calls" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).LookupsService getRegionLookup"/>
+  <testcase name="LookupsService getSpecialtyLookup makes expected calls" time="0.004" classname="Chrome_85_0_4183_(Windows_10_0_0).LookupsService getSpecialtyLookup"/>
+  <testcase name="LookupsService getStatesLookup makes expected calls" time="0.004" classname="Chrome_85_0_4183_(Windows_10_0_0).LookupsService getStatesLookup"/>
+  <testcase name="NotificationService can load instance" time="0.005" classname="Chrome_85_0_4183_(Windows_10_0_0).NotificationService"/>
+  <testcase name="UserCreateService can load instance" time="0.004" classname="Chrome_85_0_4183_(Windows_10_0_0).UserCreateService"/>
+  <testcase name="UserCreateService createUser makes expected calls" time="0.003" classname="Chrome_85_0_4183_(Windows_10_0_0).UserCreateService createUser"/>
+  <system-out>
+    <![CDATA[
+]]>
+  </system-out>
+  <system-err/>
+</testsuite>

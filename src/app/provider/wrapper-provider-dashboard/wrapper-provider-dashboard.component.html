@@ -1,0 +1,8 @@
+<div>
+  <ng-container *ngIf="loginService.atlasRpDashboardEnabled;">
+    <jclt-atlas-provider-dashboard></jclt-atlas-provider-dashboard>
+  </ng-container>
+  <ng-container *ngIf="showTNE">
+    <jclt-provider-dashboard></jclt-provider-dashboard>
+  </ng-container>
+</div>

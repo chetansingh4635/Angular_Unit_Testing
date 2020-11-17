@@ -1,0 +1,64 @@
+<!-- BEGIN HEADER -->
+<header class="atlas-header">
+  <div class="atlas-header-logo-container py-2">
+    <!-- BEGIN LOGO -->
+    <a routerLink={{homePath}} class="jclt-logo-link">
+      <!--<img src="../../assets/images/JCLT-LogoHorWhite.svg"
+           alt="Jackson & Coker Time & Expense" />-->
+      <img src="../../../../../Images/JCLT-LogoHorWhite.svg"
+           alt="Jackson & Coker Time & Expense" />
+    </a>
+    <!-- END LOGO -->
+    <!-- BEGIN MENU HAMBURGER BUTTON -->
+    <!-- BEGIN DESKTOP BUTTON -->
+    <button *ngIf="isUserLoggedIn && !hide && false" class="btn atlas-nav-menu-button d-none d-lg-inline-block bg-transparent"
+            (click)="data.toggle()">
+      <i class="fal fa-bars fa-2x"></i>
+    </button>
+    <!-- END DESKTOP BUTTON -->
+    <!-- BEGIN MOBILE BUTTON -->
+    <button *ngIf="isUserLoggedIn && !hide" class="btn atlas-nav-menu-button d-lg-none bg-transparent"
+            (click)="data.toggleMobile()">
+      <i class="fal fa-bars fa-2x"></i>
+    </button>
+    <!-- END DESKTOP BUTTON -->
+    <!-- END MENU HAMBURGER BUTTON -->
+  </div>
+  <span *ngIf="isUserLoggedIn && !hide" class="atlas-header-date-text atlas-lg-text d-none d-lg-inline-block atlas-pl-8 float-left position-absolute">
+    {{today | date:'fullDate'}}
+  </span>
+  <!-- BEGIN DROPDOWN MENU-->
+  <div *ngIf="isUserLoggedIn && !hide" class="atlas-dropdown atlas-header-dropdown float-right">
+    <div class="dropdown">
+      <button class="btn dropdown-toggle bg-transparent atlas-lg-text text-white"
+              type="button"
+              id="dropdownMenuButton"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+              [ngClass]="{'atlas-no-click':data.navExpandedMobile && !isDesktop}">
+        <i class="fas fa-user-circle fa-lg"></i>
+      </button>
+      <div class="dropdown-menu dropdown-menu-right atlas-card atlas-card-raised atlas-card-sharp"
+           aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" routerLink="account/reset-password">Reset Password</a>
+        <a *ngIf="userRoleId === roles.Provider && (showRpMenus)" class="dropdown-item" href="javascript:void(0)" (click)="editEmail()">Edit Email Address</a>
+        <a *ngIf="(userRoleId === roles.Provider && (showRpMenus)) && false" class="dropdown-item" href="javascript:void(0)" routerLink="provider/profile">Licenses and Specialties</a>
+        <a *ngIf="(userRoleId === roles.Provider && (showRpMenus))" class="dropdown-item" routerLink="provider/preferences">Preferences</a>
+        <a *ngIf="userRoleId !== roles.Admin" class="dropdown-item" routerLink={{faqPath}}>Help</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" (click)="logOut()">Logout</a>
+      </div>
+    </div>
+  </div>
+  <!-- END DROPDOWN MENU-->
+</header>
+<!-- END HEADER -->
+  <div #atlasImpersonation [hidden]="!isImpersonating" [ngClass]="{'atlas-card-tab-desk':isDesktop,'atlas-card-tab':!isDesktop}">
+    <div [ngClass]="{'atlas-card-tab-desk-body':isDesktop,'atlas-card-tab-body':!isDesktop,'atlas-danger-bg':true}">
+      <button class="btn atlas-tertiary bg-white p-1" (click)="stopImpersonating()">Stop</button>
+      <p class="mb-0">
+        Impersonating: {{loginService.getUserFriendlyName()}}
+      </p>
+    </div>
+  </div>

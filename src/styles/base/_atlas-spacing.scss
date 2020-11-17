@@ -1,0 +1,111 @@
+/*Spacing Variables are located src/assets/scss/base/_atlas-variables.scss*/
+
+//Margin
+@include generate(atlas-m, margin);
+@include generate(atlas-ml, margin-left);
+@include generate(atlas-mr, margin-right);
+@include generate(atlas-mt, margin-top);
+@include generate(atlas-mb, margin-bottom);
+
+//Padding
+@include generate(atlas-p, padding);
+@include generate(atlas-pl, padding-left);
+@include generate(atlas-pr, padding-right);
+@include generate(atlas-pt, padding-top);
+@include generate(atlas-pb, padding-bottom);
+
+//Axes
+@include generateAxes(atlas-my, margin-top, margin-bottom);
+@include generateAxes(atlas-mx, margin-left, margin-right);
+@include generateAxes(atlas-py, padding-top, padding-bottom);
+@include generateAxes(atlas-px, padding-left, padding-right);
+
+//Auto
+@include generateAuto(atlas-mt, margin-top);
+@include generateAuto(atlas-mb, margin-bottom);
+@include generateAuto(atlas-ml, margin-left);
+@include generateAuto(atlas-mr, margin-right);
+
+//Width
+.atlas-w-5 {
+    width: 5% !important; 
+}
+.atlas-w-10 {
+    width: 10% !important; 
+}
+.atlas-w-15 {
+    width: 15% !important; 
+}
+.atlas-w-20 {
+    width: 20% !important; 
+}
+.atlas-w-25 {
+    width: 25% !important; 
+}
+.atlas-w-30 {
+    width: 30% !important; 
+}
+.atlas-w-35 {
+    width: 35% !important; 
+}
+.atlas-w-40 {
+    width: 40% !important;
+}
+.atlas-w-45 {
+    width: 45% !important; 
+}
+.atlas-w-50 {
+    width: 50% !important; 
+}
+.atlas-w-55 {
+    width: 55% !important; 
+}
+.atlas-w-60 {
+    width: 60% !important; 
+}
+.atlas-w-65 {
+    width: 65% !important; 
+}
+.atlas-w-70 {
+    width: 70% !important; 
+}
+.atlas-w-75 {
+    width: 75% !important; 
+}
+.atlas-w-80 {
+    width: 80% !important; 
+}
+.atlas-w-85 {
+    width: 85% !important; 
+}
+.atlas-w-90 {
+    width: 90% !important; 
+}
+.atlas-w-95 {
+    width: 95% !important; 
+}
+.atlas-w-100 {
+    width: 100% !important; 
+}
+
+.atlas-mx-auto {
+    @include generateAuto(atlas-ml, margin-left);
+    @include generateAuto(atlas-mr, margin-right);
+}
+.atlas-my-auto {
+    @include generateAuto(atlas-mt, margin-top);
+    @include generateAuto(atlas-mb, margin-bottom);
+}
+
+.atlas-top {
+    top: 0
+}
+.atlas-bottom {
+    bottom: 0
+}
+.atlas-left {
+    left: 0
+}
+.atlas-right {
+    right: 0
+}

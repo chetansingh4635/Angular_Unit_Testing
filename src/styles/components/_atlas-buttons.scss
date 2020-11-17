@@ -1,0 +1,64 @@
+/*ATLAS BUTTON STYLING*/
+.btn {
+    &.atlas-primary {
+        background-color: $JC-cyan;
+        color: $atlas-white;
+        @include atlas-button();
+        &:hover:not(:disabled) {
+            background-color: $JC-cyan-dark;
+        }
+    }
+    &.atlas-primary-danger {
+        background-color: $atlas-danger;
+        color: $atlas-white;
+        @include atlas-button();
+        &:hover:not(:disabled) {
+            background-color: $atlas-danger-dark;
+        }
+    }
+    &.atlas-secondary {
+        border:1px solid $JC-cyan;
+        color: $JC-cyan;
+        background-color: transparent;
+        @include atlas-button();
+        &:hover:not(:disabled) {
+            background-color: $JC-cyan-light;
+        }
+    }
+    &.atlas-secondary-danger {
+        border: 1px solid $atlas-danger;
+        color: $atlas-danger;
+        background-color: transparent;
+        @include atlas-button();
+        &:hover:not(:disabled) {
+            background-color: $atlas-danger-light;
+        }
+    }
+    &.atlas-tertiary {
+        color: $atlas-darker-gray;
+        background: transparent;
+        @include atlas-button();
+        &:hover:not(:disabled) {
+            text-decoration: underline;
+        }
+    }
+}
+
+.atlas-button-group.k-button-group {
+    .k-button {
+        background-color: $atlas-white;
+        color: $atlas-black;
+        border-color: $atlas-gray;
+        background-image:inherit;
+        &:hover{
+            background-color: $JC-blue-light;
+        }
+        &.k-state-active {
+            background-color: $JC-blue;
+            color: $atlas-white;
+        }
+    }
+}
+.atlas-no-click{
+    pointer-events:none;
+}

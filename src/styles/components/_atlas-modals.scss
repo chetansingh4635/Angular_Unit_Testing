@@ -1,0 +1,130 @@
+.atlas-dialog {
+    color: $atlas-black;
+    //border-radius: 5px;
+    .k-window-titlebar, .k-dialog-titlebar {
+        background-color: $atlas-off-white-two;
+        color: $atlas-black;
+    }
+    .k-window-title {
+        font-size: $h5-font-size;
+        color: $atlas-black;
+        line-height:normal;
+        .close {
+            color: $atlas-black;
+        }
+    }
+    .k-widget[role="dialog"], .k-window [role="dialog"], .k-dialog[role="dialog"] {
+        border-radius: .25rem;
+        width:800px;
+        @media #{$atlas-tablet-max} {
+            width:700px;
+        }
+        @media #{$atlas-mobile-max} {
+            width:500px;
+            margin: auto 10px;
+        }
+        @media #{$atlas-mobile-xs-max} {
+            width: 320px;
+            margin: auto 10px;
+        }
+    }
+    // .k-window-content {
+    //     max-height: 500px;
+    // } 
+    .k-window-action {
+        opacity: 1;
+        .k-i-x {
+            &::before {
+                color: $atlas-black;
+                font-size: $atlas-font-size-base * 1.5;
+                position: absolute;
+                right: -13px;
+                bottom: -5px; 
+            }
+        }
+    }
+
+    .k-dialog-button-layout-stretched {
+        padding: $atlas-spacing-base-half;
+        -webkit-box-align: center;
+        align-items:center
+    }
+    .k-dialog-buttongroup {
+        justify-content: center;
+        background-color:$atlas-off-white-two;
+        margin: $atlas-spacing-base-0;
+        @media #{$atlas-tablet-max} {
+            .btn {
+                &.atlas-primary, &.atlas-secondary, &.atlas-tertiary {
+                    margin-bottom: $atlas-spacing-base-half;
+                    padding-top: $atlas-spacing-base-half;
+                    padding-bottom: $atlas-spacing-base-half;
+                }
+            }
+        }
+        @media #{$atlas-mobile-max} {
+            button {
+                margin-right: $atlas-spacing-base-0;
+            }
+        }
+    }
+    /*Start Atlas Kendo Sliding Modal*/ 
+    &.atlas-sliding-kendo-dialog {
+        .k-window-titlebar, .k-dialog-titlebar {
+            @media #{$atlas-tablet-max} {
+                padding-top: $atlas-spacing-base-half;
+                padding-bottom: $atlas-spacing-base-half;
+            }
+        }
+        &.atlas-dialog-sm {
+            .k-widget[role="dialog"], .k-window [role="dialog"], .k-dialog[role="dialog"] {
+                width:320px;
+                @media only screen and (max-width: 767.98px) {
+                    width: 100%;
+                    margin:0px;
+                    min-width: 100%;
+                }
+            }
+        }
+        .atlas-no-close-button {
+            .k-window-actions {
+                display: none;
+            }
+        }
+        .k-widget[role="dialog"], .k-window [role="dialog"], .k-dialog[role="dialog"] { 
+            // position: fixed;
+            min-height: 100%;
+            border-radius: 0rem;
+            right: 0px;
+           
+            @media only screen and (max-width: 767.98px) {
+                width: 100%;
+            }
+        }
+        .k-dialog-buttongroup {
+            position: absolute;
+            bottom: 0px;
+            width: 100%;
+        }
+        // @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) { //Use to Support IE 10 and above
+        //     /* IE10+ CSS styles go here */
+        //     height: auto;
+        //     .k-dialog-buttongroup {
+        //         position: absolute;
+        //         bottom: 0px;
+        //         width: 100%;
+        //     }
+
+        // }
+    }
+    /*End Atlas Kendo Sliding Modal*/
+}
+
+.atlas-dialog-form{
+    span.k-widget.k-tooltip-validation{
+        font-weight: 400;
+        & > .k-icon{
+            margin-bottom: .25rem;
+        }
+    }
+}

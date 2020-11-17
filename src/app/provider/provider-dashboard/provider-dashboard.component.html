@@ -1,0 +1,101 @@
+<div>
+  <div class="row">
+    <div class="col-12">
+      <h5 class="dayoftheweek-header">{{today | date : 'EEEE, MMMM d'}}</h5>
+      <div class="dayoftheweek-divider"></div>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="!(currentTimesheets && currentTimesheets.length>0) && !(declinedTimesheet && declinedTimesheet.length>0) && !(pastTimesheet && pastTimesheet.length>0) && !(nonSubmittedExpenses && nonSubmittedExpenses.data.length>0); else dataPresent">
+    <div class="col-12">
+      <h5>
+        <strong>No Current, Declined, Past Timesheet and Expense pending</strong>
+      </h5>
+    </div>
+  </div>
+
+  <ng-template #dataPresent>
+    <div class="row">
+      <div class="col-12 current-timesheet-col" *ngIf="(currentTimesheets && currentTimesheets.length>0); else noCurrent">
+        <h5 class="current-timesheet-header"> <strong>{{(currentTimesheets && currentTimesheets.length > 0) ? currentTimesheets[0].totalCount : 0}} Current</strong> {{(currentTimesheets  && currentTimesheets.length > 0 && currentTimesheets[0].totalCount === 1) ? "Timesheet" : "Timesheets" }}</h5>
+      </div>
+      <ng-template #noCurrent>
+        <div class="col-12 current-timesheet-col">
+          <h5 class="current-timesheet-header"><strong>You don't have any current timesheets to submit.</strong></h5>
+        </div>
+      </ng-template>
+    </div>
+
+    <div class="row" *ngIf="currentTimesheets.length>0">
+      <div #cardContainer class="col-12 col-sm-6 col-lg-4 mb-3" *ngFor="let timesheet of currentTimesheets">
+        <jclt-provider-timesheet-card
+          [timesheet]="timesheet"
+          [isPast]="false"
+          [today]="today"
+          [parent]="cardContainer">
+        </jclt-provider-timesheet-card>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 pastdue-timesheet-col">
+        <h5 class="pastdue-timesheet-header">
+          <strong>{{(declinedTimesheet && declinedTimesheet.length > 0) ? declinedTimesheet[0].totalCount : 0}} Declined</strong> {{(declinedTimesheets && declinedTimesheets.length > 0 && declinedTimesheets[0].totalCount === 1) ? "Timesheet" : "Timesheets" }}
+          <span class="viewall-link">
+            <a href="/provider/timesheetList/Declined">(View All)</a>
+          </span>
+        </h5>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="declinedTimesheet && declinedTimesheet.length>0">
+      <div #cardContainer1a class="col-12 col-sm-6 col-lg-4 mb-3">
+        <jclt-provider-timesheet-card [timesheet]="declinedTimesheet[0]"
+                                      [isPast]="true"
+                                      [today]="today"
+                                      [parent]="cardContainer1a">
+        </jclt-provider-timesheet-card>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 pastdue-timesheet-col">
+        <h5 class="pastdue-timesheet-header">
+          <strong>{{(pastTimesheet && pastTimesheet.length > 0) ? pastTimesheet[0].totalCount : 0}} Past Due</strong> {{(pastTimesheet && pastTimesheet.length > 0 && pastTimesheet[0].totalCount === 1) ? "Timesheet" : "Timesheets" }}
+          <span class="viewall-link">
+            <a href="/provider/timesheetList/Past">(View All)</a>
+          </span>
+        </h5>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="pastTimesheet && pastTimesheet.length>0">
+      <div #cardContainer2 class="col-12 col-sm-6 col-lg-4 mb-3">
+        <jclt-provider-timesheet-card
+          [timesheet]="pastTimesheet[0]"
+          [isPast]="true"
+          [today]="today"
+          [parent]="cardContainer2">
+        </jclt-provider-timesheet-card>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="!loginService.getIsImpersonating()">
+      <div class="col-12 pastdue-timesheet-col">
+        <h5 class="notsubmitted-expense-header">
+          <strong>{{(nonSubmittedExpenses && nonSubmittedExpenses.totalCount > 0) ? nonSubmittedExpenses.totalCount : 0}} Unsubmitted</strong> {{(nonSubmittedExpenses && nonSubmittedExpenses.totalCount === 1) ? "Expense" : "Expenses" }}
+          <span class="viewall-link">
+            <a href="/provider/non-submitted-expenses">(View All)</a>
+          </span>
+        </h5>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="nonSubmittedExpenses && nonSubmittedExpenses.data.length>0 && !loginService.getIsImpersonating()">
+      <div class="col-12 col-sm-6 col-lg-4 mb-3">
+        <jclt-provider-expense-card [expense]="nonSubmittedExpenses.data[0]"></jclt-provider-expense-card>
+      </div>
+    </div>
+
+  </ng-template>
+</div>

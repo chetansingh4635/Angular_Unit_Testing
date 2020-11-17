@@ -1,0 +1,36 @@
+<h1 class="atlas-mb-5">Licenses and Specialities</h1>
+<form>
+  <div class="row atlas-mb-8">
+    <div class="col-md-7">
+      <div class="atlas-form-group">
+        <label for="States Licenses">States Licenses <!--<span class="atlas-required" aria-hidden="true">* </span>--></label>
+        <jclt-state-and-specialities [stateVisibility]="true"
+                                     [specialitiesVisibility]="false"
+                                     [selectedStateData]="stateData"
+                                     (onStateChanged)="onStateChanged($event)">
+        </jclt-state-and-specialities>
+        <!-- <div *ngIf="stateData.length === 0">
+          <span class="atlas-required" role="alert">State is required</span>
+        </div> -->
+      </div>
+    </div>
+  </div>
+  <div class="row atlas-mb-8">
+    <div class="col-md-7">
+      <div class="atlas-form-group">
+        <label for="Specialities">Specialities <!--<span class="atlas-required" aria-hidden="true">* </span> --></label>
+        <jclt-state-and-specialities [stateVisibility]="false"
+                                     [specialitiesVisibility]="true"
+                                     [selectedSpecialityData]="specialityData"
+                                     (onSpecialityChanged)="onSpecialityChanged($event)">
+        </jclt-state-and-specialities>
+        <!-- <div *ngIf="specialityData.length === 0">
+          <span class="atlas-required" role="alert">Speciality is required<br /></span>
+        </div> -->
+      </div>
+    </div>
+  </div>
+    <button  class="btn atlas-primary"  (click)="saveLookups()">Save</button>
+</form>
+
+

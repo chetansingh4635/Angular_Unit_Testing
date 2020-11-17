@@ -1,0 +1,32 @@
+<div class="atlas-dashboard-max-width mx-auto">
+  <ng-container *ngIf="((!getAtlasRpDashboardEnabled()) || getIsSyncedRpAndSyncedTneBookings())">
+
+    <div class="row mb-lg-5 mb-4">
+      <div class="col-lg-8 d-lg-flex flex-lg-column">
+        <jclt-atlas-timesheet-widget></jclt-atlas-timesheet-widget>
+      </div>
+      <div class="col-lg-4 d-lg-flex flex-lg-column">
+        <!-- Expense Component-->
+        <jclt-atlas-expense-widget class="h-100"></jclt-atlas-expense-widget>
+        <!--Expense Component-->
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="getAtlasRpDashboardEnabled()">
+    <div class="row">
+      <div class="col-lg-8">
+        <div>
+          <jclt-schedule-widget></jclt-schedule-widget>
+        </div>
+        <div>
+          <jclt-provider-interest-widget></jclt-provider-interest-widget>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <jclt-provider-order-card-list></jclt-provider-order-card-list>
+      </div>
+
+    </div>
+  </ng-container>
+</div>

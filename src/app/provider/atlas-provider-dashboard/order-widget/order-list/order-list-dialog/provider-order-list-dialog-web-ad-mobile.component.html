@@ -1,0 +1,18 @@
+<kendo-dialog [@slideInOut] class="atlas-sliding-kendo-dialog atlas-dialog-sm">
+  <kendo-dialog-titlebar class="atlas-no-close-button">
+    <button (click)="action('close')" type="button" class="close float-left" data-dismiss="modal" aria-label="Close" (close)="close('dialog')">
+      <i class="fa fa-chevron-left" aria-hidden="true"></i>
+    </button>
+    <div class="text-center mx-auto">Opportunity Details </div>
+  </kendo-dialog-titlebar>
+
+  <jclt-provider-order-list-dialog-web-ad-content [selectedJobOpportunity]="selectedJobOpportunity"
+                                                  [selectedWebAd]="selectedWebAd"
+                                                  (isChildFormValid)="checkFormValid($event)">
+  </jclt-provider-order-list-dialog-web-ad-content>
+  <kendo-dialog-actions class="m-0">
+    <button class="btn btn-job-apply w-100 buttongroup-radius-right card-button-state text-overflow-ellipsis-button k-primary"
+            (click)="action('apply')" [disabled]="getIsImpersonating() || !isChildFormValid">Apply Now</button>
+  </kendo-dialog-actions>
+</kendo-dialog>
+

@@ -1,0 +1,11 @@
+<jclt-timesheet-detail-edit-form-for-call
+  [timesheetDetail]="timesheetDetail"
+  *ngIf="timesheetDetail.isCall"
+  (onErrorsUpdate)="onChildErrorsUpdate($event)">
+</jclt-timesheet-detail-edit-form-for-call>
+
+<jclt-timesheet-detail-edit-form-for-non-call
+  [timesheetDetail]="timesheetDetail"
+  *ngIf="!timesheetDetail.isCall"
+  (onErrorsUpdate)="onChildErrorsUpdate($event)">
+</jclt-timesheet-detail-edit-form-for-non-call>

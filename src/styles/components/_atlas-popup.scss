@@ -1,0 +1,151 @@
+/* ATLAS OVERRIDES TO THE KENDO FILTER POPUP WITHIN THE GRID*/
+.atlas-grid-filter-popup {
+    .k-popup.k-grid-filter-popup {
+        color: $atlas-black;
+        border-radius: 0px;
+        @include atlas-box-shadow-one;
+        .k-dropdown .k-dropdown-wrap, 
+        .k-dropdowntree .k-dropdown-wrap {
+            border: 1px solid $atlas-line-color;
+            color: $atlas-black;
+            border-radius: 1px;
+            background-color: $atlas-white;
+            background-image: none;
+            .k-select {
+                    .k-i-arrow-s {
+                        &::before {
+                        @include atlas-font-awesome-pro-light;
+                        content: "\f078";
+                        }
+                    }
+                    .k-icon {
+                        color: $atlas-black;
+                    }
+                }
+        }
+        .k-datepicker {
+            width: 100%;
+            border-radius: 1px;
+            .k-dropdown-wrap,.k-picker-wrap {
+                border: 1px solid $atlas-line-color;
+                color: $atlas-black;
+                border-radius: 1px;
+                background: $atlas-white;
+            }
+            .k-select {
+                background-color: $atlas-white;
+                background-image: none;
+                border: none;
+                color: $atlas-black;
+            }
+        }
+        .k-dropdown .k-state-focused {
+            box-shadow: none;
+        }
+        .k-action-buttons {
+            border-width: 0px;
+            .k-button {
+                padding: $atlas-spacing-base-quarter $atlas-spacing-base-three-quarters;
+                border-radius: 4px;
+                color: $atlas-darker-gray;
+                background: transparent;
+                @include atlas-button();
+                &:hover:not(:disabled) {
+                    text-decoration: underline;
+                }
+                +.k-button {
+                    border-left-width: 0px;
+                }
+                &.k-primary {
+                    background-color: $JC-cyan;
+                    color: $atlas-white;
+                    @include atlas-button();
+                    margin-right: $atlas-spacing-base;
+                    &:hover:not(:disabled) {
+                        text-decoration: none;
+                        background-color: $JC-cyan-dark;
+                    }
+                }
+            }
+        }
+        
+    }
+    .k-list {
+        .k-item {
+            color: $atlas-black;
+            &.k-state-selected {
+                background-color: $JC-cyan;
+                color: $atlas-white;
+                box-shadow: unset;
+                &:hover{
+                    background-color: $JC-cyan-dark;
+                    color: $atlas-white;
+                    box-shadow: unset;
+                }
+            }
+            &.k-state-focused {
+                background-color: $atlas-white;
+                color: $atlas-black;
+                box-shadow: none;
+                &:hover{
+                    background-color: $atlas-white-gray;
+                    color: $atlas-black;
+                    box-shadow: unset;
+                }
+            }
+            &:hover {
+                background-color: $atlas-white-gray;
+            }
+        }
+    }    
+    .k-list-scroller {
+        @include atlas-scroll;
+    }
+}
+
+.cutom-numeric-box > .k-numeric-wrap > .k-select {
+    display:none !important;
+  }
+  
+  //Dropdown list
+ .atlas-dropdown-list {
+    .k-list-optionlabel.k-state-focused.k-state-selected {
+      background-color: $JC-cyan;
+      color: $atlas-white;
+      box-shadow: unset;
+      &:hover{
+        background-color: $JC-cyan-dark;
+        color: $atlas-white;
+        box-shadow: unset;
+      }
+    }
+    .k-list {
+      .k-item {
+        color: $atlas-black;
+        &:hover {
+          color: $atlas-black;
+          background-color: $atlas-white-gray;
+        }
+        &.k-state-selected {
+          background-color: $JC-cyan;
+          color: $atlas-white;
+          box-shadow: unset;
+          &:hover{
+            background-color: $JC-cyan-dark;
+            color: $atlas-white;
+            box-shadow: unset;
+          }
+        }
+      }
+      .k-list-scroller {
+        @include atlas-scroll;
+      }
+    }
+}
+
+@media (min-width: 992px) {
+    .k-multiselect-wrap ul {
+        max-height: 200px;
+        overflow: auto;
+    }
+}

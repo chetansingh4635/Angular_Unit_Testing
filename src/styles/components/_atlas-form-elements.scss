@@ -1,0 +1,294 @@
+/*BOOTSTRAP FORM INPUT STYLING*/
+.atlas-form-group {
+  .atlas-required {
+    color: $atlas-danger;
+  }
+
+  label {
+    & ~ em {
+      font-size: $atlas-font-smaller;
+      display: block;
+    }
+  }
+
+  input, textarea, select, .form-control.ng-untouched {
+    border: 1px solid $atlas-line-color;
+    border-radius: 1px;
+    color: $atlas-black;
+
+    &:disabled, [readonly] {
+      cursor: not-allowed;
+    }
+    &::placeholder {
+      color: $atlas-black;
+      font-size: $atlas-font-small;
+      opacity: 1; /* Firefox */
+    }
+    &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+      color: $atlas-black;
+    }
+    &::-ms-input-placeholder { /* Microsoft Edge */
+      color: $atlas-black;
+    }
+  }
+
+  .atlas-error-icon { //Input Error Icon
+    right: 30px;
+    top: 39px;
+    @include atlas-error-input-icon;
+    &.atlas-error-icon-two {
+      right: 11px;
+      top: 42px;
+    }
+    &.atlas-error-icon-three {
+      right: 11px;
+      top: 44px;
+    }
+  }
+  //Styling Bootstrap Select Boxes
+  .atlas-select-wrapper {
+    max-width: 100%;
+    width: 100%;
+    position: relative;
+
+    &::after {
+      @include atlas-font-awesome-pro-solid;
+      content: "\f078";
+      position: absolute;
+      text-align: center;
+      color: $JC-orange;
+      width: 46px;
+      font-size: 23px;
+      line-height: 38px;
+      right: 0;
+      top: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    select {
+      cursor: pointer;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+    }
+
+    .atlas-error-icon { //Styling Error Icon
+      right: 45px;
+      top: 7px;
+      @include atlas-error-input-icon()
+    }
+  }
+  //Styling Bootstrap Checkboxes and Radio Buttons
+  .custom-control {
+    margin-bottom: .5rem;
+
+    .custom-control-input {
+      //Checkbox Checked State
+      &:checked ~ .custom-control-label::before {
+        border-color: $JC-cyan;
+        background-color: $JC-cyan;
+      }
+      //Checkbox Disabled State
+      &[disabled],
+      &:disabled {
+        ~ .custom-control-label {
+          opacity: .5;
+          color: $atlas-black;
+          cursor: not-allowed;
+        }
+      }
+      //Checkbox Active State
+      &:not(:disabled):active ~ .custom-control-label::before {
+        opacity: .75;
+        background-color: $JC-cyan;
+        border: 1px solid $atlas-line-color;
+      }
+    }
+
+    .custom-control-label {
+      padding-left: .5rem;
+      font-size: $atlas-font-small;
+
+      &:before {
+        top: 0;
+        border: 1px solid $atlas-line-color;
+        width: 1.5rem;
+        height: 1.5rem;
+        background-color: $atlas-white;
+      }
+
+      &:after {
+        top: 0;
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+  }
+  //Styling Bootstrap Textarea Error Icon
+  .atlas-form-textarea {
+    position: relative;
+
+    .atlas-error-icon { //Textarea Error Icon
+      top: 10px;
+      right: 10px;
+      @include atlas-error-input-icon()
+    }
+  }
+
+  legend {
+    font-size: $atlas-font-size-base;
+    color: $atlas-black;
+  }
+  //Autofill States
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+    border: 1px solid $atlas-line-color;
+    -webkit-text-fill-color: $atlas-black;
+    background-color: $atlas-white;
+    @include atlas-transition-background-color-one;
+  }
+}
+
+/*KENDO COMBO BOX AND DROPDOWN INPUT STYLING*/
+.atlas-form-group {
+  .k-combobox, .k-dropdown, .k-datepicker {
+    width: 100%;
+    border-radius: 1px;
+    //border: $atlas-border-three;
+    .k-dropdown-wrap, .k-picker-wrap {
+      border: 1px solid $atlas-line-color;
+      color: $atlas-black;
+      border-radius: 1px;
+      background: $atlas-white;
+    }
+
+    .k-select {
+      background: $atlas-white;
+      border: none;
+    }
+  }
+
+  .k-dropdown {
+    .k-select {
+      .k-i-arrow-s {
+        &::before {
+          @include atlas-font-awesome-pro-light;
+          content: "\f078";
+        }
+      }
+    }
+  }
+  /*.k-icon {
+    color: $JC-orange;
+    width: 2em;
+  }*/
+  &.atlas-time-select {
+    .k-select {
+      .k-i-arrow-s {
+        &::before {
+          content: "\e107";
+        }
+      }
+    }
+  }
+  .k-dropdown.ng-invalid.ng-dirty>.k-dropdown-wrap,
+  .k-dropdown.ng-invalid.ng-touched>.k-dropdown-wrap {
+      border-color: $atlas-danger;
+  }
+
+}
+
+/*KENDO UPLOAD BUTTON STYLING*/
+.atlas-upload-button {
+  .k-upload {
+    background-color: $atlas-white;
+    border: 1px solid $atlas-line-color;
+
+    .k-dropzone {
+      color: $atlas-black;
+      background-color: $atlas-off-white-two;
+      border-color: $atlas-gray;
+    }
+  }
+
+  .k-upload .k-file-error .k-file-name,
+  .k-upload .k-file-invalid .k-file-name {
+    color: $atlas-danger;
+  }
+
+  .k-upload .k-file-invalid-extension-wrapper::before,
+  .k-upload .k-multiple-files-invalid-extension-wrapper::before,
+  .k-upload .k-file-error .k-file-extension-wrapper::before {
+    border-color: transparent $atlas-danger;
+  }
+
+  .k-button {
+    background-color: $JC-cyan;
+    color: $atlas-white;
+    border-color: $JC-cyan;
+  }
+}
+//.form-control.ng-invalid:not(.ng-pristine.ng-touched)
+.atlas-form-group:not(.atlas-form-group-no-error) {
+  .k-invalid, .ng-invalid {
+    border: $atlas-danger-border;
+
+    &:focus {
+      outline: 5px auto $atlas-danger;
+    }
+  }
+
+  .k-valid, .ng-valid {
+    // border: 1px solid $JC-cyan;
+
+    &:focus {
+      outline: none !important;
+    }
+  }
+}
+//override when form element is required but we don't want to show red in safari
+.atlas-form-group.atlas-form-group-no-error {
+  .form-control.ng-untouched.ng-pristine.ng-invalid,.form-control.ng-untouched.ng-dirty.ng-invalid {
+    border: 1px solid $atlas-line-color!important;
+    border-radius: 1px;
+    color: $atlas-black;
+
+    &:disabled, [readonly] {
+      cursor: not-allowed;
+    }
+  }
+
+  /*.form-control.ng-invalid:not(.ng-pristine.ng-touched) {
+    border: $atlas-danger-border;
+
+    &:focus {
+      outline: 5px auto $atlas-danger;
+    }
+  }*/
+
+  .form-control.ng-valid {
+    border: 1px solid $JC-cyan;
+
+    &:focus {
+      outline: 5px auto $JC-cyan;
+    }
+  }
+}
+.ng-invalid-grayborder {
+  border: 0px solid rgba(0, 0, 0, 0.08) !important;
+  border-radius: 2px !important;
+}
+.atlas-checkbox-align {
+  float: right;
+  top: 0;
+  position: absolute;
+  margin-left: 110px;
+}

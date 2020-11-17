@@ -1,0 +1,213 @@
+/* Header Styling */
+.atlas-header {
+  background-color: $JC-blue;
+  color: $atlas-white;
+  @include atlas-box-shadow-one;
+  position: fixed;
+  right: 0px;
+  top: 0px;
+  z-index: $atlas-zindex-fixed;
+  height: $header-height;
+  @include atlas-transition-one;
+  width: 100%;
+
+  @media #{$atlas-tablet-max} {
+    height: $header-mobile-height;
+  }
+
+  .atlas-header-logo-container {
+    width: $navigation-width;
+    float: left;
+    position: relative;
+    @media #{$atlas-tablet-max} {
+      @include atlas-transition-one;
+      width: 100%;
+      display: block;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      justify-content: center;
+      position: relative;
+      float: left;
+      text-align: center;
+    }
+
+    &.atlas-no-logo {
+      width: $navigation-mini-width;
+
+      .atlas-nav-menu-button {
+        margin-left: inherit;
+        padding-left: $atlas-spacing-base-half;
+      }
+    }
+
+    .jclt-logo-link {
+      @media #{$atlas-tablet-max} {
+        display: inline-block;
+        margin: 0 auto;
+      }
+
+      img {
+        width: 139px;
+        height: 47px;
+
+        @media #{$atlas-tablet-max} {
+          width: 100px;
+          height: 35px;
+        }
+      }
+    }
+
+    .atlas-nav-menu-button {
+      color: $atlas-white;
+      margin-left: auto;
+      padding-right: $atlas-spacing-base-0;
+      padding-top: $atlas-spacing-base-half;
+      float: right;
+
+      @media #{$atlas-tablet-max} {
+        right: auto;
+        left: 0;
+        top: 3px;
+        position: absolute;
+        margin-left: $atlas-spacing-base-0;
+        padding-right: $atlas-spacing-base;
+      }
+    }
+  }
+
+  .atlas-logo-wrapper {
+    @media #{$atlas-tablet-max} {
+      position: absolute;
+      width: 100%;
+    }
+  }
+
+  .atlas-header-date-text {
+    top: 15px;
+  }
+
+  .atlas-dropdown.atlas-header-dropdown {
+    top: 15px;
+    position: relative;
+    color: $atlas-black;
+
+    @media #{$atlas-tablet-max} {
+      position: absolute;
+      display: block;
+      right: 0;
+      top: 12px;
+    }
+
+    .dropdown-toggle {
+      padding: $atlas-spacing-base-0 $atlas-spacing-base $atlas-spacing-base-0 $atlas-spacing-base-0;
+
+      @media #{$atlas-tablet-max} {
+        padding-left: $atlas-spacing-base-one-half;
+      }
+
+      &::after {
+        display: none;
+      }
+    }
+
+    .dropdown-menu {
+      color: $atlas-black;
+      width: 300px;
+
+      .dropdown-item {
+        color: $atlas-black;
+        @include atlas-hover-blue;
+
+        &:focus {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+}
+
+.atlas-card-tab {
+  position: fixed;
+  right: 0px;
+  top: $header-height;
+  z-index: $atlas-zindex-mobile-navigation-modal-backdrop;
+  height: auto;
+  width: 100%;
+
+  @media #{$atlas-tablet-max} {
+    top: $header-mobile-height;
+  }
+
+  .atlas-card-tab-body {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    color: $atlas-white;
+    padding: $atlas-spacing-base-quarter;
+    width: 25%;
+    border-bottom-right-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+
+    @media #{$atlas-tablet-max} {
+      width: 100%;
+      text-align: inherit;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+
+      p {
+        width: 75%;
+      }
+
+      .btn.atlas-tertiary {
+        float: right;
+        margin-right: $atlas-spacing-base-0;
+        width: auto;
+        line-height: 1;
+        margin-bottom: $atlas-spacing-base-0;
+      }
+    }
+  }
+}
+
+.atlas-card-tab-desk {
+  position: fixed;
+  top: $header-height;
+  z-index: $atlas-zindex-mobile-navigation-modal-backdrop;
+  height: auto;
+  left: 38%;
+
+  @media #{$atlas-tablet-max} {
+    top: $header-mobile-height;
+  }
+
+  .atlas-card-tab-desk-body {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    color: $atlas-white;
+    padding: $atlas-spacing-base-quarter;
+    width: 335px;
+    border-bottom-right-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+
+    @media #{$atlas-tablet-max} {
+      width: 100%;
+      text-align: inherit;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+
+      p {
+        width: 75%;
+      }
+
+      .btn.atlas-tertiary {
+        float: right;
+        margin-right: $atlas-spacing-base-0;
+        width: auto;
+        line-height: 1;
+        margin-bottom: $atlas-spacing-base-0;
+      }
+    }
+  }
+}

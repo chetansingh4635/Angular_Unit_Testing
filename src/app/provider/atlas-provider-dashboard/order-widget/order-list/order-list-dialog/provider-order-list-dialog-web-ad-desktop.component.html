@@ -1,0 +1,16 @@
+<kendo-dialog title="Opportunity Details" *ngIf="dialogOpened" (close)="close('dialog')" [width]="800">
+  <jclt-provider-order-list-dialog-web-ad-content [selectedJobOpportunity]="selectedJobOpportunity"
+                                                  [selectedWebAd]="selectedWebAd"
+                                                  (isChildFormValid)="checkFormValid($event)">
+  </jclt-provider-order-list-dialog-web-ad-content>
+  <kendo-dialog-actions>
+    <button kendoButton class="btn btn-primary btn-job-primary w-50 buttongroup-radius-left card-button-state text-overflow-ellipsis-button"
+            (click)="action('close')" (close)="close('dialog')">
+      Cancel
+    </button>
+    <button kendoButton class="btn btn-job-apply w-50 buttongroup-radius-right card-button-state text-overflow-ellipsis-button"
+            (click)="action('apply')" primary="true" [disabled]="getIsImpersonating() || !isChildFormValid">
+      Apply Now
+    </button>
+  </kendo-dialog-actions>
+</kendo-dialog>

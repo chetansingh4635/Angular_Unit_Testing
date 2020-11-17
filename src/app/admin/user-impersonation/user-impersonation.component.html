@@ -1,0 +1,71 @@
+<div>
+  <h1>Search <span class="atlas-capitalise">{{userFilterType}}</span></h1>
+</div>
+<div class="atlas-mb-12 mt-4">
+  <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" class="">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="atlas-form-group-no-error form-row">
+          <div class="col-md-4 mt-2 mb-3">
+            <div class="atlas-form-group">
+              <label for="username" class="atlas-font-weight-semi-bold">User Email</label>
+              <kendo-dropdownlist class="mb-2 d-block w-100" [data]="filtersList" [textField]="'value'"
+                [valueField]="'id'" (valueChange)="handleFilterChange($event, 'email')" [value]="selectedEmailFilter">
+              </kendo-dropdownlist>
+            </div>
+            <input type="text" class="form-control" id="username" placeholder="Enter Email" formControlName="userName">
+          </div>
+          <div class="col-md-4 mt-2 mb-3">
+            <div class="atlas-form-group">
+              <label for="lastname" class="atlas-font-weight-semi-bold">Last Name</label>
+              <kendo-dropdownlist class="mb-2 d-block w-100" [data]="filtersList" [textField]="'value'"
+                [valueField]="'id'" (valueChange)="handleFilterChange($event, 'lastName')"
+                [value]="selectedLastNameFilter">
+              </kendo-dropdownlist>
+            </div>
+            <input type="text" class="form-control" id="lastname" placeholder="Enter Last Name"
+              formControlName="userLastName">
+          </div>
+          <div class="col-md-4 mt-2 mb-3">
+            <div class="atlas-form-group">
+              <label for="firstname" class="atlas-font-weight-semi-bold">First Name</label>
+              <kendo-dropdownlist class="mb-2 d-block w-100" [data]="filtersList" [textField]="'value'"
+                [valueField]="'id'" (valueChange)="handleFilterChange($event, 'firstName')"
+                [value]="selectedFirstNameFilter">
+              </kendo-dropdownlist>
+            </div>
+            <input type="text" class="form-control" id="firstname" placeholder="Enter First Name"
+              formControlName="userFirstName">
+          </div>
+        </div>
+        <button type="submit" class="btn atlas-primary mt-4">Search</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="row" *ngIf="users.length > 0">
+  <div class="col-md-6">
+    <div class="card atlas-card atlas-card-sharp atlas-list-group">
+      <div class="atlas-card-title-wrapper pl-2">
+        <h3 class="atlas-card-title">Search Results</h3>
+      </div>
+      <div class="atlas-card-body atlas-p-0">
+        <div class="list-group list-group-flush">
+          <button *ngFor="let user of users" type="button" (click)="impersonateUser(user)"
+            class="list-group-item list-group-item-action atlas-cursor-pointer px-2">
+            <p class="mb-0 atlas-black-text"><span class="h6">Name:</span> {{user.name}}</p>
+            <p class="mb-0 atlas-black-text"><span class="h6">Email:</span> {{user.email}}</p>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row" *ngIf="users.length === 0">
+  <div *ngIf="!searchResults" class="col-md-4 ml-2 mr- alert-info text-center font-italic">{{userFilterType}} not found
+  </div>
+  <div *ngIf="isSubmittedError" class="col-md-4 ml-2 mr-2 alert-info text-center font-italic">Please select at least one
+    search criteria
+  </div>
+</div>

@@ -1,0 +1,208 @@
+.atlas-sidebar {
+    left: 0px;
+    float: left;
+    top: $header-height;
+    width: $navigation-width;
+    background-color: $atlas-white;
+    height:100vh;
+    @media #{$atlas-tablet-max} {
+        top: $header-mobile-height;
+    }
+    .atlas-nav-wrapper {
+        height: 90%;
+        padding-bottom: $atlas-spacing-base-half;
+        overflow-y: hidden;
+        &:hover {
+            overflow-y: auto;
+            @include atlas-scroll;
+        }
+    }
+    .atlas-nav-subtitle {
+        padding:$atlas-spacing-base-half;
+        font-weight: $atlas-font-weight-bold;
+        margin: $atlas-spacing-base-0;
+    
+    }
+    .atlas-nav-list-item {
+        padding-left: $atlas-spacing-base-half;
+        padding-top: $atlas-spacing-base-half;
+        padding-bottom: $atlas-spacing-base-half;
+        &:hover {
+            background-color:$JC-blue-light;
+            font-weight: $atlas-font-weight-bold;
+        }
+        &.active {
+            background-color:$JC-blue-light;
+            border-right: 5px solid $JC-cyan;
+            font-weight: $atlas-font-weight-bold;
+        }
+        a {
+            color: $atlas-black;
+            display: block;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+        .atlas-nav-link-icon {
+            width: 30px;
+            text-align:center;
+        }
+        .atlas-nav-link-text {
+            margin-left:$atlas-spacing-base-one-quarter;
+            @media #{$atlas-tablet-max}{
+                margin-left:$atlas-spacing-base-three-quarters;
+            }
+        }
+        &.atlas-nav-list-last-item {                                                     //When a Navigation Link Needs To Sit At The Bottom
+            position: absolute;
+            width:100%;
+            bottom: 0;
+        }
+        &.atlas-nav-sub-menu-link {                                                      //When a Navigation Link Triggers A SubMenu
+            background-color: $atlas-white;
+            border-right: none;
+            .atlas-nav-link {
+               // &:not(.collapsed) {
+              //      font-weight: $atlas-font-weight-bold;
+              //  }
+              &[aria-expanded='true']{
+                  font-weight: $atlas-font-weight-bold;
+              }
+                &[aria-expanded='false'] .atlas-nav-link-text::after {
+                    @include atlas-font-awesome-pro-light;
+                    content: '\f078';
+                    position: absolute;
+                    right: 25px;
+                }
+                &[aria-expanded='true'] .atlas-nav-link-text::after {
+                    @include atlas-font-awesome-pro-light;
+                    content: '\f077';
+                    position: absolute;
+                    right: 25px;
+                }
+            }
+            &:hover {
+                background-color:$JC-blue-light;
+                font-weight: $atlas-font-weight-bold;
+            }
+        }
+        @media #{$atlas-tablet-min} {   
+            &.atlas-nav-menu-lg-link {
+                .atlas-nav-link {
+                    padding: 0px 4px;
+                    align-items: center;
+                    display: flex;
+                    justify-content: flex-start;
+                    position: relative;
+                    .atlas-nav-link-text {
+                        margin-left: $atlas-spacing-base-one-three-quarters;
+                    }
+                }
+            }   
+        }
+    }
+    .atlas-nav-submenu {                                                                        //Submenu Styles
+        background-color: $atlas-off-white-two;
+        .atlas-nav-submenu-list-item {
+            &:hover {
+                background-color:$JC-blue-light;
+                font-weight: $atlas-font-weight-bold;
+            }
+            &.active {
+                background-color:$JC-blue-light;
+                border-right: 5px solid $JC-cyan;
+                font-weight: $atlas-font-weight-bold;    
+            }
+            a {
+                color: $atlas-black;
+                display: block;
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+    @media #{$atlas-tablet-min} {        
+        &.atlas-mini-sidebar {                                                              //When the Navigation is Minimized
+            text-align: center;
+            width: $navigation-mini-width;
+            .atlas-nav-list-item {
+                padding-left: $atlas-spacing-base-0;
+                .atlas-nav-link-text {
+                    display:none;
+                }
+                &.atlas-nav-sub-menu-link {
+                    &:hover {
+                        background-color:$JC-blue-light;
+                        font-weight: $atlas-font-weight-bold;
+                    }
+                    &.active {
+                        background-color:$JC-blue-light;
+                        border-right: 5px solid $JC-cyan;
+                        font-weight: $atlas-font-weight-bold;
+                    }
+                    a {
+                        color: $atlas-black;
+                        display: block;
+                        &:hover {
+                            text-decoration: none;
+                        }
+                    }
+                }
+                &.atlas-nav-menu-lg-link {
+                    .atlas-nav-link {
+                       display:block;
+                    }
+                }   
+            }
+            .atlas-nav-submenu {
+                display: none;
+            }
+        }
+    }
+    @media #{$atlas-tablet-max} {                                                     //Mobile
+        display:none;
+        &.atlas-sidebar-modal {
+            display:block;
+            width: 87%;
+            text-align: left;
+            z-index:$atlas-zindex-modal;
+            height: 100%;
+            @include atlas-scroll;
+            @include keyframes(slide-in-left) {
+                0% {
+                    -webkit-transform: translateX(-500px);
+                    transform: translateX(-500px); 
+                }
+                100% {
+                    -webkit-transform: translateX(0);
+                    transform: translateX(0); 
+                }
+            }
+            @include animation('slide-in-left 500ms 1');
+            .atlas-nav-wrapper {
+                overflow-y: auto;
+                .atlas-nav-list-item {
+                    padding-left: $atlas-spacing-base-half;
+                    .atlas-nav-link-text {
+                        display:inline-block;
+                        //width:85%;
+                    }
+                }
+            }
+        }
+        
+    }
+}
+@media #{$atlas-tablet-max} {                                                         //Sidebar Overlay
+    .atlas-sidebar-overlay {
+        z-index: $atlas-zindex-mobile-navigation-modal-backdrop;
+        width: 100%;
+        height: 100%;
+        background-color: $atlas-black;
+        opacity: 0.5;
+        position: fixed;
+        top: 0;
+        left: 0;
+    } 
+}

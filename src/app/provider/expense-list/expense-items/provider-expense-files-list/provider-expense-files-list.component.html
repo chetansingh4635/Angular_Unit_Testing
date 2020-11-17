@@ -1,0 +1,45 @@
+<ng-container *ngIf="documentList && documentList.length > 0; else noDocList">
+  <div [class]="viewAsSubmitted ? 'ml-2 view-receipt' : 'col-12 mb-3 text-success px-2'"
+       [id]="viewAsSubmitted ? 'details-files' : ''">
+    <div (click)="onShowFiles()" style="cursor: pointer;">
+      <ng-container *ngIf="viewAsSubmitted; else asDraft">
+        <i class="fas fa-file-image"></i>
+        <span class="pl-3">{{showFiles ? "Hide " : "View "}}</span><span>Receipt(s)</span>
+      </ng-container>
+      <ng-template #asDraft>
+        <span>{{showFiles ? " &#x25bc;  " : "&#x25ba;  "}}</span>
+        <img src="../Images/file-uploaded.svg" width="17" height="17" />
+        <span class="pl-1">
+          <strong>Receipt Uploaded</strong>
+        </span>
+      </ng-template>
+    </div>
+
+    <ng-container *ngIf="showFiles">
+      <ng-container *ngFor="let document of documentList">
+        <div class="w-100 file-view-item mt-2" *ngIf="document.documentPath && document.documentPath.trim()">
+          <a [href]="getDownloadUrlById(document.expenseDocumentId)" download class="row ml-3">
+            <i class="fas fa-file-image text-black-50 fa-2x"></i>
+            <div class="col">
+              <span class="d-block font-weight-bold small" style="word-wrap: break-word;">
+                {{document.documentPath.split('\\').pop()}}
+              </span>
+              <span class="d-block text-black-50 small">
+                Size: {{document.readableSize}}
+              </span>
+            </div>
+          </a>
+        </div>
+      </ng-container>
+    </ng-container>
+
+  </div>
+</ng-container>
+<ng-template #noDocList>
+  <div class="col-12 mb-3 text-danger px-2" *ngIf="!viewAsSubmitted">
+    <img src="../Images/file-required.svg" width="17" height="17" />
+    <span class="pl-1">
+      <strong>Needs Receipt</strong>
+    </span>
+  </div>
+</ng-template>

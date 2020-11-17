@@ -1,0 +1,22 @@
+.atlas-breadcrumb {
+    display: -webkit-box;
+    display: flex;
+    flex-wrap: wrap;
+    padding: $atlas-spacing-base-quarter;
+    margin-bottom: $atlas-spacing-base-0;
+    list-style: none;
+    font-size: $atlas-font-small;
+    .atlas-breadcrumb-item {
+        &:not(:first-child){
+            padding-left:$atlas-spacing-base-quarter;
+        }
+    }
+}
+
+.atlas-breadcrumb-item + .atlas-breadcrumb-item::before {
+    display: inline-block;
+    padding-right:$atlas-spacing-base-quarter;
+    color: $JC-green;
+    content: "/";
+    font-weight: $atlas-font-weight-bolder;
+}

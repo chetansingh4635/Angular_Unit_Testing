@@ -1,0 +1,94 @@
+<h2>Create Admin User </h2>
+<article>
+<form [formGroup]="form" class="col" (ngSubmit)="onSubmit()">
+  <div *ngIf="errorList">
+    <p class="error-message col-12 text-center" *ngFor="let error of errorList">{{error}}</p>
+  </div>
+
+  <div class="form-group">
+    <label for="user-create-email-input">Email</label>
+    <input type="text"
+           formControlName="email"
+           id="user-create-email-input"
+           class="form-control"
+           maxlength="255"
+           autocomplete="new-password">
+    <div *ngIf="email.invalid">
+      <div *ngIf="submitAttempted && email.errors['required']"
+            class="error-message col-12 my-2 pl-1">Email is required</div>
+      <div *ngIf="email.errors['email']"
+            class="error-message col-12 my-2 pl-1">Invalid format</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="user-create-confirm-email-input">Email confirm</label>
+    <input type="text"
+           formControlName="confirmEmail"
+           id="user-create-confirm-email-input"
+           class="form-control"
+           maxlength="255">
+    <div *ngIf="confirmEmail.invalid; else otherEmailErrors">
+      <div *ngIf="confirmEmail.errors['required'] && submitAttempted"
+            class="error-message col-12 my-2 pl-1">Email is required</div>
+      <div *ngIf="confirmEmail.errors['email']"
+            class="error-message col-12 my-2 pl-1">Invalid format</div>
+    </div>
+    <ng-template #otherEmailErrors>
+      <div *ngIf="form.errors && form.errors['emails']"
+            class="error-message col-12 my-2 pl-1">Emails do not match</div>
+    </ng-template>
+  </div>
+
+
+  <div class="form-group">
+    <label for="user-create-password-input">Password</label>
+    <input type="password"
+           formControlName="password"
+           id="user-create-password-input"
+           class="form-control"
+           maxlength="255"
+           autocomplete="new-password">
+    <div *ngIf="submitAttempted && password.invalid">
+      <div *ngIf="password.errors['required']"
+            class="error-message col-12 my-2 pl-1">Password is required</div>
+      <div *ngIf="password.errors['minlength']"
+            class="error-message col-12 my-2 pl-1">Password is too short</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="user-create-confirm-password-input">Password confirmation</label>
+    <input type="password"
+           formControlName="confirmPassword"
+           id="user-create-confirm-password-input"
+           class="form-control"
+           maxlength="255">
+    <div *ngIf="submitAttempted && confirmPassword.invalid && confirmPassword.errors['required']; else otherErrors"
+          class="error-message col-12 my-2 pl-1">Password confirmation is required</div>
+    <ng-template #otherErrors>
+      <div *ngIf="form.errors && form.errors['passwords']"
+            class="error-message col-12 my-2 pl-1">Passwords do not match</div>
+    </ng-template>
+  </div>
+
+  <div class="form-group">
+    <label for="user-create-user-roles-input">User role</label>
+    <kendo-dropdownlist class="col col-12"
+                        [data]="userRolesDropDownData"
+                        [defaultItem]="{text: 'Select user role', value: null}"
+                        [textField]="'text'"
+                        [valueField]="'value'"
+                        id="user-create-user-roles-input"
+                        [valuePrimitive]="false"
+                        [formControlName]="'userRoles'">
+    </kendo-dropdownlist>
+
+    <div *ngIf="submitAttempted && form.hasError('innerPropertyRequired', ['userRoles'])"
+          class="error-message col-12 my-2 pl-1">User role is required</div>
+  </div>
+
+  <button type="submit" class="mt-2 btn btn-primary">Submit</button>
+
+</form>
+</article>

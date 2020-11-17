@@ -1,0 +1,9 @@
+<p>Do you need to report an incident?</p>
+<input id="noInc" type="radio" name="report" value="No" checked (change)="onReportChanged($event)"
+       class="atlas-incident-labels">
+<label for="noInc" class="atlas-incident-labels-no">No</label>
+<input id="yesInc" type="radio" name="report" value="Yes" (change)="onReportChanged($event)"
+       class="atlas-incident-labels">
+<label for="yesInc" class="atlas-incident-labels-yes">Yes</label>
+<p [ngClass]="{'atlas-timesheet-past': isChecked}">{{inputData.text}}</p>
+<p>{{inputData.text2}}</p>

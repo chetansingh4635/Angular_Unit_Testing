@@ -1,0 +1,38 @@
+<div (click)="expandSchedule();" class="rounded-0 atlas-pl-4 atlas-pr-0 atlas-py-2 list-group-item atlas-cursor-pointer list-group-item-action">
+  <i class="fal position-absolute atlas-right pr-2"
+    [ngClass]="{'fa-chevron-up': schedule.show, 'fa-chevron-down': !schedule.show}" aria-hidden="true"></i>
+  <div class="row no-gutters">
+    <div class="col-md-6">
+      <p class="atlas-mb-0 atlas-font-weight-semi-bold atlas-text-truncate">{{schedule.workLocationName}}</p>
+      <p class="atlas-mb-0">
+        <span [innerHtml]="address"></span> <br>
+        <span>{{schedule.city}}, {{schedule.stateAbbreviation}}</span>
+      </p>
+    </div>
+    <div class="col-md-6">
+      <div>
+        <p class="atlas-mb-0 pr-2 atlas-bottom-right-to-bottom-left">
+          {{schedule.nextDate | date : dateFormat}} - {{schedule.endDate | date : dateFormat}}
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row no-gutters atlas-pt-4" *ngIf="schedule.show">
+    <div class="col-md-6">
+      <p class="atlas-mb-0 atlas-font-weight-semi-bold">Service Coordinator</p>
+      <p class="atlas-mb-0">
+        <a  (click)="$event.stopPropagation(); isSCMailViewed = true;" [ngClass]="{'atlas-visited-link' : isSCMailViewed}" [href]="'mailto:' + schedule.scEmail"
+          class="atlas-link">{{schedule.scFirstName}} {{schedule.scLastName}}</a>
+      </p>
+    </div>
+    <div class="col-md-6">
+      <p class="atlas-mb-0 atlas-font-weight-semi-bold text-md-right pr-md-2">Recruiting Consultant
+      </p>
+      <p  class="atlas-mb-0 text-md-right pr-md-2">
+        <a (click)="$event.stopPropagation(); isRCMailViewed = true;" [ngClass]="{'atlas-visited-link' : isRCMailViewed}" [href]="'mailto:' + schedule.rcEmail"
+          class="atlas-link">{{schedule.rcFirstName}} {{schedule.rcLastName}}</a>
+      </p>
+    </div>
+  </div>
+</div>

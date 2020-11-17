@@ -1,0 +1,41 @@
+body {
+    @include atlas-scroll;
+    overflow-x: hidden;
+    &.atlas-app-wrapper {
+        height: 100vh;
+    }
+    @media #{$atlas-tablet-max}{
+        background-color:$atlas-off-white;
+    }
+}
+.atlas-main-content {
+    margin-left: $navigation-width;
+    padding:  $atlas-spacing-base $atlas-spacing-base-two;
+    position: relative;
+    top: $header-height;
+    background-color: $atlas-off-white;
+    @include atlas-transition-one;
+    @include atlas-box-shadow-one;
+    height: auto;
+    min-height: 100%;
+    @media #{$atlas-tablet-max} {
+        box-shadow:inherit;
+        margin-left: $atlas-spacing-base-0;
+        padding:  $atlas-spacing-base;
+        top: $header-mobile-height;
+    }
+    &.atlas-main-content-expanded {
+       @include atlas-transition-one;
+        margin-left: $navigation-mini-width;
+        @media #{$atlas-tablet-max} {
+           // @include atlas-transition-one;
+            margin-left: $atlas-spacing-base-0;
+            padding: $atlas-spacing-base;
+        }
+    }
+}
+@media #{$atlas-tablet-max} {
+  .atlas-mobile-overflow-hidden {
+    overflow: hidden;
+  }
+}

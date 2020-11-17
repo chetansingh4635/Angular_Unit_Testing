@@ -1,0 +1,23 @@
+<form  [formGroup]="form" *ngIf="isImpersonating" class="atlas-dialog-form" >
+<p>
+  Note:You are submitting time on behalf of a provider. Please enter the reason for the impersonation
+</p>
+<div class="row">
+  <div class="col-12 mb-3">
+    <label for="impersonationReason"><span class="required-star">*</span> Impersonation Reason</label>    
+    <span *ngIf="(form?.controls?.reason?.touched && form?.controls?.reason?.errors?.required)"
+      class="ml-1 k-widget k-tooltip k-tooltip-validation k-invalid-msg field-validation-error" role="alert">
+      <span class="k-icon k-i-warning" style="margin-left:0.25rem"></span>Impersonation reason is required
+    </span>    
+    <span *ngIf="(form?.controls?.reason?.errors?.maxlength && form?.controls?.reason?.touched)"
+      class="ml-1 k-widget k-tooltip k-tooltip-validation k-invalid-msg field-validation-error" role="alert">
+      <span class="k-icon k-i-warning" style="margin-left:0.25rem"></span>Maximum 250 characters are allowed
+    </span>
+    <input type="text" 
+          (keyup)="updateReason($event)" 
+          formControlName="reason"
+          class="hide-input-clear input-group input-group-lg"/>
+  </div>
+</div>
+</form>
+

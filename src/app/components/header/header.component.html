@@ -1,0 +1,151 @@
+<div class="header-content">
+  <div class="navbar navbar-expand flex-md-row ">
+    <div class="navbar-brand">
+      <img src="../../../../../Images/jcte-logo.svg" alt="Jackson &amp; Coker Atlas" style="float: left;"
+           width="134"
+           height="58" />
+    </div>
+    <ng-container *ngIf="!(router.url.startsWith('/login') || router.url.indexOf('account/forgot-password-complete') > 0 || router.url.indexOf('account/forgot-password') > 0)">
+      <ng-container *ngIf="isUserLoggedIn">
+        <ul class="navbar-nav ml-auto d-md-flex">
+            <li *ngIf="loginService.getIsImpersonating()" style="margin:10px">
+            <i class="fa fa-users" aria-hidden="true"></i>
+            {{loginService.getAdminUserFriendlyName()}}  is impersonating:
+            </li>
+            <li *ngIf="loginService.getIsImpersonating()" style="margin:10px">
+              <i class="fa fa-users" aria-hidden="true"></i>
+              {{loginService.getUserFriendlyName()}}
+            </li>
+          <li *ngIf="loginService.getIsImpersonating()" style="margin:10px">
+            <button class="btn btn-danger btn-sm btn-block"
+                    (click)="stopImpersonating()"
+                    data-toggle="tooltip" data-placement="top" title="Stop Impersonating">
+              <i class="fa fa-ban" aria-hidden="true"></i>
+              Impersonating
+            </button>
+          </li>
+          <li id="reset" class="login-link-icon">
+            <i class="fa fa-key logout-password-font-size"></i><br>
+            <a routerLink="/account/reset-password">Reset Password</a>
+          </li>
+          <li id="logout" class="login-link-icon ">
+            <i class="fa fa-user-circle logout-password-font-size"></i><br>
+            <a class="hover-pointer text-primary"
+               (click)="logOut()">Logout</a>
+          </li>
+        </ul>
+      </ng-container>
+    </ng-container>
+  </div>
+
+  <ng-container *ngIf="!(router.url.startsWith('/login') || router.url.indexOf('account/forgot-password-complete') > 0 || router.url.indexOf('account/forgot-password') > 0)">
+    <div style="clear: both;"></div>
+    <nav class="navbar navbar-expand navbar-dark bg-secondary" style="background-color: #004b8d !important;">
+      <div class="mr-auto">
+        <a routerLink={{homePath}} class="navbar-brand active"><i class="fa fa-home"></i></a>
+      </div>
+      <div class="container-fluid justify-content-center">
+
+        <ul class="nav navbar-nav w-100 justify-content-between" style="max-width: 50em">
+          <li style="visibility: hidden;">
+          </li>
+          <ng-container *ngIf="userRole === 'provider' && ( router.url.startsWith('/provider') || router.url.startsWith('/account'))">
+            <li *ngIf="((!showRpMenus) || (loginService.isSyncedRpAndSyncedTneBookingsEnabled))" class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle active hover-pointer" id="navbarTimesheetProv" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Timesheet
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarTimesheetProv">
+                <a class="dropdown-item" routerLink="/provider/timesheetList/Current">Current</a>
+                <a class="dropdown-item" routerLink="/provider/timesheetList/Declined">Declined</a>
+                <a class="dropdown-item" routerLink="/provider/timesheetList/Past">Past Due</a>
+                <a class="dropdown-item" routerLink="/provider/submitted-timesheets">Submitted</a>
+              </div>
+            </li>
+
+            <li class="nav-item dropdown" *ngIf="providerHasWorkLocations && !loginService.getIsImpersonating() && ((!showRpMenus) || (loginService.isSyncedRpAndSyncedTneBookingsEnabled))">
+              <a class="nav-link dropdown-toggle active hover-pointer" id="navbarExpense" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Expense
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarExpense">
+                <a class="dropdown-item" routerLink="/provider/expense/0">Create</a>
+                <a class="dropdown-item" routerLink="/provider/all-expenses">All Expenses</a>
+                <a class="dropdown-item" routerLink="/provider/non-submitted-expenses">Unsubmitted</a>
+                <a class="dropdown-item" routerLink="/provider/submitted-expenses">Submitted</a>
+              </div>
+            </li>
+
+            <ng-container *ngIf="showRpMenus">
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle active hover-pointer" id="navbarAssignmentsJobs" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Assignments & Opportunities
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarAssignmentsJobs">
+                  <a class="dropdown-item" routerLink="/provider/all-schedule">My Schedule</a>
+                  <a class="dropdown-item" routerLink="/provider/all-interests">Applied Jobs</a>
+                  <a class="dropdown-item" routerLink="/provider/all-provider-order">My Opportunities</a>
+                </div>
+
+              </li>
+              <li class="nav-item dropdown" *ngIf="!loginService.getIsImpersonating()">
+
+                <a class="nav-link dropdown-toggle active hover-pointer" id="navbarProfile" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Profile
+                </a>
+
+                <ul class="dropdown-menu" aria-labelledby="navbarProfile">
+                  <!--<a class="dropdown-item" href="javascript:void(0)" (click)="viewProviderProfile()">View My Profile</a>-->
+                  <a class="dropdown-item" routerLink="account/reset-password">Reset Password</a>
+                  <a class="dropdown-item" href="javascript:void(0)" (click)="editEmail()">Edit Email Address</a>
+                  <a class="dropdown-item" routerLink="provider/profile">Licenses and Specialties</a>
+                </ul>
+
+              </li>
+            </ng-container>
+          </ng-container>
+
+          <ng-container *ngIf="userRole==='client' && ( router.url.startsWith('/client') || router.url.startsWith('/account') )">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle active hover-pointer" id="navbarTimesheetCli" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Timesheet
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarTimesheetCli">
+                <a class="dropdown-item" routerLink="client/unapproved-timesheets">Unapproved</a>
+                <a class="dropdown-item" routerLink="client/approved-timesheets">Approved</a>
+                <a class="dropdown-item" routerLink="client/declined-timesheets">Declined</a>
+              </div>
+            </li>
+          </ng-container>
+
+          <ng-container *ngIf="userRole==='admin'">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle active hover-pointer" id="navbarTimesheetAdm" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Administration
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarTimesheetAdm">
+                <a class="dropdown-item" routerLink="admin/dashboard">Create Account</a>
+                <a class="dropdown-item" routerLink="account/reset-password">Password Reset</a>
+                <a class="dropdown-item" routerLink="account/resend-pdf">Resend PDF</a>
+                <a class="dropdown-item" routerLink="admin/user-impersonation/contact">Client/Contact impersonation</a>
+                <a class="dropdown-item" routerLink="admin/user-impersonation/provider">Provider impersonation</a>
+              </div>
+            </li>
+          </ng-container>
+          <li style="visibility: hidden;">
+          </li>
+        </ul>
+      </div>
+
+      <div class="ml-auto" *ngIf="isUserLoggedIn && userRole !== 'admin'">
+        <a class="navbar-brand" routerLink="{{faqPath}}"><i class="fa fa-question-circle"></i></a>
+      </div>
+
+    </nav>
+  </ng-container>
+</div>

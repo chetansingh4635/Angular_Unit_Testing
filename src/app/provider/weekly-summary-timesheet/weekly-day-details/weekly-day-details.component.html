@@ -1,0 +1,6 @@
+<ng-container *ngFor="let dayDetailsByDay of dayDetailsByDays">
+  <jclt-weekly-day-details-for-day [calendarDayId]="dayDetailsByDay.calendarDayId"
+                                   [dayDetails]="dayDetailsByDay.dayDetails"
+                                   [timesheetDetailDayFromBooking]="getTimesheetDetailFromBookingForDay(dayDetailsByDay.calendarDayId)">
+  </jclt-weekly-day-details-for-day>
+</ng-container>

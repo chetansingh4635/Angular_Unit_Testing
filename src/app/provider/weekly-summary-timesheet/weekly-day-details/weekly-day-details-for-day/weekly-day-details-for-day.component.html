@@ -1,0 +1,27 @@
+<div class="py-2">
+  <div style="background-color: #f0f0f0;color:#565656;" class="p-1 noselect m-0">
+    <div class="row">
+      <div class="col-7 preview-day">
+        <a style="text-decoration: underline" class="text-primary hover-pointer pl-2" (click)="goToDayOfWeek(calendarDayId)">
+          <b>{{formattedCalendarDayId}}</b>
+        </a>
+      </div>
+      <div class="col-3 text-right">
+        <b [innerHTML]="stringHoursOfDay"></b>
+      </div>
+      <div class="col-2 text-primary text-right">
+        <i class="fa fa-2x hover-pointer" (click)="showDetails = !showDetails"
+           [ngClass]="{'fa-angle-down': !showDetails, 'fa-angle-up': showDetails}"
+           aria-hidden="true"></i>
+      </div>
+    </div>
+  </div>
+
+  <div style="background-color: #e1f1ff;color:#565656;" class="p-2" *ngIf="showDetails">
+    <div class="rate-type-item py-2" *ngFor="let detailsItem of groupedDayDetailsValues">
+      <jclt-weekly-day-details-for-rate-type-name [dayDetails]="detailsItem.dayDetails"
+                                                  [rateTypeName]="detailsItem.rateTypeName">
+      </jclt-weekly-day-details-for-rate-type-name>
+    </div>
+  </div>
+</div>

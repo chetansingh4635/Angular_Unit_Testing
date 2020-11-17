@@ -1,0 +1,211 @@
+<h1 class="atlas-mb-5">Preferences</h1>
+<form [formGroup]="myGroup" (ngSubmit)="submit()">
+
+  <div class="row atlas-mb-8">
+    <!--Start JobType Checkbox group-->
+    <div class="col-md-4 atlas-form-group mb-3 mb-md-0">
+      <div class="row">
+        <div class="col mb-2">
+          <span class="atlas-font-weight-semi-bold">Job Type</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md">
+          <div class="custom-control custom-checkbox" *ngFor="let jobType of myGroup.controls['jobTypeList'].controls; let i = index">
+            <input class="custom-control-input" (change)="JobTypeChange($event)" required value="{{preferencesList[0].jobTypes[i].jobTypeId}}" type="checkbox" [formControl]="jobType" id="chkjobTypes_{{i}}">
+            <label class="custom-control-label" for="chkjobTypes_{{i}}">{{ preferencesList[0].jobTypes[i].jobTypeName }}</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--End Jobtype Checkbox group-->
+    <!--Start  Work Settings group-->
+    <div class="col-md-4 atlas-form-group mb-3 mb-md-0">
+      <div class="row">
+        <div class="col mb-2">
+          <span class="atlas-font-weight-semi-bold">Work Setting</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md">
+          <div class="custom-control custom-checkbox" *ngFor="let workSetting of myGroup.controls['workSettingList'].controls; let i = index">
+            <input class="custom-control-input" (change)="WorkSettingsChange($event)" required type="checkbox" value="{{preferencesList[0].workSettings[i].workSettingId}}" [formControl]="workSetting" id="chkworkSettings_{{i}}">
+            <label class="custom-control-label" for="chkworkSettings_{{i}}">{{ preferencesList[0].workSettings[i].workSettingName }}</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--End Work Settings Checkbox group-->
+    <!--Start Coverages Checkbox group-->
+    <div class="col-md-4 atlas-form-group  mb-3 mb-md-0">
+      <div class="row">
+        <div class="col mb-2">
+          <span class="atlas-font-weight-semi-bold">Coverage</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md">
+          <div class="custom-control custom-checkbox" *ngFor="let coverage of myGroup.controls['coverageList'].controls; let i = index">
+            <input class="custom-control-input" (change)="CoveragesChange($event)" required type="checkbox" value="{{preferencesList[0].coverages[i].coverageId}}" [formControl]="coverage" id="chkCoverage_{{i}}">
+            <label class="custom-control-label" for="chkCoverage_{{i}}">{{ preferencesList[0].coverages[i].coverageName }}</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--End Coverages Checkbox group-->
+  </div>
+  <div class="row mb-md-3 mb-1">
+    <div class="col-md-5 atlas-form-group mb-3">
+      <label for="ddl-day-of-week" class="atlas-font-weight-semi-bold">Number of Days Per Week</label>
+      <kendo-dropdownlist class="ng-invalid-grayborder"
+                          [data]="dayofWeekDropDownData"
+                          [defaultItem]="{text: 'Select One', value: null}"
+                          [textField]="'text'"
+                          [valueField]="'value'"
+                          id="ddl-day-of-week"
+                          [valuePrimitive]="true"
+                          [formControlName]="'dayofWeekControl'"
+                          [(ngModel)]="dayofWeek"
+                          (valueChange)="DayofWeekChange($event)"
+                          [disabled]="isImpersonating">
+      </kendo-dropdownlist>
+    </div>
+    <div class="col-md-5 atlas-form-group mb-3">
+      <label class="atlas-font-weight-semi-bold">Shift(s)</label>
+      <kendo-multiselect [data]="preferencesList[0].shifts"
+                         placeholder="Select All That Apply"
+                         [valuePrimitive]="true"
+                         textField="shiftName"
+                         valueField="shiftId"
+                         [value]="selectedShiftValue"
+                         (valueChange)="onShiftChanged($event)"
+                         [disabled]="isImpersonating"
+                         [autoClose]="false">
+      </kendo-multiselect>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-5 form-group mb-3">
+      <div class="row">
+        <div class="col mb-2">
+          <span class="atlas-font-weight-semi-bold">Desired Hourly Pay Rate</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md">
+          <kendo-numerictextbox class="cutom-numeric-box form-control"
+                                [format]="'c2'"
+                                [formControlName]="'rateControl'"
+                                (valueChange)="rateChange($event)"
+                                [(ngModel)]="rate"
+                                [disabled]="isImpersonating"
+                                [min]="0" 
+                                [autoCorrect]="true">
+          </kendo-numerictextbox>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-5 atlas-form-group mb-3">
+      <div class="row">
+        <div class="col mb-2">
+          <span class="atlas-font-weight-semi-bold">Schedule</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md">
+          <kendo-multiselect [data]="preferencesList[0].schedules"
+                             placeholder="Select All That Apply"
+                             [valuePrimitive]="true"
+                             textField="scheduleDay"
+                             valueField="scheduleId"
+                             [value]="selectedSchecduleValue"
+                             (valueChange)="onScheduleChanged($event)"
+                             [disabled]="isImpersonating"
+                             [autoClose]="false">
+          </kendo-multiselect>
+        </div>
+      </div>
+    </div>
+  </div> 
+  <div class="row">
+    <div class="col-md-5 mb-3">
+      <fieldset class="atlas-form-group">
+        <legend class="atlas-form-legend atlas-font-weight-semi-bold">Patient Age</legend>        
+        <div class="custom-control custom-checkbox custom-control-inline" *ngFor="let category of myGroup.controls['patientAgeList'].controls; let i = index">
+          <input class="custom-control-input" (change)="toggleChildAge($event)" required type="checkbox" value="{{preferencesList[0].patientAge[i].patientAgeId}}" [formControl]="category" id="chkPatientAge_{{i+1}}">
+          <label class="custom-control-label" for="chkPatientAge_{{i+1}}">{{ preferencesList[0].patientAge[i].patientAgeName }}</label>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+  <div class="row" *ngIf="isChildShow">
+    <div class="col-md-5">
+      <p class="mb-2 atlas-font-weight-semi-bold">Child Age Range</p>
+      <div class="row">
+        <div class="col-5 pr-1">
+          <div class="atlas-form-group">
+            <div class="form-group mb-0">
+              <!--<label class="sr-only" for="textInput2">Minimum Age</label>-->  
+                <kendo-dropdownlist class="ng-invalid-grayborder mb-3"
+                                    [data]="childAgeDropDownData"
+                                    [defaultItem]="{text: 'Min Age', value: ''}"
+                                    [textField]="'text'"
+                                    [valueField]="'value'"
+                                    id="ddl-min-child-age"
+                                    [valuePrimitive]="true"
+                                    [formControlName]="'minAgeControl'"
+                                     [(ngModel)]="minAge"
+                                    (valueChange)="minAgeChange($event)"
+                                    [disabled]="isImpersonating">
+                </kendo-dropdownlist>                
+            </div>
+          </div>
+        </div>
+        <div class="col-2 text-center px-0">
+          <p class="my-1">to</p>
+        </div>
+        <div class="col-5 pl-1">
+          <div class="atlas-form-group">
+            <div class="form-group mb-0">
+              <!--<label class="sr-only" for="textInput">Maximum Age</label>-->             
+                <kendo-dropdownlist class="ng-invalid-grayborder mb-3"
+                                    [data]="childAgeDropDownData"
+                                    [defaultItem]="{text: 'Max Age', value: ''}"
+                                    [textField]="'text'"
+                                    [valueField]="'value'"
+                                    id="ddl-max-child-age"
+                                    [valuePrimitive]="true"
+                                    [formControlName]="'maxAgeControl'"
+                                    [(ngModel)]="maxAge"
+                                    (valueChange)="maxAgeChange($event)"
+                                    [disabled]="isImpersonating">
+                </kendo-dropdownlist>               
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 mt-2">
+          <div class="alert alert-danger" *ngIf="myGroup.get('maxAgeControl').hasError('noMatch') || myGroup.get('minAgeControl').hasError('noMatch')">
+            Max age must be greater or equal to min age.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row atlas-mt-9">
+    <div class="col-md-4 atlas-form-group">
+      <button type="submit" class="btn atlas-primary"
+              [disabled]="!(!myGroup.get('maxAgeControl').hasError('noMatch')
+                 && !myGroup.get('minAgeControl').hasError('noMatch')
+                 && myGroup.controls['dayofWeekControl'].valid
+                 && myGroup.controls['rateControl'].valid
+                 && myGroup.controls['dayofWeekControl'].valid
+                 && !isImpersonating)">
+        Save
+      </button>
+    </div>
+  </div>
+
+</form>

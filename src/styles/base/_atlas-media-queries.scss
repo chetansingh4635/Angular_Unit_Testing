@@ -1,0 +1,31 @@
+
+//Media Queries Variables
+
+// To add this to your stylesheet, follow this example:
+//
+// @media $atlas-mobile-xs {
+//     CSS Properties Goes Here
+// }
+
+
+
+//Target a particular segment of screen sizes using the below variables
+//$atlas-mobile-xs: "(max-width: 576px)";                                     // Extra small devices (portrait phones, less than 576px)
+$atlas-mobile: "(min-width: 576px) and (max-width: 767.98px)";              // Small devices (landscape phones, 576px to tablet)
+$atlas-tablet: "(min-width: 768px) and (max-width: 991.98px)";              // Medium devices (tablets, 768px to desktop)
+$atlas-desktop: "(min-width: 992px) and (max-width: 1199.98px)";            // Large devices (desktops, 992px and up)
+$atlas-desktop-lg: "(min-width: 1200px)";                                   //  Extra large devices (large desktops, 1200px and up)
+
+
+
+//Target a range of screen sizes using the below variables
+$atlas-mobile-xs-max: "only screen and (max-width: 575.98px)";            // From 0 to all of xs-mobile
+$atlas-mobile-max: "only screen and (max-width: 767.98px)";               // From 0 to all of mobile
+$atlas-tablet-max: "only screen and (max-width: 991.98px)";               // From 0 to all of tablet
+$atlas-desktop-max: "only screen and (max-width: 1199.98px)";             // From 0 to all of desktop
+
+$atlas-mobile-xs-min: "only screen and (min-width: 575.98px)";            // From xs-mobile and up
+$atlas-mobile-min: "only screen and (min-width: 767.98px)";               // From mobile and up
+$atlas-tablet-min: "only screen and (min-width: 991.98px)";               // From tablet and up
+
+$atlas-ie-override: "all and (-ms-high-contrast: none), (-ms-high-contrast: active)";

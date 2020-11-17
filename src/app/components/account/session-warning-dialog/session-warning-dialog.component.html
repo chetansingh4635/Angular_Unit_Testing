@@ -1,0 +1,12 @@
+<kendo-dialog title="Session Warning!"
+              *ngIf="dialogIsDisplayed"
+              (close)="finishSession()"
+              [minWidth]="250"
+              [width]="450" style="z-index: 100000">
+
+  <p class="dialog-text">Your session is about to expire in {{displayTimeUntilCloseDialog}} seconds. Press Ok to stay logged in.</p>
+  <kendo-dialog-actions>
+    <button kendoButton (click)="closeDialog()" primary="true">Ok</button>
+  </kendo-dialog-actions>
+
+</kendo-dialog>

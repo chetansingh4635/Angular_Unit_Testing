@@ -1,0 +1,93 @@
+<section class="container login-form-label-width">
+  <div class="atlas-card card atlas-card-sharp atlas-card-raised">
+    <div class="atlas-card-body pb-3">
+      <div *ngIf="isDesktop">
+        <h1 class="mb-md-4 mb-3">Welcome to Atlas</h1>
+      </div>
+      <div *ngIf="!isDesktop">
+        <h1 class="mb-md-4 mb-3 h3 atlas-font-weight-bold">Welcome to Atlas</h1>
+      </div>
+      <form [formGroup]="loginForm">
+        <div [ngSwitch]="true" class="form-group">
+          <div class="atlas-position-relative">
+            <label for="username" class="atlas-font-weight-semi-bold">
+              Email Address</label>&nbsp;<span class="required-star" aria-hidden="true">* </span>
+            <input type="email" id="username" formControlName="username" class="form-control w-100"
+              [ngClass]="{'is-invalid': (loginForm?.controls?.username?.invalid && loginForm?.controls?.username?.touched )}"
+              maxlength="255">
+            <div class="atlas-form-group">
+              <div class="form-group">
+                <span
+                  *ngIf="loginForm.controls['username'].hasError('required') && loginForm.controls['username'].touched"
+                  class="atlas-required atlas-smallest-text" role="alert">
+                  Email is required<span class="atlas-error-icon atlas-error-icon-two"></span>
+                </span>
+                <span
+                  *ngIf="loginForm.controls['username'].hasError('pattern') && loginForm.controls['username'].touched"
+                  class="atlas-required atlas-smallest-text" role="alert">
+                  A valid email address is required <span class="atlas-error-icon atlas-error-icon-two"></span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div [ngSwitch]="true" class="form-group">
+          <div class="atlas-position-relative">
+            <label for="password" class="atlas-font-weight-semi-bold">
+              Password</label>&nbsp;<span class="required-star" aria-hidden="true">* </span>
+            <a
+              class="btn bg-transparent atlas-black-text font-weight-normal atlas-smallest-text px-0 float-right pt-1 pb-2"
+              (click)="hide = !hide">
+              <ng-container *ngIf="!hide"><i class="far fa-eye pr-1" aria-hidden="true"></i> Show</ng-container>
+              <ng-container *ngIf="hide"><i class="fas fa-eye-slash pr-1" aria-hidden="true"></i> Hide</ng-container>
+            </a>
+            <input [type]="hide ? 'text' : 'password'" id="password" formControlName="password"
+              class="form-control w-100"
+              [ngClass]="{'is-invalid': (loginForm?.controls?.password?.invalid && loginForm?.controls?.password?.touched )}"
+              maxlength="255" (focus)="showPassDescriptor = true;" (blur)="showPassDescriptor = false;">
+
+            <div class="atlas-form-group">
+              <div class="form-group">
+                <span *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched"
+                  class="atlas-required atlas-smallest-text" role="alert">
+                  <span class="atlas-error-icon atlas-error-icon-three"></span>
+                </span>
+              </div>
+            </div>
+            <jclt-password-descriptor
+              *ngIf="showPassDescriptor || (loginForm.controls['password'].invalid && loginForm.controls['password'].touched) || mouseOnSubmitButton"
+              [value]="loginForm?.value?.password" [passwordValue]="loginForm?.controls?.password" [addCustomClass]="true"></jclt-password-descriptor>
+          </div>
+        </div>
+        <button class="btn atlas-primary btn-block login-button" [disabled]="!loginForm.valid"
+          (click)="onSubmitForm(loginForm.value)" (mouseenter)="mouseOnSubmitButton = showPassDescriptor ? true : false"
+          (mouseleave)="mouseOnSubmitButton = false" type="submit">
+          Login
+        </button>
+      </form>
+      <div class="validation-summary-errors alert alert-danger mt-2" *ngIf="errors.length > 0">
+        <ul>
+          <li *ngFor="let err of errors">{{err}}</li>
+        </ul>
+      </div>
+      <div class="row">
+        <div class="col-12 pt-3"></div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <a routerLink="/account/forgot-password" class="atlas-standard-link" (mouseenter)="mouseOnSubmitButton = showPassDescriptor ? true : false"
+          (mouseleave)="mouseOnSubmitButton = false">Forgot Password</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 pt-3 login-forgotpasswordtext">
+          If you need login assistance, please email
+          <a href="mailto:support@jclttime.com?subject=Login%20Assistance"
+            class="atlas-standard-link" (mouseenter)="mouseOnSubmitButton = showPassDescriptor ? true : false"
+            (mouseleave)="mouseOnSubmitButton = false">support@jclttime.com</a>
+          or call 1-800-272-2707
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

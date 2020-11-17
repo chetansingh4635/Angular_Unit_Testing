@@ -1,0 +1,32 @@
+
+/*FOOTER*/
+.atlas-footer {
+   // @include atlas-transition-one;
+    top: $header-height;
+    @media #{$atlas-tablet-max} {
+       top: $header-mobile-height;
+    }
+    footer {
+        @include atlas-transition-one;
+        background-color: $atlas-white-gray;
+       // padding: $atlas-spacing-base-half $atlas-spacing-base-quarter;
+        color: $atlas-black;
+        margin-left: $navigation-width;
+        @include atlas-box-shadow-one;
+        @media #{$atlas-tablet-max} {
+            margin-left: $atlas-spacing-base-0;
+        }
+    }
+    &.atlas-footer-expanded {
+        @include atlas-transition-one;
+        footer {
+            @include atlas-transition-one;
+            margin-left: $navigation-mini-width;
+            @media #{$atlas-tablet-max} {
+                margin-left: $atlas-spacing-base-0;
+                padding: $atlas-spacing-base-two;
+            }
+
+        }
+    }
+}

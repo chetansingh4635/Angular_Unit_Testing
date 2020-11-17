@@ -1,0 +1,95 @@
+<div class="time-expense-card-box">
+  <div class="row no-gutters mb-2">
+    <div class="col-8">
+      <h5 class="text-overflow-ellipsis-expenses noselect">
+        {{expense.workLocationName}}
+      </h5>
+    </div>
+
+    <div class="col-4">
+      <ng-container *ngIf="expense.totalAmount && expense.totalAmount > 0; else noTotalAmount">
+        <div class="expense-card-totalhrs w-100">
+          <p class="text-right w-100">
+            <ng-container *ngIf="expense.expenseTypeId !== expenseTypes.Mileage">$</ng-container>{{(expense.totalAmount | number : '1.2-2').replace(',', ',\u200B').replace('.', '.\u200B')}}
+          </p>
+
+        </div>
+      </ng-container>
+      <ng-template #noTotalAmount>
+        <div class="expense-card-totalhrs">--</div>
+      </ng-template>
+    </div>
+
+    <div class="w-100 card-city-state">
+      {{expense.city}}, {{expense.state}}
+    </div>
+    <div class="card-divider-light mt-2 mb-2"></div>
+
+    <div class="w-100 px-2">
+      <span class="timesheet-duetext"> Expense Type: </span>
+      <span class="timesheet-duedatetext">{{expense.expenseTypeName}}</span>
+    </div>
+    <div class="w-100 px-2">
+      <span class="timesheet-duetext"> Dates: </span>
+      <ng-container *ngIf="expense.startDate && expense.endDate; else noDates">
+        <span class="timesheet-duedatetext">{{expense.startDate | date : "MMM dd, yyyy"}} - {{expense.endDate | date : "MMM dd, yyyy"}}</span>
+      </ng-container>
+      <ng-template #noDates>
+        <span class="timesheet-duedatetext">--</span>
+      </ng-template>
+    </div>
+
+    <ng-container *ngIf="expense.expenseProviderStatus === expenseProviderStatuses.Submitted && expense.submittedOn">
+      <div class="w-100 timesheet-submittedtext-client">
+        <i class="far fa-calendar-plus px-2"></i>  Submitted: <strong>
+          {{expense.submittedOn | date : "MMM dd, yyyy"}}
+        </strong>
+      </div>
+      <jclt-provider-expense-files-list [documentList]="expense.documentList"
+                                        [viewAsSubmitted]="true"
+                                        class="w-100 pr-2">
+      </jclt-provider-expense-files-list>
+    </ng-container>
+
+    <div class="w-100" *ngIf="expense.isReceiptRequired && expense.expenseProviderStatus === expenseProviderStatuses.Draft">
+      <jclt-provider-expense-files-list [documentList]="expense.documentList"
+                                        [viewAsSubmitted]="false">
+      </jclt-provider-expense-files-list>
+    </div>
+  </div>
+
+  <ng-container *ngIf="(expense.expenseProviderStatus === expenseProviderStatuses.Draft)">
+    <div class="row" [ngClass]="{'atlas-card-disable':isImpersonating}">
+      <div class="btn-group col-12" role="group">
+        <a *ngIf="!isImpersonating" class="btn btn-primary w-50 buttongroup-radius-left card-button-state text-overflow-ellipsis-button"
+           [routerLink]="'/provider/expense/' + expense.expenseId">
+          <i class="fa fa-edit"></i> Edit
+        </a>
+        <a *ngIf="isImpersonating" [class.disabled]="isImpersonating" href="javascript:void(0)" class="btn btn-primary w-50 buttongroup-radius-left card-button-state text-overflow-ellipsis-button">
+          <i class="fa fa-edit"></i> Edit
+        </a>
+        <button [disabled]="isImpersonating" type="button" class="btn btn-success w-50 buttongroup-radius-right card-button-state text-overflow-ellipsis-button"
+                [ngClass]="{'atlas-card-disable': isImpersonating}" (click)="isImpersonating ? return : submitExpenseById(expense.expenseId)">
+          <i class="fa fa-check"></i> Submit Expense
+        </button>
+      </div>
+    </div>
+  </ng-container>
+
+</div>
+
+<!--Confirm Submit dialog-->
+<kendo-dialog title="Confirm Expense Submittal" *ngIf="showDialog===dialogTypes.Confirm" [minWidth]="250" [width]="450" (close)="closeDialog()">
+  <p style="margin: 30px; text-align: center;">Are you sure you want to submit this expense entry?</p>
+  <kendo-dialog-actions>
+    <button kendoButton (click)="closeDialog();continueSubmitting();" primary="true">OK</button>
+    <button kendoButton (click)="closeDialog()">Cancel</button>
+  </kendo-dialog-actions>
+</kendo-dialog>
+
+<kendo-dialog title="Failed expense submitting" *ngIf="showDialog===dialogTypes.Error" [minWidth]="250" [width]="450" (close)="closeDialog()">
+  <p [innerHtml]="errorText"></p>
+  <kendo-dialog-actions>
+    <button kendoButton (click)="closeDialog()" primary="true">OK</button>
+  </kendo-dialog-actions>
+</kendo-dialog>

@@ -1,0 +1,74 @@
+<p style="color: #5e5e5e; font-size: 22px">Week Of {{bookingWeek}}</p>
+<table class="table-sm w-100 dayofweek-nav" *ngIf="booking !== null">
+  <tbody>
+  <tr id="weekRow">
+    <td class="hover-pointer col border-right text-center day-of-week-col"
+        [ngClass]="{
+          'booked-day': dayOfWeekIsBooked(daysOfWeek.Sunday),
+          'text-danger': bookedDayIsNotEntered(daysOfWeek.Sunday)
+        }" (click)="goToDayOfWeek(daysOfWeek.Sunday)">
+      <strong>S</strong>
+      <div [innerHTML]="getStringHoursOfDay(daysOfWeek.Sunday)"></div>
+    </td>
+
+    <td class="hover-pointer col border-right text-center day-of-week-col"
+        [ngClass]="{
+          'booked-day': dayOfWeekIsBooked(daysOfWeek.Monday),
+          'text-danger': bookedDayIsNotEntered(daysOfWeek.Monday)
+        }" (click)="goToDayOfWeek(daysOfWeek.Monday)">
+      <strong>M</strong>
+      <div [innerHTML]="getStringHoursOfDay(daysOfWeek.Monday)"></div>
+    </td>
+
+    <td class="hover-pointer col border-right text-center day-of-week-col"
+        [ngClass]="{
+          'booked-day': dayOfWeekIsBooked(daysOfWeek.Tuesday),
+          'text-danger': bookedDayIsNotEntered(daysOfWeek.Tuesday)
+        }" (click)="goToDayOfWeek(daysOfWeek.Tuesday)">
+      <strong>T</strong>
+      <div [innerHTML]="getStringHoursOfDay(daysOfWeek.Tuesday)"></div>
+    </td>
+
+    <td class="hover-pointer col border-right text-center day-of-week-col"
+        [ngClass]="{
+          'booked-day': dayOfWeekIsBooked(daysOfWeek.Wednesday),
+          'text-danger': bookedDayIsNotEntered(daysOfWeek.Wednesday)
+        }" (click)="goToDayOfWeek(daysOfWeek.Wednesday)">
+      <strong>W</strong>
+      <div [innerHTML]="getStringHoursOfDay(daysOfWeek.Wednesday)"></div>
+    </td>
+
+    <td class="hover-pointer col border-right text-center day-of-week-col"
+        [ngClass]="{
+          'booked-day': dayOfWeekIsBooked(daysOfWeek.Thursday),
+          'text-danger': bookedDayIsNotEntered(daysOfWeek.Thursday)
+        }" (click)="goToDayOfWeek(daysOfWeek.Thursday)">
+      <strong>TH</strong>
+      <div [innerHTML]="getStringHoursOfDay(daysOfWeek.Thursday)"></div>
+    </td>
+
+    <td class="hover-pointer col border-right text-center day-of-week-col"
+        [ngClass]="{
+          'booked-day': dayOfWeekIsBooked(daysOfWeek.Friday),
+          'text-danger': bookedDayIsNotEntered(daysOfWeek.Friday)
+        }" (click)="goToDayOfWeek(daysOfWeek.Friday)">
+      <strong>F</strong>
+      <div [innerHTML]="getStringHoursOfDay(daysOfWeek.Friday)"></div>
+    </td>
+
+    <td class="hover-pointer col text-center day-of-week-col"
+        [ngClass]="{
+          'booked-day': dayOfWeekIsBooked(daysOfWeek.Saturday),
+          'text-danger': bookedDayIsNotEntered(daysOfWeek.Saturday)
+        }" (click)="goToDayOfWeek(daysOfWeek.Saturday)">
+      <strong>SA</strong>
+      <div [innerHTML]="getStringHoursOfDay(daysOfWeek.Saturday)"></div>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<div class="text-danger pt-3 pb-3">
+  
+    {{validationMessage}}
+  
+</div>

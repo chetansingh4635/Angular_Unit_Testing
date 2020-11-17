@@ -1,0 +1,9 @@
+/*FOCUS OVERRIDES*/
+.atlas-card:focus, a:focus,.atlas-link:focus, button:focus, .btn:focus, .k-pager-wrap .k-link:focus, 
+.k-pager-wrap .k-pager-nav:focus, .k-grid-header .k-grid-filter:focus, 
+.k-grid-header .k-header-column-menu:focus, 
+.k-grid-header .k-hierarchy-cell .k-icon:focus, input:focus, select:focus, textarea:focus, .form-control:focus, .k-combobox:focus, 
+.k-combobox .k-state-focused, .k-dropdown .k-state-focused, .k-datepicker .k-state-focused,
+.k-upload .k-file.k-state-focused, .atlas-card-title-forward:focus {
+    @include atlas-focus;
+}

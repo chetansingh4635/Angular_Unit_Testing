@@ -1,0 +1,108 @@
+<kendo-dialog [@slideInOut] class="atlas-sliding-kendo-dialog atlas-dialog-sm">
+    <kendo-dialog-titlebar class="atlas-no-close-button">
+        <button (click)="action('close')" type="button" class="close float-left" data-dismiss="modal"
+            aria-label="Close">
+            <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        </button>
+        <div class="text-center mx-auto">Filter</div>
+    </kendo-dialog-titlebar>
+    <div class="row" *ngIf="isSortFilter">
+        <div class="atlas-form-group col-12">
+            <label class="atlas-font-weight-semi-bold">Sort By</label>
+            <kendo-dropdownlist class="mb-3 d-block w-100" [data]="listItems" [(ngModel)]="selectedSortValue"
+                [textField]="'text'" [valueField]="'value'" (valueChange)="handleSortChanged($event)" [defaultItem]="{text: 'Select One', value: ''}">
+            </kendo-dropdownlist>
+        </div>
+    </div>
+    <div class="row" *ngIf="showSortFilterButtons">
+        <div class="col-12">
+            <label class="atlas-font-weight-semi-bold">Sort Order</label>
+            <div class="d-flex w-100 justify-content-center">
+                <button [ngClass]="selectedSortDescAsc === 'asc'?'btn btn-primary':'btn btn-light'" class="w-50"
+                    (click)="setSortAscDesc('asc')"><i class="fa fa-arrow-up" aria-hidden="true"></i> A to Z</button>
+                <button [ngClass]="selectedSortDescAsc === 'desc'?' btn btn-primary':'btn btn-light'" class="w-50"
+                    (click)="setSortAscDesc('desc')"><i class="fa fa-arrow-down" aria-hidden="true"></i> Z to A</button>
+            </div>
+        </div>
+    </div>
+    <hr class="my-4" />
+    <div class="atlas-form-group" *ngIf="isStatusFilter">
+        <label class="atlas-font-weight-semi-bold">Status</label>
+        <kendo-multiselect #statusList [data]="statusData" [filterable]="true"
+            [placeholder]="'Select All That Apply'" textField="text" valueField="value" [(ngModel)]="selectedStatus"
+            (valueChange)="handleStatusChanged($event)" [autoClose]="false">
+        </kendo-multiselect>
+    </div>
+    <div class="atlas-form-group" *ngIf="isStateFilter">
+        <label class="atlas-font-weight-semi-bold">State</label>
+        <kendo-multiselect #stateList [data]="stateData" [filterable]="true"
+            [placeholder]="'Select All That Apply'" textField="stateName" valueField="stateId" [(ngModel)]="selectedStates"
+            (valueChange)="handleStatesChanged($event)" [autoClose]="false">
+        </kendo-multiselect>
+    </div>
+    <div class="atlas-form-group" *ngIf="isRegionFilter">
+        <label class="atlas-font-weight-semi-bold">Region</label>
+        <kendo-multiselect #regionList [data]="regionData" [filterable]="true"
+            [placeholder]="'Select All That Apply'" textField="regionName" valueField="regionId"
+            [(ngModel)]="selectedRegion" (valueChange)="handleRegionChanged($event)" [autoClose]="false">
+        </kendo-multiselect>
+    </div>
+    <div class="atlas-form-group" *ngIf="isLocationFilter">
+        <label class="atlas-font-weight-semi-bold">Work Location</label>
+        <kendo-multiselect #locationList [data]="locationData" [filterable]="true"
+            [placeholder]="'Select All That Apply'" textField="workLocationName" valueField="workLocationId"
+            [(ngModel)]="selectedLocation" (valueChange)="handleLocationChanged($event)" [autoClose]="false">
+        </kendo-multiselect>
+    </div>
+    <div class="atlas-form-group" *ngIf="isSpecialityFilter">
+        <label class="atlas-font-weight-semi-bold">Specialty</label>
+        <kendo-multiselect #specialtyList [data]="specialtyData" [filterable]="true"
+            [placeholder]="'Select All That Apply'" textField="specialtyName" valueField="specialtyId"
+            [(ngModel)]="selectedSpecialties" (valueChange)="handleSpecialtiesChanged($event)" [autoClose]="false">
+        </kendo-multiselect>
+    </div>
+
+    <div class="atlas-form-group" *ngIf="isRecruiterFilter">
+        <label class="atlas-font-weight-semi-bold">Recruiting Consultant</label>
+        <kendo-multiselect #recruitingConsultantList [data]="recruitingConsultantData" [filterable]="true"
+            [placeholder]="'Select All That Apply'" textField="fullName" valueField="companyEmployeeId"
+            [(ngModel)]="selectedRecruitingConsultant" (valueChange)="handleRecruitingConsultantChanged($event)" [autoClose]="false">
+        </kendo-multiselect>
+    </div>
+    
+    <div class="row" *ngIf="isDateRangeFilter">
+        <div class="atlas-form-group col-12">
+            <label class="atlas-font-weight-semi-bold">{{dateRangeFilterName}}</label>
+            <kendo-dropdownlist class="mb-3 d-block w-100" [data]="dateRangeItems" [(ngModel)]="selectedDateRange"
+                [textField]="'text'" [valueField]="'value'" (valueChange)="handleDateRangeChanged($event)" [defaultItem]="{text: 'Select One', value: ''}">
+            </kendo-dropdownlist>
+        </div>
+    </div>
+
+    <div class="atlas-form-group" *ngIf="isNextDateFilter">
+        <label class="atlas-font-weight-semi-bold">Start Date</label>
+        <br>
+        <kendo-datepicker #startDate [(ngModel)]="selectedStartDate" (valueChange)="handleStartDateChanged($event)">
+        </kendo-datepicker>
+    </div>
+    <div class="atlas-form-group" *ngIf="isEndDateFilter">
+        <label class="atlas-font-weight-semi-bold">End Date</label>
+        <br>
+        <kendo-datepicker #endDate [(ngModel)]="selectedEndDate" (valueChange)="handleEndDateChanged($event)">
+        </kendo-datepicker>
+    </div>
+
+    <div class="atlas-form-group" *ngIf="isAppliedDate">
+        <label class="atlas-font-weight-semi-bold">Applied Date</label>
+        <br>
+        <kendo-datepicker #endDate [(ngModel)]="selectedAppliedDate"
+            (valueChange)="handleApplicationDateChanged($event)">
+        </kendo-datepicker>
+    </div>
+ 
+    <kendo-dialog-actions class="m-0 h-auto position-relative">
+        <button class="btn btn-primary w-100 mx-3 mt-2" (click)="showResults()">Show Results</button>
+        <button class="btn btn-link w-100" (click)="clearFilters()">Clear Filter</button>
+        <button class="btn btn-link w-100" (click)="action('cancel')">Cancel</button>
+    </kendo-dialog-actions>
+</kendo-dialog>

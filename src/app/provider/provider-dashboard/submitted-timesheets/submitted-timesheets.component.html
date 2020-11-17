@@ -1,0 +1,21 @@
+  <div id="timesheetBody">
+    <div class="row">
+
+      <div class="col-12">
+        <h5 class="submitted-timesheets-header">
+          <strong>{{submittedTimesheets ? submittedTimesheets.length : "No"}} Submitted </strong>Timesheets
+        </h5>
+      </div>
+
+      <ng-container *ngIf="submittedTimesheets && submittedTimesheets.length>0">
+        <div class="col-12 col-sm-6 col-lg-4 mb-3" *ngFor="let timesheet of submittedTimesheets">
+          <jclt-submitted-timesheet-card
+            [timesheet]="timesheet"
+            [expandedTimesheetId]="expandedTimesheetId"
+            (toggleCard)="onToggleCard($event)">
+          </jclt-submitted-timesheet-card>
+        </div>
+      </ng-container>
+
+    </div>
+  </div>

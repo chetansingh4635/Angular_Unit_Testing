@@ -1,0 +1,1055 @@
+/*#region layout */
+
+html, body {
+  font-family: 'Lato', sans-serif !important;
+  height: 100%;
+}
+
+.header-content, .footer-content {
+  left: 0;
+  position: fixed;
+  right: 0;
+  width: 100%;
+  z-index: 101;
+}
+
+.header-content {
+  top: 0;
+  background-color: #F0F0F0;
+}
+
+.logo {
+  float: left;
+  padding: .5rem;
+}
+
+.k-loading-mask {
+  position: fixed;
+}
+
+.body-content {
+  overflow: auto;
+  padding-bottom: 4rem;
+  padding-top: 10.5rem;
+  z-index: 0;
+}
+
+.footer-loggedout {
+  bottom: 2rem;
+  height: 20px;
+  text-align: center;
+  position: absolute;
+  width: 100%;
+}
+
+main {
+  min-height: 100%;
+  padding: 0;
+  margin: 0;
+  /*position: relative;*/
+}
+
+jclt-footer {
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+}
+
+.footer-loggedin {
+  margin-top: -2rem;
+}
+
+#toaster {
+  position: fixed;
+  display: none;
+  right: 0;
+  bottom: 0
+}
+
+/*#endregion */
+/*#region text */
+.text-overflow-ellipsis {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  padding: .5rem;
+}
+
+.text-overflow-ellipsis-expenses {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  padding-top: .5rem;
+  padding-left: .3rem;
+}
+
+.text-overflow-ellipsis-edittime {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  padding-top: .6rem;
+}
+
+.text-overflow-ellipsis-submittedtime {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  font-size: 1.15rem;
+  font-weight: bold;
+}
+
+.text-underline {
+  text-decoration: underline;
+}
+
+/*#endregion */
+
+/*#region borders */
+
+.border-width-1 {
+  border-width: 1px !important;
+}
+
+.border-width-2 {
+  border-width: 2px !important;
+}
+
+.border-width-3 {
+  border-width: 3px !important;
+}
+
+.border-width-4 {
+  border-width: 4px !important;
+}
+
+.border-width-5 {
+  border-width: 5px !important;
+}
+
+/*#endregion */
+
+/*#region sizing */
+
+.day-of-week-col {
+  width: 14.28571428571429% !important;
+  min-width: 2rem;
+}
+
+/*#endregion */
+
+/*#region Calendar */
+
+.booked-day {
+  color: #29c840 !important;
+  font-weight: bolder
+}
+
+/*#endregion */
+
+/*#region container styles */
+
+.content {
+  background-color: #f0f0f0 !important;
+}
+
+/*#endregion */
+
+/*#region messages */
+
+.required-value {
+  color: #737373;
+  font-weight: bolder;
+}
+
+.required-star {
+  color: #D90700;
+  font-weight: bolder;
+}
+
+.k-invalid-msg {
+  color: #ff0000;
+}
+
+/*#endregion */
+/*#region Cursors */
+.hover-pointer {
+  cursor: pointer;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+/*#endregion */
+
+/*#region Expense*/
+
+div#expense-controls a:link, a::after, a:visited, a:hover, a:active {
+  text-decoration: none;
+  color: #8c8c8c;
+}
+
+.icon-expense {
+  font-size: 20px;
+  position: absolute;
+  top: 6px
+}
+
+.pure-button {
+  background: none;
+}
+
+.cancel-expense {
+  right: 30px;
+}
+
+.undo-expense {
+  right: 61px;
+}
+
+.create-expense-content {
+  padding-left: 9px;
+  padding-right: 9px;
+}
+
+.k-upload-button {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: white;
+}
+
+.k-upload-button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+  color: white;
+}
+
+.k-dropzone {
+  background-color: white !important;
+}
+
+.k-upload {
+  border-style: none;
+}
+
+span.k-widget.k-tooltip-validation {
+  display: inline-block;
+  text-align: left;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background: none;
+  box-shadow: none;
+  color: red;
+  font-weight: bold;
+}
+
+.k-widget:not(.k-tooltip), .k-textbox {
+  margin: 0 5px 5px 0;
+}
+
+.k-tooltip-validation .k-warning {
+  display: none;
+}
+
+hr {
+  border-top: 1px solid #666 !important;
+}
+
+.hide-input-clear::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+/*#region login page styles */
+
+.login-link-icon {
+  float: right;
+  text-align: center;
+  text-decoration: underline;
+  padding: 0.5rem;
+}
+
+.login-icon {
+  float: right;
+}
+
+.login-heading {
+  font-size: 1.25rem;
+  color: #5E5E5E;
+}
+
+.login-labels {
+  font-size: 1.15rem;
+  color: #004b8d;
+  font-weight: 700;
+}
+
+.logout-password-font-size {
+  font-size: 20px !important;
+}
+
+.absolute-center {
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.login-forgotpasswordtext {
+  font-size: .875rem;
+  color: #575757;
+}
+
+.login-box {
+  background-color: #FFFFFF;
+  border-radius: 3px;
+  padding: 1rem;
+  margin-top: 5rem;
+  box-shadow: 0 3px 5px 0 rgba(36,50,66,.2);
+}
+
+.login-button {
+  font-size: 1.25rem !important;
+}
+
+#details-files summary::-webkit-details-marker {
+  display: none;
+}
+
+#details-files summary {
+  outline: none;
+}
+
+#details-files summary::after {
+  content: " View Receipt(s) ";
+  margin-left: 10px;
+}
+
+#details-files[open] summary::after {
+  content: " Hide Receipt(s) ";
+  margin-left: 10px;
+}
+
+.file-view-item {
+  line-height: 1.2;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+}
+
+/*#endregion */
+
+/*#region navbar */
+
+/*.dropdown-menu {
+  background-color: #004B8D !important;
+  border: none !important;
+  min-width: 20rem !important;
+}
+
+a.dropdown-item:link {
+  color: #FAFAFA !important;
+}
+
+a.dropdown-item:visited {
+  color: #FAFAFA !important;
+  background-color: #004B8D !important;
+}
+
+a.dropdown-item:hover {
+  color: #004B8D !important;
+  background-color: #FAFAFA !important;
+}
+
+a.dropdown-item:active {
+  color: white !important;
+}*/
+
+/*endregion*/
+
+/*#region card buttons */
+a.card-button-state:link {
+  color: #FFFFFF !important;
+}
+
+a.card-button-state:visited {
+  color: #FFFFFF !important;
+}
+
+a.card-button-state:hover {
+  color: #FFFFFF !important;
+}
+
+a.card-button-state:active {
+  color: #FFFFFF !important;
+}
+
+/*endregion*/
+
+/*#region contractor dashboard */
+.dayoftheweek-header {
+  font-size: 1.35rem;
+  color: #757575;
+  font-weight: 300;
+}
+
+.contractor-header {
+  color: #757575;
+  font-weight: 400;
+}
+
+.contractor-header-light {
+  color: #959595;
+  font-weight: 400;
+}
+
+
+.dayoftheweek-header-edittime {
+  font-size: 1.5rem;
+  color: #757575;
+  font-weight: 300;
+}
+
+.dayoftheweek-divider {
+  border-bottom: 1px solid #666;
+  margin-bottom: 1rem;
+}
+
+.dayoftheweek-col {
+  padding-left: 0px;
+  margin-left: 0px;
+}
+
+h5.current-timesheet-header:before {
+  content: ' ';
+  display: block;
+  border-top: 6px solid #70be54;
+  color: #303030;
+  font-size: 1.25rem;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  width: 10.5rem;
+}
+
+h5.current-timesheet-listview-header:before {
+  content: ' ';
+  display: block;
+  border-top: 6px solid #70be54;
+  color: #303030;
+  font-size: 1.25rem;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  width: 11.25rem;
+}
+
+.current-timesheet-col {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+h5.pastdue-timesheet-header:before {
+  content: ' ';
+  display: block;
+  border-top: 6px solid #D90700;
+  color: #303030;
+  font-size: 1.25rem;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  width: 210px;
+}
+
+h5.pending-timesheet-header:before {
+  content: ' ';
+  display: block;
+  border-top: 6px solid #D90700;
+  color: #303030;
+  font-size: 1.25rem;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  width: 225px;
+}
+
+h5.notsubmitted-expense-header:before {
+  content: ' ';
+  display: block;
+  border-top: 6px solid #d90700;
+  color: #303030;
+  font-size: 1.25rem;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  width: 235px;
+}
+
+h5.submitted-expense-header:before {
+  content: ' ';
+  display: block;
+  border-top: 6px solid #05a1dc;
+  color: #303030;
+  font-size: 1.25rem;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  width: 195px;
+}
+
+h5.create-expense-header:before {
+  content: ' ';
+  display: block;
+  border-top: 6px solid #004b8d;
+  color: #303030;
+  font-size: 1.25rem;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  width: 180px;
+}
+
+h5.submitted-timesheets-header:before {
+  content: ' ';
+  display: block;
+  border-top: 6px solid #05A1DC;
+  color: #303030;
+  font-size: 1.25rem;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  width: 13.5rem;
+}
+
+.viewall-link {
+  padding-left: .2rem;
+  font-size: .90rem;
+  text-decoration: underline;
+}
+
+.pastdue-timesheet-col {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-right: 0px !important;
+  margin-right: 0px !important;
+}
+
+.time-expense-card-box {
+  border: 1px solid #c8c8c8;
+  border-radius: 3px;
+  background-color: #ffffff;
+  box-shadow: 0 3px 5px 0 rgba(36,50,66,.2);
+}
+
+.time-schedule-card-box {
+  border: 1px solid #c8c8c8;
+  border-left: solid 0.5em #05A1DC;
+  padding-left: 0.5em;
+  border-radius: 3px;
+  background-color: #ffffff;
+  box-shadow: 0 3px 5px 0 rgba(36,50,66,.2);
+}
+
+.interest-card-box {
+  border: 1px solid #c8c8c8;
+  border-left: solid 0.5em #F48020;
+  padding-left: 0.5em;
+  border-radius: 3px;
+  background-color: #ffffff;
+  box-shadow: 0 3px 5px 0 rgba(36,50,66,.2);
+}
+
+.card-interest-region {
+  color: #575757;
+}
+
+.interest-card-dates {
+  color: #575757;
+  padding-right: 0.5rem;
+}
+
+.interest-card-status-caption {
+  font-size: 1.15rem;
+  color: #F48020;
+  padding-right: 0.5rem;
+}
+
+.card-interest-date-caption {
+  color: #A3A3A3;
+}
+
+.edit-time-card-box {
+  border: 1px solid #c8c8c8;
+  border-radius: 3px;
+  background-color: #ffffff;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2), inset 0px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.in-out-with-callback {
+  padding: 5px;
+  background-color: #EAEAEA;
+  border-bottom: 1px rgb(102, 102, 102) dashed;
+  border-top: 1px rgb(102, 102, 102) dashed;
+  margin-bottom: 5px;
+}
+
+.timesheet-card-totalhrs {
+  font-size: 1.15rem;
+  color: #575757;
+  padding-right: 0.5rem;
+}
+
+.schedule-card-dates {
+  font-size: 1.15rem;
+  color: #575757;
+  padding-right: 0.5rem;
+}
+
+.edittime-totalhrs {
+  font-size: 1.75rem;
+  color: #004b8d;
+}
+
+.edittime-totalhrs-small {
+  font-size: 1rem !important;
+  color: #575757 !important;
+}
+
+.total-hours-small {
+  font-size: 1rem;
+  color: #757575;
+}
+
+.timesheet-weekoftext {
+  color: #757575;
+  font-weight: 300;
+}
+
+.timesheet-pastduetext {
+  color: #d90700;
+  font-weight: 300;
+  font-size: .90rem;
+}
+
+.timesheet-pastduedatetext {
+  color: #d90700;
+  font-weight: bold;
+  font-size: .95rem;
+}
+
+.timesheet-duetext {
+  color: #757575;
+  font-weight: 300;
+  font-size: .90rem;
+}
+
+.timesheet-duedatetext {
+  color: #757575;
+  font-weight: bold;
+  font-size: .95rem;
+}
+
+.timesheet-doytable {
+  padding: 0rem;
+  margin: 0rem;
+}
+
+.timesheet-nocallbackbox {
+  color: #575757;
+  padding-left: .50rem;
+}
+
+.timesheet-start-end-time-label {
+  color: #004b8d;
+  font-weight: 300;
+  font-size: .85rem;
+}
+
+.timesheet-dayofweek-label {
+  color: #004B8D;
+  font-weight: bold;
+}
+
+.timesheet-ratetype-label {
+  color: #2B2B2B;
+  font-weight: bold;
+}
+
+.non-call-rate-type-name {
+  font-size: 1.125rem;
+  color: #004b8d;
+}
+
+.timesheet-totalhrs-label {
+  color: #000000;
+}
+
+.timesheet-edit-message-label {
+  color: #000000;
+}
+
+.buttongroup-radius-left {
+  border-radius: 0px 0px 0px 3px !important;
+  margin-left: 0px !important;
+}
+
+.buttongroup-radius-right {
+  border-radius: 0px 0px 3px 0px !important;
+  margin-left: 0px !important;
+}
+
+.expense-worklocation-ellipsis {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  padding: .5rem;
+}
+
+.expense-worklocation-heading {
+  margin: 0px !important;
+  padding-bottom: 0px !important;
+}
+
+.expense-card-totalhrs {
+  font-size: 1.07rem;
+  color: #737373;
+  padding-top: .4rem;
+  padding-right: .3rem;
+  min-width: 2rem;
+  float: left !important;
+  white-space: nowrap !important;
+  display: flex !important;
+  flex-wrap: nowrap !important;
+}
+
+.create-expense-labels {
+  color: #575757;
+  font-weight: 700;
+}
+
+.work-location-missing {
+  font-size: .85rem;
+  color: #575757;
+}
+
+.create-expense-button-divider {
+  border-bottom-style: solid;
+  border-bottom-color: #cfcfcf;
+  border-bottom-width: 1px;
+  margin-top: .5rem;
+  margin-bottom: 1.5rem;
+}
+
+.card-city-state {
+  color: #575757;
+  padding-left: .4rem;
+}
+
+.card-schedule-city-state {
+  color: #575757;
+}
+
+.card-schedule-date-caption {
+  color: #A3A3A3;
+}
+
+.card-city-state-edittime {
+  color: #575757;
+  padding-left: .1rem;
+}
+
+.card-divider-light {
+  border-bottom: 1px #BABABA solid;
+  width: 95%;
+  margin: auto;
+}
+
+.dayofweek-nav {
+  border: 1px solid #c8c8c8;
+  border-radius: 3px;
+  background-color: #ffffff;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2), inset 0px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.blue {
+  color: #05a1dc !important;
+}
+
+.bluelink {
+  color: #05a1dc !important;
+}
+
+.bluelink:hover {
+  color: #05a1dc !important;
+  text-decoration: underline;
+}
+
+.totalhoursamount-edittime {
+  font-size: 3rem;
+  color: #575757;
+}
+
+.totalhourstext-edittime {
+  font-size: 1.25rem;
+  color: #737373;
+}
+
+.weeklynav-but {
+  background-color: #FFFFFF;
+}
+
+/*#region client */
+.client-work-location {
+  font-weight: 300;
+}
+
+.client-city-state {
+  color: #737373;
+  font-size: .90rem;
+}
+
+.client-weekof-text {
+  color: #757575;
+  font-size: .90rem;
+}
+
+.timesheet-submittedtext-client {
+  color: #004b8d;
+  font-weight: 300;
+  font-size: .85rem;
+}
+
+.timesheet-approvedtext-client {
+  font-weight: 300;
+  font-size: .85rem;
+}
+
+.timesheet-duedatetext-client {
+  color: #d90700;
+  font-size: .85rem;
+}
+
+.view-receipt {
+  color: #474747;
+}
+
+/*endregion*/
+
+.accordion-section .panel-default > .panel-heading {
+  border: 0;
+  background: #FFFFFF
+}
+
+.accordion-section .panel-default .panel-title span {
+  display: flex;
+  font-size: 1.5rem;
+  -o-justify-content: space-between;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -o-align-items: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.accordion-section .panel-default .panel-title span:after {
+  font-family: 'Font Awesome 5 Pro';
+  font-style: normal;
+  font-size: 3rem;
+  content: "\f106";
+  color: #1f7de2;
+  display: flex;
+  -o-align-items: center;
+  -webkit-align-items: center;
+  align-items: center;
+  margin-left: 1rem;
+  margin-top: -0.8rem;
+  margin-bottom: -0.8rem;
+}
+
+.accordion-section .panel-default .panel-title span.collapsed:after {
+  content: "\f107";
+}
+
+.accordion-section .panel-default .panel-title span:hover {
+  text-decoration: none;
+}
+
+.accordion-section .panel-default .panel-body {
+  font-size: 1.2rem;
+  background: #E1E9ED;
+}
+
+.validation-summary-errors ul {
+  list-style-type: none !important;
+  padding: .0px !important;
+}
+
+a.loginforgotpasswordlink:link {
+  font-weight: bold;
+  color: #888888;
+}
+
+a.loginforgotpasswordlink:visited {
+  font-weight: bold;
+  color: #888888;
+}
+
+a.loginforgotpasswordlink:hover {
+  font-weight: bold;
+  color: #888888;
+  border-bottom: 2px #888888 solid;
+  text-decoration: none;
+}
+
+a.loginforgotpasswordlink:active {
+  font-weight: bold;
+  color: #888888;
+  border-bottom: 2px #888888 solid;
+  text-decoration: none;
+}
+
+.login-form-label-width {
+  width: 50% !important;
+  max-width: none !important;
+  padding: 3rem !important;
+}
+
+.login-form-field-width {
+  width: 50%;
+}
+
+.navspacing {
+  padding-left: 10rem;
+  padding-right: 10rem;
+}
+
+/*#region custom media queries */
+@media screen and (max-width: 937px) {
+  .navspacing {
+    padding-left: 7rem;
+    padding-right: 7rem;
+  }
+
+  .header-content, .footer-content {
+    position: static;
+  }
+
+  .body-content {
+    padding-top: 1.6rem;
+  }
+}
+
+@media screen and (max-width: 818px) {
+  .login-form-label-width {
+    width: 100% !important;
+    padding: 3rem !important;
+  }
+
+  .login-form-field-width {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navspacing {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+
+  .dropdown-menu {
+    font-size: 0.94rem !important;
+    padding: 0.25rem 0 !important;
+    min-width: 14rem !important;
+  }
+
+  .dropdown-menu .dropdown-item {
+    font-size: 1rem !important;
+    padding: 0.1rem 0.75rem !important;
+    min-width: 14rem !important;
+  }
+}
+
+@media screen and (max-width: 619px) {
+  .navspacing {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .navspacing {
+    padding-left: .1rem;
+    padding-right: .1rem;
+  }
+
+  .login-form-label-width {
+    padding: 1rem !important;
+  }
+
+  .dropdown-menu {
+    font-size: 1rem !important;
+    padding: 0.25rem 0 !important;
+    min-width: 7.5rem !important;
+  }
+
+  .dropdown-menu .dropdown-item {
+    font-size: 1rem !important;
+    padding: 0.1rem 0.75rem !important;
+    min-width: 7rem !important;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .timesheet-card-totalhrs {
+    font-size: 1rem;
+    color: #575757;
+    padding-right: 0.25rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .atlas-grid-column-xl.k-header {
+    padding: 2em
+  }
+
+  .k-grid-header .atlas-grid-column-xl .k-grid-filter {
+    position: absolute
+  }
+
+  .atlas-grid-column-xl.filter-header .k-icon {
+    margin-left: 0px !important;
+  }
+
+  .atlas-grid-column-xl.k-header.k-filterable > .k-link {
+    margin-right: 0px !important;
+  }
+}
+
+.atlas-order-list .k-header {
+  display: none;
+}
+
+.border-bottom-1 {
+  border-bottom: 1px solid #ccc;
+}
+
+.k-grid-header a {
+  margin-left: 2px !important;
+}
+
+.atlas-position-relative {
+  position: relative;
+}

@@ -1,0 +1,132 @@
+<div #timeCard class="time-expense-card-box">
+   <div class="row no-gutters mb-2">
+
+      <div class="col-8">
+         <h5 class="text-overflow-ellipsis noselect">{{timesheet.workLocationName}}</h5>
+      </div>
+
+      <div class="col-4 text-right">
+         <ng-container *ngIf="timesheet.totalHours; else noTotalHours">
+            <div class="timesheet-card-totalhrs pt-1">{{timesheet.totalHours | number : '1.0-2'}}<span
+                  class="total-hours-small">hrs</span></div>
+         </ng-container>
+         <ng-template #noTotalHours>
+            <div class="timesheet-card-totalhrs pl-5">--</div>
+         </ng-template>
+      </div>
+
+      <div class="w-100 card-city-state px-2">
+         {{timesheet.city}}, {{timesheet.state}}
+      </div>
+
+      <div class="col-12 px-2">
+         Week of {{timesheet.firstOfWeek | date : 'MMM dd'}} -
+         {{(timesheet.firstOfWeek | date : 'M') === (timesheet.lastOfWeek | date : 'M') ? (timesheet.lastOfWeek | date : 'dd') : (timesheet.lastOfWeek | date : 'MMM dd')}}
+      </div>
+
+      <div *ngIf="isPast && getDateDiff(today, timesheet.dueOn) > 0; else isCurrent">
+         <div class="col-12 mb-3 text-danger px-2">
+            <i class="far fa-calendar-check" class="atlas-timesheet-past"></i><span class="timesheet-pastduetext"> Past Due:
+            </span><span class="timesheet-pastduedatetext">{{getDateDiff(today, timesheet.dueOn)}} day(s)</span>
+         </div>
+      </div>
+      <ng-template #isCurrent>
+         <div class="col-12 mb-3 px-2">
+            <i class="far fa-calendar-check"></i><span class="timesheet-duetext"> Due by: </span><span
+               class="timesheet-duedatetext">{{timesheet.dueOn | date : 'MMMM dd'}}</span>
+         </div>
+      </ng-template>
+
+      <div class="w-100 mx-2 px-2 alert alert-danger border-danger"
+         *ngIf="timesheet.timesheetClientStatusId === 3 && timesheet.timesheetDeclineHistory">
+         <i class="fa fa-exclamation-triangle" class="atlas-timesheet-past" aria-hidden="true"></i>
+         Client Declined.
+         <a class="alert-link underline-on-hover" (click)="editTimesheet()">Click here for more info</a>
+      </div>
+   </div>
+
+   <table #timeTable class="table-sm timesheet-doytable border-top w-100">
+      <tbody>
+         <tr>
+            <td class="col border-right text-center day-of-week-col {{isBookedDate(daysOfWeek.Sunday) }}">
+               <span [innerHtml]="getTimesheetHours(daysOfWeek.Sunday)"></span><br />
+               S
+            </td>
+            <td class="col border-right text-center day-of-week-col {{isBookedDate(daysOfWeek.Monday) }}">
+               <span [innerHtml]="getTimesheetHours(daysOfWeek.Monday)"></span><br />
+               M
+            </td>
+            <td class="col border-right text-center day-of-week-col {{isBookedDate(daysOfWeek.Tuesday)}}">
+               <span [innerHtml]="getTimesheetHours(daysOfWeek.Tuesday)"></span><br />
+               T
+            </td>
+            <td class="col border-right text-center day-of-week-col {{isBookedDate(daysOfWeek.Wednesday)}}">
+               <span [innerHtml]="getTimesheetHours(daysOfWeek.Wednesday)"></span><br />
+               W
+            </td>
+            <td class="col border-right text-center day-of-week-col {{isBookedDate(daysOfWeek.Thursday)}}">
+               <span [innerHtml]="getTimesheetHours(daysOfWeek.Thursday)"></span><br />
+               TH
+            </td>
+            <td class="col border-right text-center day-of-week-col {{isBookedDate(daysOfWeek.Friday)}}">
+               <span [innerHtml]="getTimesheetHours(daysOfWeek.Friday)"></span><br />
+               F
+            </td>
+            <td class="col text-center day-of-week-col {{isBookedDate(daysOfWeek.Saturday)}}">
+               <span [innerHtml]="getTimesheetHours(daysOfWeek.Saturday)"></span><br />
+               SA
+            </td>
+         </tr>
+      </tbody>
+   </table>
+
+   <div class="row">
+      <div class="btn-group col-12" role="group">
+         <button class="btn btn-primary w-50 buttongroup-radius-left card-button-state text-overflow-ellipsis-button"
+            (click)="editTimesheet()">
+            <i class="fa fa-pencil pr-1"></i> Edit Time
+         </button>
+         <button class="btn btn-success w-50 buttongroup-radius-right card-button-state text-overflow-ellipsis-button"
+            (click)="submitTimesheetById()">
+            <i class="fa fa-check pr-1"></i>Submit Time
+         </button>
+      </div>
+   </div>
+
+</div>
+<!--Error & Info dialog-->
+<kendo-dialog title="Submit Timesheet" *ngIf="showDialog===dialogTypes.Error" (close)="closeDialog()">
+   <p class="atlas-timesheet-dialog-label">{{dialogText}}</p>
+   <kendo-dialog-actions>
+      <button kendoButton (click)="closeDialog()" primary="true">Ok</button>
+   </kendo-dialog-actions>
+</kendo-dialog>
+
+<!--Warning dialog-->
+<kendo-dialog title="Confirm Timesheet Submittal" *ngIf="showDialog===dialogTypes.Warning" (close)="closeDialog()">
+   <p class="atlas-timesheet-dialog-label">{{dialogText}}</p>
+   <kendo-dialog-actions>
+      <button kendoButton (click)="confirmTimesheetSubmittal()" primary="true">Continue</button>
+      <button kendoButton (click)="closeDialog()">Cancel</button>
+   </kendo-dialog-actions>
+</kendo-dialog>
+
+<!--Incident and Confirmation dialog-->
+<kendo-dialog class="atlas-yesInc-custom" title="Confirm Timesheet Submittal" *ngIf="showDialog===dialogTypes.Incident" (close)="closeDialog()">
+   <p>Do you need to report an incident?</p>
+   <input class="atlas-incident-labels" id="noInc" name="incident" type="radio" (click)="checkIncident(false)" checked >
+   <label for="noInc" class="atlas-incident-labels-yes">No</label>
+   <input class="atlas-incident-labels" id="yesInc" name="incident" type="radio" (click)="checkIncident(true)" >
+   <label for="yesInc" class="atlas-incident-labels-no">Yes</label><br>
+   <label>
+      <p id="incTxt">Protecting you against the possibility of a medical professional liability claim is very important
+         to us. During the period covered by this timesheet, have you been involved with any adverse outcomes, peer
+         reviews, significant patient complaints, property damage, security occurrence or safety issues including near
+         misses? There is no penalty for reporting incident of this nature.</p>
+      <p>By submitting this you are providing your electronic signature that this timesheet is accurate.</p>
+   </label>
+   <kendo-dialog-actions>
+      <button kendoButton (click)="finishTimesheetSubmittal()" primary="true" class="btn-submit"><i
+            class="fa fa-check-square-o mr-1"></i> Submit Weekly Timesheet</button>
+   </kendo-dialog-actions>
+</kendo-dialog>

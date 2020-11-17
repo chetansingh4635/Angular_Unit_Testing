@@ -1,0 +1,112 @@
+/* PLACE ATLAS VARIABLES IN THIS FILE*/
+
+/* BRAND COLORS */
+$JC-blue: rgb(0, 75, 141); //#004b8d;
+$JC-orange: rgb(237, 109, 24); //#ED6D18;
+$JC-green: rgb(112, 190, 84); //#70be54;
+$JC-cyan: rgb(5, 161, 220); //#05a1dc;
+
+/*BLUES*/
+$JC-cyan-dark: #0481b0;
+$JC-cyan-light: #e2f6fe;
+$JC-blue-light: #dbeeff;
+
+/* NEUTRAL COLORS */
+$atlas-white: rgb(255,255,255); //#ffffff;
+$atlas-off-white: rgb(252,252,252); //#fcfcfc; body background
+$atlas-off-white-two: rgb(248, 249,250); //#f8f9fa; //modal header and footer
+$atlas-white-gray: rgb(244, 244, 244); //#f4f4f4; //card footer and table hover
+$atlas-gray: rgb(210,214,222); //#d2d6de; //card and input border
+$atlas-dark-gray: rgb(127,132,137); //#7F8489
+$atlas-darker-gray: rgb(73, 80, 87); // #495057
+$atlas-black: rgb(0,0,0); //#000000
+
+/*CAUTION COLORS */
+$atlas-caution: rgb(247,185,36); //#F7B924
+$atlas-caution-dark: rgb(218,157,8); //#DA9D08
+$atlas-caution-light: rgb(254,245,225); //#FEF6E3 
+
+/*DANGER/"ERROR"/"ALERT" COLORS */
+$atlas-danger: rgb(212,0,0); //#D40000
+$atlas-danger-dark: rgb(170,0,0); //#AA0000
+$atlas-danger-light: rgb(255,232,232); //#FEF5E1
+
+/*SUCCESS COLORS */
+$atlas-success: $JC-green; 
+$atlas-success-dark: rgb(86, 159, 60); // #569f3c
+$atlas-success-light: rgb(243, 249, 240); //#f3f9f0
+
+/* FONT BASICS */
+$atlas-font-family-sans-serif: -apple-system,system-ui,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif !important;
+
+$font-color: $atlas-black;
+$atlas-font-size-base: 1rem;                                                    // Assumes the browser default, typically `16px`;
+$h1-font-size:                $atlas-font-size-base * 2.5;                      // 40px
+$h2-font-size:                $atlas-font-size-base * 2.2;                      // 35px
+$h3-font-size:                $atlas-font-size-base * 1.9;                      // 30px
+$h4-font-size:                $atlas-font-size-base * 1.5;                      // 24px;
+$h5-font-size:                $atlas-font-size-base * 1.25;                     // 20px
+$h6-font-size:                $atlas-font-size-base;                            // 16px
+$atlas-font-small:            $atlas-font-size-base *.95;                       // 15px;
+$atlas-font-smaller:          $atlas-font-size-base *.9;                        // 14.4px;
+$atlas-font-smallest:         $atlas-font-size-base *.85;                        // 14.4px;
+$atlas-font-weight-light:           300;                                        // Light
+$atlas-font-weight-normal:          400;                                        // Normal
+$atlas-font-weight-bold:            600;                                        // Semi-Bold
+$atlas-font-weight-bolder:          700;                                        // Bold
+
+
+/*BORDER AND HORIZONTAL LINES COLORS*/
+$atlas-line-color: $atlas-gray;
+$atlas-orange-line: 1px solid $JC-orange;
+$atlas-green-line: 1px solid $JC-green;
+$atlas-heading-line: 3px solid $JC-cyan;
+$atlas-danger-border: 1px solid $atlas-danger;
+$atlas-caution-border: 1px solid $atlas-caution;
+$atlas-info-border: 1px solid $atlas-dark-gray;
+
+/*BORDER RADIUS*/
+$atlas-border-radius: 5px; 
+$atlas-rounded-circle: 50%;
+
+/*SPACING */
+$atlas-spacing-base: 1rem;                                                                                     //BASE SPACING: 1 rem = 16px
+/*0 rems and up*/
+$atlas-spacing-base-0: $atlas-spacing-base * 0;                                                                // 0 rem = 0px
+$atlas-spacing-base-quarter: $atlas-spacing-base / 4;                                                          // .25 rem = 4px
+$atlas-spacing-base-half: $atlas-spacing-base / 2;                                                             // .50 rem = 8px
+$atlas-spacing-base-three-quarters: $atlas-spacing-base * .75;                                                 // .75 rem = 12px
+/*1 rem and up*/
+$atlas-spacing-base-one-quarter: $atlas-spacing-base + $atlas-spacing-base-quarter;                            // 1.25 rem = 20px
+$atlas-spacing-base-one-half: $atlas-spacing-base + $atlas-spacing-base-half;                                  // 1.50 rem = 24px
+$atlas-spacing-base-one-three-quarters: $atlas-spacing-base + $atlas-spacing-base-three-quarters;              // 1.75 rem = 28px
+/*2 rems and up*/
+$atlas-spacing-base-two: $atlas-spacing-base * 2;                                                              // 2 rem = 32px
+$atlas-spacing-base-two-quarter: $atlas-spacing-base-two + $atlas-spacing-base-quarter;                        // 2.25 rem = 36px 
+$atlas-spacing-base-two-half: $atlas-spacing-base-two + $atlas-spacing-base-half;                              // 2.50 rem = 40px 
+$atlas-spacing-base-two-three-quarters: $atlas-spacing-base-two + $atlas-spacing-base-three-quarters;          // 2.75 rem = 44px 
+/*3 rems and up*/
+$atlas-spacing-base-three: $atlas-spacing-base * 3;                                                            // 3 rem = 48px
+$atlas-spacing-base-three-quarter: $atlas-spacing-base-three + $atlas-spacing-base-quarter;                    // 3.25 rem = 52px 
+$atlas-spacing-base-three-half: $atlas-spacing-base-three + $atlas-spacing-base-half;                          // 3.50 rem = 56px
+$atlas-spacing-base-three-three-quarters: $atlas-spacing-base-three + $atlas-spacing-base-three-quarters;      // 3.75 rem = 60px
+
+$atlas-spacing-base-four: $atlas-spacing-base * 4;                                                             // 4 rem = 64px
+
+
+
+$header-height: 65px;
+$header-mobile-height: 55px;
+$navigation-width: 215px;
+$navigation-mini-width:80px;
+$navigation-mobile-width:75%;
+
+/*Z-index*/
+$atlas-zindex-dropdown:          1000 !default;
+$atlas-zindex-mobile-navigation-modal-backdrop: 1010 !default;
+$atlas-zindex-sticky:            1020 !default;
+$atlas-zindex-fixed:             1030 !default;
+$atlas-zindex-modal-backdrop:    1040 !default;
+$atlas-zindex-modal:             1050 !default;
+$atlas-zindex-popover:           1060 !default;
+$atlas-zindex-tooltip:           1070 !default;

@@ -1,0 +1,86 @@
+.atlas-notification {
+    display: flex;
+    .atlas-notification-status {
+        //width:50px;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-negative: 0;
+        flex-shrink: 0;
+        padding: $atlas-spacing-base;
+        border-top-left-radius: $atlas-border-radius;
+        border-bottom-left-radius: $atlas-border-radius;
+    }
+    .atlas-notification-body {
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        background-color: $atlas-white;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        padding:  $atlas-spacing-base;
+        border-top-right-radius: $atlas-border-radius;
+        border-bottom-right-radius: $atlas-border-radius;
+    }
+
+    &.atlas-error {
+        .atlas-notification-status {
+            background-color: $atlas-danger;
+            border: $atlas-danger-border;
+            color: $atlas-white;
+        }
+        .atlas-notification-body {
+            color: $atlas-black;
+            background-color: $atlas-white;
+            border: $atlas-danger-border;
+        }
+    }
+    &.atlas-caution {
+        .atlas-notification-status {
+            background-color: $atlas-caution;
+            border: $atlas-caution-border;
+            color: $atlas-black;
+        }
+        .atlas-notification-body {
+            color: $atlas-black;
+            background-color: $atlas-white;
+            border: $atlas-caution-border;
+        }
+    }
+    &.atlas-success {
+        .atlas-notification-status {
+            background-color: $JC-green;
+            border: $atlas-green-line;
+            color: $atlas-white;
+        }
+        .atlas-notification-body {
+            color: $atlas-black;
+            background-color: $atlas-white;
+            border: $atlas-green-line;
+        }
+    }
+    &.atlas-info {
+        .atlas-notification-status {
+            background-color: $atlas-dark-gray;
+            border: $atlas-dark-gray;
+            color: $atlas-white;
+        }
+        .atlas-notification-body {
+            color: $atlas-black;
+            background-color: $atlas-white;
+            border:$atlas-info-border;
+        }
+    }
+
+    .atlas-notification-dimiss {
+        position: absolute;
+        right:13px;
+    }
+}

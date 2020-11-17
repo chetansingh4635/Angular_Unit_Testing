@@ -1,0 +1,48 @@
+<div class="h-100">
+  <div class="card atlas-card atlas-card-raised noScroll h-100">
+          <div class="atlas-card-title-forward atlas-card-title-wrapper" [ngClass] ="{'atlas-card-disable' : isImpersonationMode}" (click)="onViewExpenses()">
+              <h3 class="atlas-card-title-xl">Expenses<i class="fal fa-chevron-right float-right atlas-pr-2"></i></h3>
+          </div>
+          <div class="atlas-lg-height-228" *ngIf="providerHasWorkLocations">
+            <div class="px-4 py-1 card atlas-card atlas-card-base h-100" *ngIf="!isUnsubmittedTimesheed" [ngClass] ="{'atlas-card-disable' : isImpersonationMode}">
+                <!-- START: If you have NO Unsubmitted Timesheets -->
+                <div class="mx-auto my-auto text-center">
+                    <p class="atlas-my-4">You currently do not have any unsubmitted expenses.</p>
+                    <button class="btn atlas-primary mt-lg-4 mr-0" (click)="onCreateExpenses()" [disabled]="isImpersonationMode">Create An Expense</button>
+                </div>
+                <!-- END: If you have NO Unsubmitted Timesheets -->
+            </div>
+            <div class="px-3 py-1 card atlas-card atlas-card-base h-100 atlas-cursor-pointer" *ngIf="isUnsubmittedTimesheed" (click)="onUnSubmittedExpenses()" [ngClass] ="{'atlas-card-disable' : isImpersonationMode}">
+              <!-- START: If you have less than 10 Unsubmitted Timesheets -->
+              <div class="h-100 row align-items-center" *ngIf="isUnsubmittedTimesheetLessThanTen">
+                <div class="col-2 atlas-jc-blue-text text-center atlas-font-weight-semi-bold atlas-expense-widget-fs-75"><p>{{unsubmittedTimesheedCount}}</p></div>
+                <div class="col-6 atlas-jc-blue-text pl-1 atlas-font-weight-semi-bold atlas-expense-widget-fs-20"><p>Unsubmitted Expenses</p></div>
+                <div class="col-4 my-auto text-center pl-0">
+                  <div class="atlas-blue-light-bg rounded-circle py-3 atlas-expense-widget-w-100 atlas-expense-widget-h-100">
+                    <i class="fad fa-file-invoice-dollar atlas-jc-cyan-text fa-4x"></i>
+                  </div>
+  
+                </div>
+              </div>
+              <!-- END: If you have lessthan 10 Unsubmitted Timesheets -->
+              <!-- START: If you have more than 10 Unsubmitted Timesheets-->
+              <div class="h-100 row align-items-center"*ngIf="!isUnsubmittedTimesheetLessThanTen">
+                <div class="col-3 atlas-jc-blue-text text-center atlas-font-weight-semi-bold pr-1 atlas-expense-widget-fs-64 pl-1"><p>{{unsubmittedTimesheedCount}}</p></div>
+                <div class="col-5 atlas-jc-blue-text px-1 atlas-font-weight-semi-bold atlas-expense-widget-fs-20"><p>Unsubmitted Expenses</p></div>
+                <div class="col-4 my-auto text-center pl-0">
+                  <div class="atlas-blue-light-bg rounded-circle py-3 atlas-expense-widget-w-100 atlas-expense-widget-h-100">
+                    <i class="fad fa-file-invoice-dollar atlas-jc-cyan-text fa-4x"></i>
+                  </div>
+  
+                </div>
+              </div>
+               <!-- END: If you have more than 10 Unsubmitted Timesheets -->
+            </div>
+        </div>
+        <div class="px-4 py-1 card atlas-card atlas-card-base atlas-lg-height-228" *ngIf="!providerHasWorkLocations" [ngClass] ="{'atlas-card-disable' : isImpersonationMode}">
+          <div class="mx-auto my-auto text-center">
+            <p class="atlas-my-4">After you have a booking you will be able to create an expense. All expense submittals are subject to approval prior to reimbursement.</p>
+        </div>
+        </div>
+      </div>
+    </div>

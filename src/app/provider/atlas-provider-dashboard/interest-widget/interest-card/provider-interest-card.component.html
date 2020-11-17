@@ -1,0 +1,87 @@
+<!-- Current Applied Job Card -->
+<li *ngIf="!presentDataEnableFlag" class="rounded-0 atlas-pl-4 py-2 pt-3 list-group-item">
+  <div class="row">
+    <div class="col-md-4">
+      <p class="atlas-mb-0 atlas-font-weight-semi-bold text-truncate">
+        {{providerInterest.specialtyName}}</p>
+      <p class="atlas-mb-0">{{providerInterest.regionName}}</p>
+    </div>
+    <div class="col-md-4">
+      <p class="atlas-mb-0 atlas-font-weight-semi-bold text-md-center d-none d-md-block">Start/End Date</p>
+      <p class="atlas-mb-0 text-truncate text-md-center"> {{providerInterest.nextDate | date : dateFormat}} -
+        {{providerInterest.endDate | date : dateFormat}}</p>
+    </div>
+    <div class="col-md-4 w-100 justify-content-between d-flex d-md-block">
+      <p class="atlas-mb-0 atlas-font-weight-semi-bold text-md-right">{{providerInterest.interestTypeName }}</p>
+      <p class="atlas-mb-0 atlas-bottom-right-to-bottom-left  text-md-right">
+        {{providerInterest.createdOn | date : dateFormat}}
+      </p>
+    </div>
+  </div>
+</li>
+
+<!-- New Applied Job Card -->
+<li *ngIf="presentDataEnableFlag" class="rounded-0 atlas-pl-4 list-group-item list-group hover-pointer pr-2"
+  (click)="expandInterest()">
+  <i class="fal position-absolute atlas-right pr-2"
+    [ngClass]="{'fa-chevron-up': providerInterest.show, 'fa-chevron-down': !providerInterest.show, 'atlas-top-20': !isDesktop}"
+    aria-hidden="true"></i>
+  <div class="row no-gutters" [ngClass]="{'pr-3':isDesktop}">
+    <div class="col-md-4" *ngIf="(providerInterest.interestTypeName === 'Applied' || providerInterest.interestTypeName === 'Closed')">
+      <p class="atlas-mb-0 atlas-font-weight-semi-bold text-truncate w-75" [ngClass]="{'atlas-lg-text': !isDesktop}">
+        {{providerInterest.specialtyName}}</p>
+      <p class="atlas-mb-0">{{providerInterest.regionName}}</p>
+      <p *ngIf="!isDesktop" class="atlas-mb-0 text-truncate text-lg-center">
+        {{providerInterest.nextDate | date : dateFormat}} -
+        {{providerInterest.endDate | date : dateFormat}}</p>
+    </div>
+    <div [ngClass]="{'col-md-6': !isDesktop, 'col-md-4': isDesktop}" *ngIf="(providerInterest.interestTypeName !== 'Applied' && providerInterest.interestTypeName != 'Closed')">
+      <p class="atlas-mb-0 atlas-font-weight-semi-bold"
+        [ngClass]="{
+          'atlas-w-95': isDesktop && providerInterest.show,
+          'text-truncate atlas-w-95': isDesktop && !providerInterest.show, 
+          'atlas-lg-text atlas-w-90': !isDesktop
+        }"
+       >{{providerInterest.workLocation}}</p>
+      <p class="atlas-mb-0">{{providerInterest.city}}, {{providerInterest.stateAbbreviation}}</p>
+      <p *ngIf="!isDesktop" class="atlas-mb-0 text-truncate text-lg-center">
+        {{providerInterest.nextDate | date : dateFormat}} -
+        {{providerInterest.endDate | date : dateFormat}}</p>
+      <p class="atlas-mb-0" [ngClass]="{'atlas-darker-gray-text':!isDesktop}">{{providerInterest.specialtyName}}</p>
+    </div>
+    <div class="col-md-4" [hidden]="!isDesktop">
+      <p class="atlas-mb-0 atlas-font-weight-semi-bold text-md-center d-none d-md-block">Start/End Date</p>
+      <p class="atlas-mb-0 text-truncate text-md-center"> {{providerInterest.nextDate | date : dateFormat}} -
+        {{providerInterest.endDate | date : dateFormat}}</p>
+    </div>
+    <div class="w-100 justify-content-between d-flex d-lg-block pr-lg-1" [ngClass]="{'col-md-4': isDesktop}">
+      <p class="atlas-mb-0 atlas-font-weight-semi-bold text-md-right mr-2">Status</p>
+      <p class="atlas-mb-0 text-truncate text-md-right" [ngClass]="{'mr-2':isDesktop}"
+        *ngIf="providerInterest.interestTypeName === 'Applied' || providerInterest.interestTypeName === 'Presented' || providerInterest.interestTypeName === 'Interview' || providerInterest.interestTypeName === 'Declined by Provider' || providerInterest.interestTypeName === 'Closed'">
+        {{providerInterest.interestTypeName }}
+      </p>
+      <p class="atlas-mb-0  text-md-right" [ngClass]="{'mr-2':isDesktop}"
+        *ngIf="providerInterest.interestTypeName !== 'Applied' && providerInterest.interestTypeName !== 'Presented' && providerInterest.interestTypeName !== 'Interview' && providerInterest.interestTypeName !== 'Declined by Provider' && providerInterest.interestTypeName !== 'Closed'">
+        <a (click)="$event.stopPropagation();isCRCMailViewed=true;" [href]="'mailto:' + providerInterest.recruitingConsultantEmail"
+          class="atlas-link" [ngClass]="{'atlas-visited-link' : isCRCMailViewed}">
+          Contact Recruiting Consultant
+        </a>
+      </p>
+    </div>
+  </div>
+  <div class="row no-gutters atlas-pt-4" *ngIf="providerInterest.show">
+    <div class="col-md-6 w-100 justify-content-between d-flex d-md-block">
+      <p class="atlas-mb-0 atlas-font-weight-semi-bold atlas-font-weight-semi-bold text-truncate">Applied Date</p>
+      <p class="atlas-mb-0">{{providerInterest.createdOn | date : dateFormat}}</p>
+    </div>
+    <div class="col-md-6 w-100 justify-content-between d-flex d-md-block">
+      <p class="atlas-mb-0 atlas-font-weight-semi-bold text-md-right mr-2">Recruiting Consultant</p>
+      <p class="atlas-mb-0  text-md-right" [ngClass]="{'mr-2':isDesktop}">
+        <a (click)="$event.stopPropagation();isRCMailViewed=true;" [href]="'mailto:' + providerInterest.recruitingConsultantEmail"
+          class="atlas-link" [ngClass]="{'atlas-visited-link' : isRCMailViewed}">
+          {{providerInterest.recruitingConsultantName}}
+        </a>
+      </p>
+    </div>
+  </div>
+</li>

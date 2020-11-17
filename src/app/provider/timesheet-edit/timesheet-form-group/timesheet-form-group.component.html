@@ -1,0 +1,183 @@
+<div class="edit-time-card-box pr-2">
+  <div class="row no-gutters">
+    <div class="col-1">
+
+      <i class="fa fa-lg mt-3 ml-lg-3 ml-md-2 ml-1 blue hover-pointer"
+         [ngClass]="{'fa-minus-square': showEditForm, 'fa-plus-square': !showEditForm}"
+         (click)="toggleTimesheet()"></i>
+
+    </div>
+    <div class="col-11">
+
+      <div class="w-100">
+        <div #workLocRef class="row no-gutters">
+          <h5 class="col-8 text-overflow-ellipsis-edittime px-0">
+            <span *ngIf="!workLocationDropdownData.length || workLocationDropdownData.length < 2">
+              {{booking.workLocationName}}
+            </span>
+
+            <kendo-dropdownlist class="w-100" *ngIf="workLocationDropdownData.length && workLocationDropdownData.length > 1"
+                                [data]="workLocationDropdownData"
+                                [textField]="'workLocationName'"
+                                [valueField]="'bookingId'"
+                                [value]="bookingId"
+                                [valuePrimitive]="true"
+                                (selectionChange)="onChangeWorkLocation($event)"
+                                [popupSettings]="{  width: workLocRef.clientWidth}">
+
+              <ng-template kendoDropDownListValueTemplate let-dataItem>
+                <h5 class="text-overflow-ellipsis-edittime px-0">
+                  {{ dataItem?.workLocationName }}
+                </h5>
+              </ng-template>
+
+              <ng-template kendoDropDownListItemTemplate let-dataItem>
+                <div class="w-100 border-bottom">
+                  <h5 class="mb-0">{{dataItem.workLocationName}}</h5>
+                  <span class="ml-3 mt-0"><i>{{dataItem.cityState}}</i></span><br>
+                  <span class="ml-3 mt-0">Days: {{dataItem.days}}</span><br>
+                </div>
+              </ng-template>
+
+            </kendo-dropdownlist>
+
+          </h5>
+          <h5 class="col-4 text-right mt-2 pr-2" [innerHtml]="dayTotalHoursHtml"></h5>
+        </div>
+      </div>
+
+      <div class="w-100 card-city-state-edittime mb-1">{{booking.city}}, {{booking.state}}</div>
+
+      <div class="w-100 mt-1"
+           *ngIf="timeshetIsSubmitted">
+        <div class=" alert alert-danger p-3">
+          <strong>Timesheet has already been submitted</strong>
+        </div>
+      </div>
+      <p class="mb-1">
+        Recruiter: {{booking.recFirstName}} {{booking.recLastName}}
+      </p>
+
+      <div [ngClass]="{'text-danger' : pastDue}">
+        <i class="far fa-calendar-alt"></i>
+        Due: 
+        <strong>
+          {{booking.dueOn  | date:"fullDate"}}
+        </strong>
+      </div>
+
+      <hr />
+      <div id="editInfo" class="w-100" *ngIf="showEditForm">
+        <div class="w-100">
+
+          <jclt-copy-from-another-day [timesheetDetailDays]="booking.timesheetDetailDays"
+                                      [selectedDay]="dayOfWeekOfSelectedDay"
+                                      (onCopyDay)="onCopyDay($event)">
+          </jclt-copy-from-another-day>
+
+          <div *ngFor="let timesheetDetail of nonCallTimesheetDetailForEditArray">
+            <div class="row no-gutters">
+              <div class="col-11">
+                <div class="text-overflow-ellipsis non-call-rate-type-name">
+                  <b>{{timesheetDetail.customRateTypeName}}</b>
+                </div>
+              </div>
+              <div class="col-1 pr-2">
+                <div class="text-danger">
+                  <div class="text-right">
+                    <i class="fa fa-trash fa-lg hover-pointer"
+                       (click)="removeTimesheetDetail(timesheetDetail.timesheetDetailId)"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <jclt-timesheet-detail-edit-form [timesheetDetail]="timesheetDetail"
+                                             (onErrorsStatusUpdate)="onErrorsStatusUpdate($event)">
+            </jclt-timesheet-detail-edit-form>
+          </div>
+
+
+          <div class="dayoftheweek-divider" *ngFor="let rateTypeName of distinctCallRateTypeNameArray">
+            <div class="row no-gutters">
+              <div class="col-11">
+                <div class="text-overflow-ellipsis non-call-rate-type-name">
+                  <b>{{rateTypeName}}</b>
+                </div>
+              </div>
+              <div class="col-1 pr-2">
+                <div class="text-right text-danger">
+                  <i class="hover-pointer fa fa-trash fa-lg"
+                     (click)="removeTimesheetDetailGroup(rateTypeName)">
+                  </i>
+                </div>
+              </div>
+            </div>
+
+            <div
+              *ngFor="let timesheetDetailEntry of getTimesheetDetailForEditArrayEntriesByRateType(rateTypeName); let i = index"
+              [ngClass]="{'in-out-with-callback': !timesheetDetailEntry.isNoCallBack}">
+
+              <div class="row" *ngIf="!timesheetDetailEntry.isNoCallBack">
+                <div class="col" style="color: rgb(5, 161, 220);">
+                  <strong>#{{i+1}} - Call Back In/Out Time</strong>
+                </div>
+                <div class="col">
+                  <div class="m-2 text-right text-primary">
+                    <i class="hover-pointer fa fa-times fa-lg"
+                       (click)="removeTimesheetDetail(timesheetDetailEntry.timesheetDetailId)">
+                    </i>
+                  </div>
+                </div>
+              </div>
+              <jclt-timesheet-detail-edit-form [timesheetDetail]="timesheetDetailEntry"
+                                               (onErrorsStatusUpdate)="onErrorsStatusUpdate($event)">
+              </jclt-timesheet-detail-edit-form>
+            </div>
+
+            <div class="row">
+              <div class="col text-left pt-2">
+                <button class="btn btn-outline-primary mb-3 mt-2"
+                        (click)="onRateDropDownValueChange(rateTypeName, false)"
+                        [disabled]="!canAddTimesheetDetailControl && !isReplaceAction(rateTypeName)">
+                  <i class="far fa-clock"></i>&nbsp;
+                  <span style="text-decoration: underline">Add call back in/out</span>
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="row">
+            <div class="col text-center">
+              <kendo-dropdownlist [data]="timeDropDownData"
+                                  [defaultItem]="defaultItemDropDownText"
+                                  [(ngModel)]="rateDropDownValue"
+                                  [disabled]="!canAddTimesheetDetailControl"
+                                  (valueChange)="onRateDropDownValueChange($event, true)">
+              </kendo-dropdownlist>
+            </div>
+          </div>
+
+          <div class="container">
+            <div class="row justify-content-center mt-3 mb-3">
+              <button class="btn btn-primary btn-lg" [disabled]="!formIsValid.value || timeshetIsSubmitted"
+                      (click)="saveTimesheet()">
+                <i class="far fa-save"></i>
+                Save Time
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-11 offset-1 w-100 mt-3">
+    <div class="text-center">
+      <button (click)="submitTimesheet()" class="btn btn-responsive btn-lg btn-success" [disabled]="timeshetIsSubmitted">
+        <i class="fa fa-check pr-1"></i> Submit Weekly Timesheet
+      </button>
+    </div>
+  </div>
+</div>

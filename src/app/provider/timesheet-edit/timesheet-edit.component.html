@@ -1,0 +1,135 @@
+<div class="row justify-content-between">
+  <div class="col-auto order-1 text-center pr-0 mr-0">
+    <div class="btn-group" role="group" aria-label="Weekly Navigation">
+      <button class="btn weeklynav-but" id="previousWeek" (click)="previousWeekClick()">
+        <i class="fa fa-caret-left"></i>
+      </button>
+      <button class="btn">
+        {{dateRangeDescriptionString}}
+      </button>
+      <button (click)="nextWeekClick()" [disabled]="!allowNextWeek"
+              [ngClass]="{
+      'disabled': !allowNextWeek,
+      'btn': true,
+      'weeklynav-but': true
+    }">
+        <i class="fa fa-caret-right"></i>
+      </button>
+    </div>
+  </div>
+  <div class="col-md col-12 order-3 order-md-2 mt-2 mt-md-0 mx-md-3 text-center">
+    <span *ngIf="!isMobile" class="timesheet-edit-message-label">
+      Please note that all time entered will be automatically rounded up or down to the nearest quarter hour.
+    </span>
+  </div>
+  <div class="col-auto order-2 order-md-3 pl-0 text-right">
+    <jclt-timesheet-week-total [booking]="booking" *ngIf="booking">
+    </jclt-timesheet-week-total>
+  </div>
+</div>
+
+
+<div class="row fit-content">
+  <div class="mt-3 col-12 mr-auto">
+    <table class="table-sm w-100 dayofweek-nav" *ngIf="booking !== null">
+      <tbody>
+        <tr id="weekRow">
+          <td class="hover-pointer col border-right text-center day-of-week-col"
+              [ngClass]="{
+          'booked-day': dayOfWeekIsBooked(daysOfWeek.Sunday),
+          'bg-dark': isSelectedDay(daysOfWeek.Sunday)
+        }" (click)="goToDayOfWeek(daysOfWeek.Sunday)">
+            <strong>S</strong>
+            <div [innerHTML]="getStringHoursOfDay(daysOfWeek.Sunday)"></div>
+          </td>
+
+          <td class="hover-pointer col border-right text-center day-of-week-col"
+              [ngClass]="{
+          'booked-day': dayOfWeekIsBooked(daysOfWeek.Monday),
+          'bg-dark': isSelectedDay(daysOfWeek.Monday)
+        }" (click)="goToDayOfWeek(daysOfWeek.Monday)">
+            <strong>M</strong>
+            <div [innerHTML]="getStringHoursOfDay(daysOfWeek.Monday)"></div>
+          </td>
+
+          <td class="hover-pointer col border-right text-center day-of-week-col"
+              [ngClass]="{
+          'booked-day': dayOfWeekIsBooked(daysOfWeek.Tuesday),
+          'bg-dark': isSelectedDay(daysOfWeek.Tuesday)
+        }" (click)="goToDayOfWeek(daysOfWeek.Tuesday)">
+            <strong>T</strong>
+            <div [innerHTML]="getStringHoursOfDay(daysOfWeek.Tuesday)"></div>
+          </td>
+
+          <td class="hover-pointer col border-right text-center day-of-week-col"
+              [ngClass]="{
+          'booked-day': dayOfWeekIsBooked(daysOfWeek.Wednesday),
+          'bg-dark': isSelectedDay(daysOfWeek.Wednesday)
+        }" (click)="goToDayOfWeek(daysOfWeek.Wednesday)">
+            <strong>W</strong>
+            <div [innerHTML]="getStringHoursOfDay(daysOfWeek.Wednesday)"></div>
+          </td>
+
+          <td class="hover-pointer col border-right text-center day-of-week-col"
+              [ngClass]="{
+          'booked-day': dayOfWeekIsBooked(daysOfWeek.Thursday),
+          'bg-dark': isSelectedDay(daysOfWeek.Thursday)
+        }" (click)="goToDayOfWeek(daysOfWeek.Thursday)">
+            <strong>TH</strong>
+            <div [innerHTML]="getStringHoursOfDay(daysOfWeek.Thursday)"></div>
+          </td>
+
+          <td class="hover-pointer col border-right text-center day-of-week-col"
+              [ngClass]="{
+          'booked-day': dayOfWeekIsBooked(daysOfWeek.Friday),
+          'bg-dark': isSelectedDay(daysOfWeek.Friday)
+        }" (click)="goToDayOfWeek(daysOfWeek.Friday)">
+            <strong>F</strong>
+            <div [innerHTML]="getStringHoursOfDay(daysOfWeek.Friday)"></div>
+          </td>
+
+          <td class="hover-pointer col text-center day-of-week-col"
+              [ngClass]="{
+          'booked-day': dayOfWeekIsBooked(daysOfWeek.Saturday),
+          'bg-dark': isSelectedDay(daysOfWeek.Saturday)
+        }" (click)="goToDayOfWeek(daysOfWeek.Saturday)">
+            <strong>SA</strong>
+            <div [innerHTML]="getStringHoursOfDay(daysOfWeek.Saturday)"></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="w-100 alert alert-danger" *ngIf="booking === null">
+      You're not currently scheduled to work this week.
+    </div>
+    <h5 class="dayoftheweek-header-edittime mb-3 mt-3">
+      {{selectedDateString}}
+    </h5>
+    <div class="w-100 alert alert-danger mt-2" *ngIf="!hasBookedDay && booking">
+      You don't have any scheduled time for the selected day.
+      If you would still like to add time you may do so below.
+    </div>
+
+    <div class="alert alert-danger border-danger" *ngIf="timesheetEditItem.providerTimesheet.timesheetClientStatusId === 3 && timesheetEditItem.providerTimesheet.timesheetDeclineHistory">
+      <div class="row">
+        <i class="d-flex align-items-center fa fa-exclamation-triangle pb-1 ml-1" style="font-size: 2.5rem;color: #d90700;" aria-hidden="true"></i>
+        <div class="col" style="min-width: 50%">
+          <strong>Decline Reason: </strong>{{timesheetEditItem.providerTimesheet.timesheetDeclineHistory.declineReason}}<br />
+          <strong>Comments: </strong>{{timesheetEditItem.providerTimesheet.timesheetDeclineHistory.reviewComment}}<br />
+          <strong>Declined By: </strong><span style="word-break: break-all">{{timesheetEditItem.providerTimesheet.timesheetDeclineHistory.declinedBy}}</span><br/>
+          <span class="text-success" style="color: green!important;"><strong>Action Required: </strong>Please make the necessary corrections and re-submit the timesheet for approval</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<jclt-timesheet-form-group
+  [timesheetEditItem]="timesheetEditItem" [selectedDay]="selectedDay" (onCopyDay$)="onCopyDay($event)"
+  (onSaveTimesheet)="onSaveTimesheet($event)" (onSubmitTimesheet)="onSubmitTimesheet($event)"
+  (onWorkLocationChange$)="onWorkLocationChange($event)"
+  [initialStateOfTimesheetEditItem]="initialStateOfTimesheetEditItem"
+  [timesheetDetailForDelete]="timesheetDetailForDelete" [bookingId]="bookingId"
+  [formIsValid]="formIsValid" *ngIf="booking">
+</jclt-timesheet-form-group>

@@ -1,0 +1,85 @@
+<div> 
+  <div class="row">
+    <div class="col-12">
+      <h5 class="dayoftheweek-header">{{today | date : 'EEEE, MMMM d'}}</h5>
+      <div class="dayoftheweek-divider"></div>
+    </div>
+  </div>
+
+  <ng-container *ngIf="status==='Declined' || status==='All'">
+    <div class="row mt-3" >
+      <div class="col-12">
+
+        <h5 class="pastdue-timesheet-header">
+          <strong>{{declinedTimesheets? declinedTimesheets.totalCount : 0 }} Declined</strong> {{(declinedTimesheets && declinedTimesheets.totalCount === 1) ? "Timesheet" : "Timesheets" }}
+        </h5>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="declinedTimesheets && declinedTimesheets.data.length>0">
+      <div #cardContainer class="col-12 col-sm-6 col-lg-4 mb-3" *ngFor="let timesheet of declinedTimesheets.data">
+        <jclt-provider-timesheet-card
+          [timesheet]="timesheet"
+          [isDeclined]="true"
+          [today]="today"
+          [parent]="cardContainer">
+        </jclt-provider-timesheet-card>
+      </div>
+    </div>
+
+    <jclt-paginator [queryPagingResult]="declinedTimesheets"
+                    [fetchDataCallBack]="fetchDeclinedCallBack"
+                    (onDataChange)="declinedDataChanged($event)">
+    </jclt-paginator>
+
+  </ng-container>
+
+  <ng-container *ngIf="status==='Past' || status==='All'">
+    <div class="row mt-3" >
+      <div class="col-12">
+
+        <h5 class="pastdue-timesheet-header">
+          <strong>{{pastTimesheets ? pastTimesheets.totalCount : 0 }} Past Due</strong> {{(pastTimesheets && pastTimesheets.totalCount === 1) ? "Timesheet" : "Timesheets" }}
+        </h5>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="pastTimesheets && pastTimesheets.data.length>0">
+      <div #cardContainer class="col-12 col-sm-6 col-lg-4 mb-3" *ngFor="let timesheet of pastTimesheets.data">
+        <jclt-provider-timesheet-card
+          [timesheet]="timesheet"
+          [isPast]="true"
+          [today]="today"
+          [parent]="cardContainer">
+        </jclt-provider-timesheet-card>
+      </div>
+    </div>
+
+    <jclt-paginator [queryPagingResult]="pastTimesheets"
+                    [fetchDataCallBack]="fetchPastCallBack"
+                    (onDataChange)="pastDataChanged($event)">
+    </jclt-paginator>
+
+  </ng-container>
+
+  <ng-container *ngIf="status==='Current' || status==='All'">
+    <div class="row mt-3" >
+      <div class="col-12">
+        <h5 class="current-timesheet-listview-header">
+          <strong>{{currentTimesheets ? currentTimesheets.length : 0 }} Current</strong> {{(currentTimesheets && currentTimesheets.length === 1) ? "Timesheet" : "Timesheets" }}
+        </h5>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="currentTimesheets && currentTimesheets.length>0">
+      <div #cardContainer2 class="col-12 col-sm-6 col-lg-4 mb-3" *ngFor="let timesheet of currentTimesheets">
+        <jclt-provider-timesheet-card
+          [timesheet]="timesheet"
+          [isCurrent]="true"
+          [today]="today"
+          [parent]="cardContainer2">
+        </jclt-provider-timesheet-card>
+      </div>
+    </div>
+  </ng-container>
+</div>

@@ -1,0 +1,5 @@
+<div class="text-center"
+     [ngClass]="(isUserLoggedIn)?'footer-loggedin':'footer-loggedout'"
+     (dragstart)="preventDrag($event)">
+  Copyright &copy; {{year}} Jackson &amp; Coker | <a href="https://www.jacksoncoker.com/privacy.aspx" target="_blank">Privacy</a>
+</div>

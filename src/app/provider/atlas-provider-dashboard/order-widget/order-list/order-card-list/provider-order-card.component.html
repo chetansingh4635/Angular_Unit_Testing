@@ -1,0 +1,25 @@
+<div (click)="viewJobApply()" class="atlas-height-33 h-auto rounded-0 atlas-pl-4 atlas-pr-0 atlas-py-2 list-group-item list-group-item-action hover-pointer">
+                      <i class="fal fa-chevron-right float-right atlas-pr-2 text-black" aria-hidden="true"></i>
+                      <p class="atlas-mb-0 atlas-lg-text atlas-font-weight-semi-bold text-truncate">{{jobOpportunity.specialtyName}}</p>
+                      <p class="atlas-mb-0 atlas-medium-text card-schedule-city-state p-0">{{jobOpportunity.regionName}}</p>
+                      <p class="atlas-mb-0 atlas-medium-text">{{jobOpportunity.nextDate | date : dateFormat}} - {{jobOpportunity.endDate | date : dateFormat}}</p>
+                      <p (click)="$event.stopPropagation();" class="atlas-mb-0 text-truncate atlas-medium-text"><span>Recruiting Consultant:</span>
+                        <span><a [ngClass]="{'atlas-visited-link' : jobOpportunity.isRCMailViewed}" href="mailto:{{jobOpportunity.recruiterEmail}}" class="atlas-link" (click)="jobOpportunity.isRCMailViewed = true;"> {{jobOpportunity.recruiterName}}</a></span></p>
+   
+</div>
+<div *ngIf="isDesktop">
+  <jclt-provider-order-list-dialog-web-ad-desktop *ngIf="webAdDialogOpen"
+                                                 [dialogOpened]="webAdDialogOpen"
+                                                 [selectedJobOpportunity]="jobOpportunity"
+                                                 [selectedWebAd]="selectedWebAd"
+                                                 (reloadEvent)="reload($event)">
+  </jclt-provider-order-list-dialog-web-ad-desktop>
+</div>
+<div *ngIf="!isDesktop">
+  <jclt-provider-order-list-dialog-web-ad-mobile *ngIf="webAdDialogOpen"
+                                                 [dialogOpened]="webAdDialogOpen"
+                                                 [selectedJobOpportunity]="jobOpportunity"
+                                                 [selectedWebAd]="selectedWebAd"
+                                                 (reloadEvent)="reload($event)">
+  </jclt-provider-order-list-dialog-web-ad-mobile>
+</div>

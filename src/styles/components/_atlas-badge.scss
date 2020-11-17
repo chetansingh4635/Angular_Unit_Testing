@@ -1,0 +1,72 @@
+.atlas-badge {
+    //border-radius: 15px;
+    //font-size: $atlas-font-smaller;
+    font-weight: $atlas-font-weight-bold;
+    &.atlas-danger {
+        background-color: $atlas-danger;
+        color: $atlas-white;
+    }
+    &.atlas-success {
+        background-color: $JC-green;
+        color: $atlas-white;
+    }
+    &.atlas-caution {
+        background-color: $atlas-caution;
+        color: $atlas-black;
+    }
+    &.atlas-primary {
+        background-color: $JC-blue;
+        color: $atlas-white;
+    }
+    &.atlas-secondary {
+        background-color: $JC-blue;
+        color: $atlas-white;
+    }
+    &.atlas-info {
+        background-color: $atlas-dark-gray;
+        color: $atlas-white;
+    }
+    &.atlas-light {
+        background-color: $atlas-off-white;
+        color: $atlas-black;
+    }
+}
+
+.atlas-badge-number {
+    border-radius: $atlas-rounded-circle;
+    &.atlas-badge-number-xl {
+        padding: $atlas-spacing-base-quarter;
+    }
+    &.atlas-danger {
+        background-color: $atlas-danger;
+        color: $atlas-white;
+    }
+    &.atlas-success {
+        background-color: $JC-green;
+        color: $atlas-white;
+    }
+    &.atlas-caution {
+        background-color: $atlas-caution;
+        color: $atlas-black;
+    }
+    &.atlas-primary {
+        background-color: $JC-blue;
+        color: $atlas-white;
+    }
+    &.atlas-secondary {
+        background-color: $JC-blue;
+        color: $atlas-white;
+    }
+    &.atlas-info {
+        background-color: $atlas-dark-gray;
+        color: $atlas-white;
+    }
+    &.atlas-light {
+        background-color: $atlas-gray;
+        color: $atlas-black;
+    }
+}
+.atlas-counter-position {
+    position: absolute;
+    bottom: 10px;
+}

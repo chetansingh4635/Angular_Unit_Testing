@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-12">
+    <h5 class="submitted-expense-header">
+      <strong>{{(expenses && expenses.totalCount) ? expenses.totalCount : 0}} Submitted</strong> {{(expenses && expenses.totalCount === 1) ? "Expense" : "Expenses"}}
+    </h5>
+  </div>
+
+  <div class="col-12 col-sm-6 col-lg-4 mb-3" *ngFor="let expense of expenses.data">
+    <jclt-provider-expense-card [expense]="expense"></jclt-provider-expense-card>
+  </div>
+</div>
+
+<jclt-paginator [queryPagingResult]="expenses"
+                [fetchDataCallBack]="fetchDataCallBack"
+                (onDataChange)="dataChanged($event)">
+</jclt-paginator>

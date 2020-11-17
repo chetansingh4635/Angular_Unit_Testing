@@ -1,0 +1,138 @@
+
+/*BACKGROUND COLORS*/
+/*BRAND*/
+.atlas-jc-blue-bg {
+    background-color: $JC-blue;
+}
+.atlas-jc-orange-bg {
+    background-color: $JC-orange;
+}
+.atlas-jc-green-bg, .atlas-success-bg {
+    background-color: $JC-green;                    
+}
+.atlas-jc-cyan-bg {
+    background-color: $JC-cyan;              
+}
+/*BLUES*/
+.atlas-blue-light-bg {
+    background-color: $JC-blue-light;
+}
+.atlas-jc-cyan-light-bg {
+    background-color: $JC-cyan-light;
+}
+.atlas-jc-cyan-dark-bg {
+    background-color: $JC-cyan-dark;
+}
+
+
+
+
+/*SUCCESS, CAUTION, ERROR*/
+.atlas-success-dark-bg {
+    background-color: $atlas-success-dark;                 
+}
+.atlas-success-light-bg {
+    background-color: $atlas-success-light;            
+}
+.atlas-caution-bg {
+    background-color: $atlas-caution;
+}
+.atlas-caution-dark-bg {
+    background-color: $atlas-caution-dark;
+}
+.atlas-caution-light-bg {
+    background-color: $atlas-caution-light;
+}
+.atlas-danger-bg {
+    background-color: $atlas-danger;
+}
+.atlas-danger-dark-bg {
+    background-color: $atlas-danger-dark;
+}
+.atlas-danger-light-bg {
+    background-color: $atlas-danger-light;
+}
+/*NEUTRAL*/
+.atlas-white-bg {
+    background-color: $atlas-white;
+}
+.atlas-off-white-bg {
+    background-color: $atlas-off-white;
+}
+.atlas-off-white-two-bg {
+    background-color: $atlas-off-white-two;
+}
+.atlas-white-gray-bg {
+    background-color: $atlas-white-gray;
+}
+.atlas-gray-bg {
+    background-color: $atlas-gray
+}
+.atlas-dark-gray-bg {
+    background-color: $atlas-dark-gray;
+}
+.atlas-darker-gray-bg {
+    background-color: $atlas-darker-gray;
+}
+.atlas-black-bg {
+    background-color: $atlas-black;
+}
+
+/*TEXT COLORS*/
+/*BRAND*/
+.atlas-jc-blue-text {
+    color: $JC-blue;
+}
+.atlas-jc-orange-text {
+    color: $JC-orange;
+}
+.atlas-jc-green-text, .atlas-success-text {
+    color: $JC-green;                    
+}
+.atlas-jc-cyan-text {
+    color: $JC-cyan;
+}
+/*BLUES*/
+.atlas-jc-cyan-light-text {
+    color: $JC-cyan-light;
+} 
+.atlas-jc-blue-light-text {
+    color: $JC-blue-light;
+}
+.atlas-jc-cyan-dark-text {
+    color: $JC-cyan-dark;
+}
+/*SUCCESS, CAUTION, ERROR*/
+.atlas-caution-text {
+    color: $atlas-caution;
+}
+.atlas-danger-text {
+    color: $atlas-danger;
+}
+/*NEUTRALS*/
+.atlas-black-text{
+    color:$atlas-black;
+}
+.atlas-white-text{
+    color:$atlas-white;
+}
+/*SELECTION COLORS*/
+::selection, .k-text-selection ::selection, .k-block ::selection, .k-panel ::selection, .k-widget ::selection {
+    @include atlas-selection;
+}
+.atlas-off-white-text {
+    color: $atlas-off-white;
+}
+.atlas-off-white-two-text {
+    color: $atlas-off-white-two;
+}
+.atlas-gray-text {
+    color: $atlas-gray;
+}
+.atlas-dark-gray-text {
+    color: $atlas-dark-gray;
+}
+.atlas-darker-gray-text {
+    color: $atlas-darker-gray;
+}
+    
